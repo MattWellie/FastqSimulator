@@ -126,12 +126,17 @@ class Sampler:
             length = len(exon_seq)
             print 'Exon %d length: %d' % (exon, length)
             offset = 0
-            while offset < length - 205:  # Arbitrary stopping point
+            while offset < length - 205:  #  Stopping point to prevent index errors
                 sub_list = sequence[offset:offset + self.interval]
+                #  Reverse every other 'fragment'
                 if self.interval % self.reverse == 0:
                     sub_list = self.reverse_complement(sub_list)
+
+                #  Send for extraction to list
                 self.extract_to_list(sub_list)
+                #  Increase the count of read pairs for this exon
                 count += 1
+                #  Update the offset value
                 offset += self.alternate
             print 'Read pairs for exon %d = %d' % (exon, count)
 
@@ -139,10 +144,12 @@ class Sampler:
         """
         :param sequence: The 'fragment'
         For each 'fragment' this should take reads from either end and send to an output list
+        Use a perfect Q40 quality String (reads do not need to simulate true qualities for this project)
         """
+
         read1 = ''.join(sequence[:self.read_length])
         read2 = ''.join(self.reverse_complement(sequence[self.interval-self.read_length:]))
-        #read2 = ''.join(sequence[self.interval-self.read_length:])
+        #  read2 = ''.join(sequence[self.interval-self.read_length:])
         #  print 'read1: %s' % read1
         #  print 'read2: %s' % read2
         read_id = self.generate_seq_id()
@@ -156,6 +163,7 @@ class Sampler:
         self.R2_list.append(self.qual_string)
 
     def write_out(self, r1_filename, r2_filename):
+        #  Open files and write contents of the Read files out
         with open(r1_filename, 'w') as outfile:
             for line in self.R1_list:
                 print >> outfile, line
@@ -167,8 +175,10 @@ class Sampler:
     def generate_seq_id():
         """
         :return: Creates a valid format Illumina FastQ header
-        At least I hope the format is valid
+        At least I hope the format is valid...
+        Random number pairs are used for coordinates
         """
+
         instrument = 'MATTW_ART1'
         run_number = 00001
         flow_id = 'FLOW%d' % 01
@@ -186,6 +196,7 @@ class Sampler:
         :param sequence: DNA substring
         :return: reverse complement of the substring
         """
+
         complement = {'A': 'T', 'C': 'G', 'G': 'C', 'T': 'A'}
         new_bases = []
         for base in sequence:
