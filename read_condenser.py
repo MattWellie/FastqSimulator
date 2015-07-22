@@ -29,6 +29,15 @@ class Condenser:
         self.erase_old_files()
 
     def populate_dict(self, gene, name_length):
+        """
+        The dictionary will contain the names of all files relating to the selected gene. This method uses the gene
+        name and the transcript numbers to identify the unchanged sequence and the accompanying changed transcripts.
+        This is done to allow each separate transcript to be paired with the unchanged sequence, so as to represent
+        a homozygous variant as well as improving the read depth for each area.
+        :param gene:
+        :param name_length:
+        :return:
+        """
         self.gene_dictionary = {1: {'ref': '', 'transcripts': []}, 2: {'ref': '', 'transcripts': []}}
         read1s = []
         read2s = []
@@ -41,12 +50,11 @@ class Condenser:
             elif first_part_of_name[-1] == '2':
                 read2s.append(filename)
 
+        #  For each of Read 1 and 2, separate reference from altered
         for filename in read1s:
             transcript = filename[name_length:name_length+1]
             if transcript == '0':
                 self.gene_dictionary[1]['ref'] = filename
-                #  print filename
-                #  this = raw_input()
             else:
                 self.gene_dictionary[1]['transcripts'].append(filename)
 
@@ -54,8 +62,6 @@ class Condenser:
             transcript = filename[name_length:name_length+1]
             if transcript == '0':
                 self.gene_dictionary[2]['ref'] = filename
-                #  print filename
-                #  this = raw_input()
             else:
                 self.gene_dictionary[2]['transcripts'].append(filename)
 
@@ -67,7 +73,7 @@ class Condenser:
         :return: a list of 3-element tuples
                 element 1: reference file name (unchanged seq)
                 element 2: changed file name
-                element 3: a name for the combined file
+                element 3: a name for the file once combined
         """
         file_pairs = []
         read_dict = self.gene_dictionary[read]

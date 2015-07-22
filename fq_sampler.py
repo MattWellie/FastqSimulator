@@ -68,8 +68,8 @@ class Sampler:
             offset = 0  # Start from start of sequence
             while offset <= length - 205:  # Arbitrary stopping point
                 sub_list = exon_seq[offset:offset + self.interval]
-                #if self.interval % self.reverse == 0:
-                #    sub_list = self.reverse_complement(sub_list)
+                if self.interval % self.reverse == 0:
+                    sub_list = self.reverse_complement(sub_list)
                 self.extract_to_list(sub_list)
                 offset += self.alternate
             #  print 'at exon %d end, r1 length: %d' % (exon, len(self.R1_list))
@@ -107,8 +107,8 @@ class Sampler:
         For each 'fragment' this should take reads from either end and send to an output list
         """
         read1 = ''.join(sequence[:self.read_length])
-        #read2 = ''.join(self.reverse_complement(sequence[self.interval-self.read_length:]))
-        read2 = ''.join(sequence[self.interval-self.read_length:])
+        read2 = ''.join(self.reverse_complement(sequence[self.interval-self.read_length:]))
+        #read2 = ''.join(sequence[self.interval-self.read_length:])
         #  print 'read1: %s' % read1
         #  print 'read2: %s' % read2
         read_id = self.generate_seq_id()
@@ -156,7 +156,4 @@ class Sampler:
         new_bases = []
         for base in sequence:
             new_bases.append(complement[base])
-        # print bases
-        # print ''.join(bases[::-1])
-        # this = raw_input()
         return new_bases[::-1]
