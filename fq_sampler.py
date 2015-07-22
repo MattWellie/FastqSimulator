@@ -5,19 +5,21 @@ __author__ = 'mwelland'
 
 class Sampler:
     """
-        This class will simulate paired end reads across an input sequence
-        This uses a simulated fragment size of 300 and 6-base intervals
-        A reverse complement will also be used to sample an alternate 6-base
-        interval sequences with a 3-base offset.
+        This class will simulate paired end reads across an input sequence. This uses a simulated fragment size of 220
+        and 1-base intervals. A reverse complement will also be used to sample an every alternate sequence as a reverse
+        strand with a 1-base offset.
     """
 
     def __init__(self, plain, modified):
+        """
+        :param plain: The unaltered dictionary
+        :param modified: The dictionary containing modified sequence
+        """
         self.plain_dict = plain
         self.mod_dict = modified
-        self.genename = plain['genename']
+        self.gene_name = plain['genename']
         self.Read_1 = []
         self.Read_2 = []
-        self.read_number = 1
         self.interval = 220  # Change for different fragment lengths
         self.alternate = 1  # read intervals
         self.reverse = 2  # should be double self.alternate
@@ -29,13 +31,22 @@ class Sampler:
         self.R2_list = []
 
     def run(self):
-        print 'Gene: %s' % self.genename
+        """
+        Main control method.
+        First the plain dictionary is processed, the the modified:
+          -  For each transcript in the file
+          -  Create a new pair of lists of reads 1 & 2
+          -  Run the sampler which will generate reads and populate the lists
+          -  Create filenames to write the output to
+          -  Send the output to be written
+        """
+        print 'Gene: %s' % self.gene_name
         for transcript in self.plain_dict['transcripts']:
             self.R1_list = []
             self.R2_list = []
             self.run_plain(transcript)
-            r1_filename = os.path.join('fastQs', self.genename + '0%sR1.fq' % transcript)
-            r2_filename = os.path.join('fastQs', self.genename + '0%sR2.fq' % transcript)
+            r1_filename = os.path.join('fastQs', self.gene_name + '0%sR1.fq' % transcript)
+            r2_filename = os.path.join('fastQs', self.gene_name + '0%sR2.fq' % transcript)
             #  print 'at regular print r1 length: %d' % len(self.R1_list)
             #  print 'at regular print r2 length: %d' % len(self.R2_list)
             #  this = raw_input()
@@ -44,8 +55,8 @@ class Sampler:
             self.R1_list = []
             self.R2_list = []
             self.run_mod(transcript)
-            r1_filename = os.path.join('fastQs', self.genename + '%sR1.fq' % transcript)
-            r2_filename = os.path.join('fastQs', self.genename + '%sR2.fq' % transcript)
+            r1_filename = os.path.join('fastQs', self.gene_name + '%sR1.fq' % transcript)
+            r2_filename = os.path.join('fastQs', self.gene_name + '%sR2.fq' % transcript)
             #  print 'at mod print r1 length: %d' % len(self.R1_list)
             #  print 'at mod print r2 length: %d' % len(self.R2_list)
             #  this = raw_input()
@@ -53,39 +64,62 @@ class Sampler:
 
     def run_plain(self, transcript):
         """
-        :return:
-        This sequence will be unchanged, so separate transcripts are not required
+        Processes the dictionary containing an unaltered reference sequence
+        Alternative transcripts may still occur, so each transcript is written separately
         """
+        #  Grab the full genetic sequence
         sequence = list(self.plain_dict['full genomic sequence'])
+        #  Find the list of exon numbers using the selected transcript (method arg)
         exon_list = self.plain_dict['transcripts'][transcript]['list_of_exons']
+        print exon_list
+        this = raw_input()
+        #  Use only the dictionary section which applies for selected transcript (method arg)
         plain_dict = self.plain_dict['transcripts'][transcript]['exons']
+
+        #  Foreach exon
         for exon in exon_list:
+            #  Gather start and stop coordinates from the dict
             start = plain_dict[exon]['genomic_start']
             end = plain_dict[exon]['genomic_end']
+
+            #  Subselect part of the overall sequence with a large area of overlap
             exon_seq = sequence[start - 330:end + 330]  # Maybe change substring
             length = len(exon_seq)
             print 'Exon %d length: %d' % (exon, length)
-            offset = 0  # Start from start of sequence
-            while offset <= length - 205:  # Arbitrary stopping point
+
+            #  Start from start of sequence
+            offset = 0
+            while offset <= length - 205: #  To prevent index errors, flanking seq still leaves plenty of coverage
+
+                #  Using offset to move through the sequence, select a section of length *interval* (see __init__)
                 sub_list = exon_seq[offset:offset + self.interval]
+
+                #  For every alternate sequence, work on the reverse complement instead
                 if self.interval % self.reverse == 0:
                     sub_list = self.reverse_complement(sub_list)
+
+                #  Use extract method to populate list
                 self.extract_to_list(sub_list)
+                #  Update offset
                 offset += self.alternate
             #  print 'at exon %d end, r1 length: %d' % (exon, len(self.R1_list))
             #  print 'at exon %d end, r2 length: %d' % (exon, len(self.R2_list))
-            ##  this = raw_input()
+            #  this = raw_input()
 
     def run_mod(self, transcript):
         """
-        :return:
-        This will be the output created from the sequence modifier
+        Processes the altered form of the dictionary, which includes a slightly different structure
         """
+
+        #  Use only the relevant transcript portion of the dictionary
         tran_dict = self.mod_dict[transcript]
         sequence = list(tran_dict['sequence'])
+        #  Select the part which contains the exon numbers and coordinates
         exon_dict = tran_dict['exons']
         for exon in exon_dict:
+            #  A variable to count reads created per exon
             count = 0
+            #  Gather start and stop sequences
             start = exon_dict[exon]['start']
             end = exon_dict[exon]['end']
             exon_seq = sequence[start - 330:end + 330]
