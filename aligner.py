@@ -21,3 +21,8 @@ class Aligner:
             command_args = ['bwa', 'mem', '-t', 4, file_pair[0], file_pair[1]]
             output = '../SAMs/%s.sam' % gene
             call(command_args, stdout=output)
+            
+            
+            
+            # Add all read1s to a file
+            # Repeat for read2s
