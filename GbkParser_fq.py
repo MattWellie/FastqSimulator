@@ -83,8 +83,9 @@ class GbkParser:
                 exon_seq = list(self.genomic[start - self.padding: end + self.padding])
                 length = len(exon_seq)
                 minidict = {'genomic_start': start, 'genomic_end': end,
-                            'padded sequence': exon_seq, 'length': end - start, 'padded length': length}
+                            'padded seq': exon_seq, 'length': end - start, 'padded length': length}
                 self.transcriptdict['transcripts'][alternative]['exons'][exon] = minidict
+                exon += 1
 
     def fill_and_find_features(self):
         dictionary = self.transcriptdict['input'][self.transcriptdict['refseqname']]
@@ -130,7 +131,8 @@ class GbkParser:
         '''
         print 'BioPython version: ' + str(Bio.__version__)
         # initial sequence grabbing and populating dictionaries
-        features = self.fill_and_find_features()
+        self.fill_and_find_features()
+        self.transcriptdict['full sequence'] = list(self.genomic)
         self.transcriptdict['Alt transcripts'] = range(1, len(self.cds)+1)
         self.get_mrna_exons()
         return self.transcriptdict

@@ -100,17 +100,17 @@ class Condenser:
         """
 
         for triple_tuple in read_pairs:
+
             outfile_name = triple_tuple[2]
-            output_file = open(os.path.join('fastQs', outfile_name), 'w')
-            reference_file_name = triple_tuple[0]
-            reference_file = open(os.path.join(os.getcwd(), 'fastQs', reference_file_name), "r")
-            reference_contents = reference_file.readlines()
-            alt_file = triple_tuple[1]
-            alt_contents = open(os.path.join('fastQs', alt_file), 'r').readlines()
-            for line in reference_contents:
-                print >> output_file, line
-            for line in alt_contents:
-                print >> output_file, line
+
+            with open(os.path.join('fastQs', outfile_name), 'w') as output_file:
+                reference_file_name = triple_tuple[0]
+                reference_file = open(os.path.join('fastQs', reference_file_name), "r")
+                contents = reference_file.readlines()
+                output_file.writelines(contents)
+                alt_file = triple_tuple[1]
+                contents = open(os.path.join('fastQs', alt_file), 'r').readlines()
+                output_file.writelines(contents)
 
     def erase_old_files(self):
         """

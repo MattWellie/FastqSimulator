@@ -24,7 +24,7 @@ class Sampler:
         self.alternate = 5  # read intervals
         self.reverse = 10  # should be double self.alternate
         self.read_length = 70  # Change for read sizes
-        self.qual_string = ''.join(['I']*101)  # Temporary quality string
+        self.qual_string = ''.join(['I']*self.read_length)  # Temporary quality string
         self.out_fileR1 = ''
         self.out_fileR2 = ''
         self.R1_list = []
@@ -41,17 +41,16 @@ class Sampler:
           -  Send the output to be written
         """
         print 'Gene: %s' % self.gene_name
-        #for transcript in self.plain_dict['transcripts']:
-        #    self.R1_list = []
-        #    self.R2_list = []
-        #    self.run_plain(transcript)
-        #    r1_filename = os.path.join('fastQs', self.gene_name + '0%sR1.fq' % transcript)
-        #    r2_filename = os.path.join('fastQs', self.gene_name + '0%sR2.fq' % transcript)
+        for transcript in self.plain_dict['transcripts']:
+            self.R1_list = []
+            self.R2_list = []
+            self.run_plain(transcript)
+            r1_filename = os.path.join('fastQs', self.gene_name + '0%sR1.fq' % transcript)
+            r2_filename = os.path.join('fastQs', self.gene_name + '0%sR2.fq' % transcript)
             #  print 'at regular print r1 length: %d' % len(self.R1_list)
             #  print 'at regular print r2 length: %d' % len(self.R2_list)
             #  this = raw_input()
-        #    self.write_out(r1_filename, r2_filename)
-        for transcript in self.mod_dict:
+            self.write_out(r1_filename, r2_filename)
             self.R1_list = []
             self.R2_list = []
             self.run_mod(transcript)
@@ -78,10 +77,12 @@ class Sampler:
         exon_list = self.plain_dict['transcripts'][transcript]['list_of_exons']
         #  Use only the dictionary section which applies for selected transcript (method arg)
         plain_dict = self.plain_dict['transcripts'][transcript]['exons']
+        #print 'exon list: %s' % str(exon_list)
+        #this = raw_input()
         #  For each exon
         for exon in exon_list:
             #  Grab the exon region with padding added in list form
-            exon_seq = plain_dict[exon]['padded sequence']
+            exon_seq = plain_dict[exon]['padded seq']
             length = plain_dict[exon]['padded length']
             print 'Exon %d length: %d' % (exon, length)
             #  Start from start of sequence
@@ -110,7 +111,6 @@ class Sampler:
 
         #  Use only the relevant transcript portion of the dictionary
         tran_dict = self.mod_dict[transcript]
-        sequence = list(tran_dict['sequence'])
         exon_list = tran_dict['exon list']
         #  Select the part which contains the exon numbers and coordinates
         for exon in exon_list:
@@ -118,7 +118,7 @@ class Sampler:
             #  A variable to count reads created per exon
             count = 0
             sequence = exon_dict['seq']
-            length = exon_dict['seq length']
+            length = exon_dict['padded length']
             print 'Exon %d length: %d' % (exon, length)
             offset = 0
             while offset < length - (self.interval+1):  # Stopping point to prevent index errors

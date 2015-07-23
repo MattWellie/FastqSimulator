@@ -13,6 +13,8 @@ class Modifier:
     def __init__(self, file_dict):
         self.dict = file_dict
         self.output_dict = {}
+        self.genomic = file_dict['full sequence']
+        self.padding = file_dict['offset']
 
     def run_modifier(self):
         """
@@ -21,21 +23,31 @@ class Modifier:
         """
 
         for transcript in self.dict['transcripts']:
-            self.output_dict[transcript] = {'variants': {}, 'sequence': '', 'exons': {}}
+            self.output_dict[transcript] = {'variants': {}, 'exons': {}}
             exon_list = self.dict['transcripts'][transcript]['list_of_exons']
+
+            #print 'exon list: %s' % str(exon_list)
+            #this = raw_input()
             self.output_dict[transcript]['exon list'] = exon_list
             for exon in exon_list:
-                self.output_dict[transcript]['exons'][exon] = {'start': '', 'end': ''}
-            try:
-                for exon in exon_list:
-                    exon_seq = self.modify(exon, transcript)
-                    self.output_dict[transcript]['exons'][exon]['seq'] = exon_seq
-                    self.output_dict[transcript]['exons'][exon]['seq length'] = len(exon_seq)
-            except IndexError:
-                print 'The index was out of range, line 35 seq_mod'
+                try:
+                    start = self.dict['transcripts'][transcript]['exons'][exon]['genomic_start']
+                    end = self.dict['transcripts'][transcript]['exons'][exon]['genomic_end']
+                    self.modify(exon, transcript, start, end)
+                except IndexError:
+                    print 'The index was out of range, line 35 seq_mod'
+            for exon in exon_list:
+                start = self.dict['transcripts'][transcript]['exons'][exon]['genomic_start']
+                end = self.dict['transcripts'][transcript]['exons'][exon]['genomic_end']
+                exon_seq = self.genomic[start - self.padding: end + self.padding]
+                self.output_dict[transcript]['exons'][exon] = {}
+                self.output_dict[transcript]['exons'][exon]['padded seq'] = exon_seq
+                self.output_dict[transcript]['exons'][exon] = {'start': start, 'end': end,
+                                                               'seq': exon_seq, 'padded length': len(exon_seq),
+                                                               'length': end - start}
         return self.output_dict
 
-    def modify(self, exon_number, transcript):
+    def modify(self, exon_number, transcript, start, end):
         """
         Method to execute substitutions. This is called for each exon number.
         This creates a single substitution per exon.
@@ -43,17 +55,11 @@ class Modifier:
         :param transcript:
         """
 
-        padding = self.dict['offset']
-        exondict = self.dict['transcripts'][transcript]['exons'][exon_number]
-        exon_seq = exondict['padded sequence']
-        start = padding
-        end = exondict['length'] + padding
         edit_coord = random.randint(start+1, end-1)
         # edit_coord = random.randint(start, end)
         base = str(random.sample(['A', 'C', 'G', 'T'], 1)[0])
-        old_base = exon_seq[edit_coord]
+        old_base = self.genomic[edit_coord]
         while base == old_base:
             base = str(random.sample(['A', 'C', 'G', 'T'], 1)[0])
-        exon_seq[edit_coord] = base
+        self.genomic[edit_coord] = base
         self.output_dict[transcript]['variants'][exon_number] = {'position': edit_coord, 'new base': base}
-        return exon_seq

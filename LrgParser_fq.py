@@ -94,6 +94,7 @@ class LrgParser:
                 if exon_number[-1] in ('a', 'b', 'c', 'd'):
                     # print exon_number
                     exon_number = exon_number[:-1]
+                    print 'exon number: %d' % exon_number
                 exon_number = int(exon_number)
                 self.transcriptdict['transcripts'][t_number]['list_of_exons'].append(exon_number)
                 self.transcriptdict['transcripts'][t_number]["exons"][exon_number] = {}
@@ -106,7 +107,7 @@ class LrgParser:
                 self.transcriptdict['transcripts'][t_number]["exons"][exon_number]['genomic_end'] = genomic_end
                 self.transcriptdict['offset'] = self.padding
                 exon_seq = list(self.sequence[genomic_start - self.padding: genomic_end + self.padding])
-                self.transcriptdict['transcripts'][t_number]["exons"][exon_number]['padded sequence'] = exon_seq
+                self.transcriptdict['transcripts'][t_number]["exons"][exon_number]['padded seq'] = exon_seq
                 self.transcriptdict['transcripts'][t_number]["exons"][exon_number]['length'] = genomic_end-genomic_start
                 self.transcriptdict['transcripts'][t_number]["exons"][exon_number]['padded length'] = len(exon_seq)
 
@@ -115,6 +116,7 @@ class LrgParser:
         self.padding = padding
         # Initial sequence grabbing and populating dictionaries
         self.sequence = self.grab_element('fixed_annotation/sequence')
+        self.transcriptdict['full sequence'] = list(self.sequence)
         self.get_exon_coords()
 
         for transcript in self.transcriptdict['transcripts'].keys():
