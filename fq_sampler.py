@@ -21,8 +21,8 @@ class Sampler:
         self.Read_1 = []
         self.Read_2 = []
         self.interval = 220  # Change for different fragment lengths
-        self.alternate = 1  # read intervals
-        self.reverse = 2  # should be double self.alternate
+        self.alternate = 5  # read intervals
+        self.reverse = 10  # should be double self.alternate
         self.read_length = 101  # Change for read sizes
         self.qual_string = ''.join(['I']*101)  # Temporary quality string
         self.out_fileR1 = ''
@@ -41,16 +41,16 @@ class Sampler:
           -  Send the output to be written
         """
         print 'Gene: %s' % self.gene_name
-        for transcript in self.plain_dict['transcripts']:
-            self.R1_list = []
-            self.R2_list = []
-            self.run_plain(transcript)
-            r1_filename = os.path.join('fastQs', self.gene_name + '0%sR1.fq' % transcript)
-            r2_filename = os.path.join('fastQs', self.gene_name + '0%sR2.fq' % transcript)
+        #for transcript in self.plain_dict['transcripts']:
+        #    self.R1_list = []
+        #    self.R2_list = []
+        #    self.run_plain(transcript)
+        #    r1_filename = os.path.join('fastQs', self.gene_name + '0%sR1.fq' % transcript)
+        #    r2_filename = os.path.join('fastQs', self.gene_name + '0%sR2.fq' % transcript)
             #  print 'at regular print r1 length: %d' % len(self.R1_list)
             #  print 'at regular print r2 length: %d' % len(self.R2_list)
             #  this = raw_input()
-            self.write_out(r1_filename, r2_filename)
+        #    self.write_out(r1_filename, r2_filename)
         for transcript in self.mod_dict:
             self.R1_list = []
             self.R2_list = []
@@ -82,14 +82,14 @@ class Sampler:
             start = plain_dict[exon]['genomic_start']
             end = plain_dict[exon]['genomic_end']
 
-            #  Subselect part of the overall sequence with a large area of overlap
+            #  Sub-select part of the overall sequence with a large area of overlap
             exon_seq = sequence[start - 330:end + 330]  # Maybe change substring
             length = len(exon_seq)
             print 'Exon %d length: %d' % (exon, length)
 
             #  Start from start of sequence
             offset = 0
-            while offset <= length - 205: #  To prevent index errors, flanking seq still leaves plenty of coverage
+            while offset <= length - 205:  # To prevent index errors, flanking seq still leaves plenty of coverage
 
                 #  Using offset to move through the sequence, select a section of length *interval* (see __init__)
                 sub_list = exon_seq[offset:offset + self.interval]
@@ -126,7 +126,7 @@ class Sampler:
             length = len(exon_seq)
             print 'Exon %d length: %d' % (exon, length)
             offset = 0
-            while offset < length - 205:  #  Stopping point to prevent index errors
+            while offset < length - 205:  # Stopping point to prevent index errors
                 sub_list = sequence[offset:offset + self.interval]
                 #  Reverse every other 'fragment'
                 if self.interval % self.reverse == 0:
@@ -148,6 +148,8 @@ class Sampler:
         """
 
         read1 = ''.join(sequence[:self.read_length])
+        #  Produce a reverse complement of the end of the fragment
+        #  Should this be reverse complemented?
         read2 = ''.join(self.reverse_complement(sequence[self.interval-self.read_length:]))
         #  read2 = ''.join(sequence[self.interval-self.read_length:])
         #  print 'read1: %s' % read1
@@ -184,6 +186,7 @@ class Sampler:
         flow_id = 'FLOW%d' % 01
         lane = 1
         tile = 1
+        #  Don't repeat same numbers
         x_pos = random.randint(0, 99999)
         y_pos = random.randint(0, 99999)
         end = '%d:N:0:1'

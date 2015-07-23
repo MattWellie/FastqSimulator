@@ -12,7 +12,6 @@ class Modifier:
 
     def __init__(self, file_dict):
         self.dict = file_dict
-        self.full_seq = list(self.dict['full genomic sequence'])
         self.output_dict = {}
 
     def run_modifier(self):
@@ -22,37 +21,37 @@ class Modifier:
         """
 
         for transcript in self.dict['transcripts']:
-            transcript_seq = self.full_seq
             self.output_dict[transcript] = {'variants': {}, 'sequence': '', 'exons': {}}
             exon_list = self.dict['transcripts'][transcript]['list_of_exons']
             for exon in exon_list:
                 self.output_dict[transcript]['exons'][exon] = {'start': '', 'end': ''}
             try:
-                for exon_number in exon_list:
-                    transcript_seq = self.modify(exon_number, transcript, transcript_seq)
+                for exon in exon_list:
+                    exon_seq = self.modify(exon, transcript)
+                    self.output_dict[transcript]['exons'][exon]['seq'] = ''.join(exon_seq)
             except IndexError:
                 print 'The index was out of range, line 34 seq_mod'
-            self.output_dict[transcript]['sequence'] = ''.join(transcript_seq)
         return self.output_dict
 
-    def modify(self, exon_number, transcript, transcript_seq):
+    def modify(self, exon_number, transcript):
         """
         Method to execute substitutions. This is called for each exon number.
         This creates a single substitution per exon.
         :param exon_number:
         :param transcript:
         """
+
+        padding = self.dict['offset']
         exondict = self.dict['transcripts'][transcript]['exons'][exon_number]
-        start = exondict['genomic_start']
-        self.output_dict[transcript]['exons'][exon_number]['start'] = start
-        end = exondict['genomic_end']
-        self.output_dict[transcript]['exons'][exon_number]['end'] = end
+        exon_seq = exondict['padded sequence']
+        start = padding
+        end = exondict['length'] + padding
         edit_coord = random.randint(start+1, end-1)
         # edit_coord = random.randint(start, end)
         base = str(random.sample(['A', 'C', 'G', 'T'], 1)[0])
-        old_base = transcript_seq[edit_coord]
+        old_base = exon_seq[edit_coord]
         while base == old_base:
             base = str(random.sample(['A', 'C', 'G', 'T'], 1)[0])
-        transcript_seq[edit_coord] = base
+        exon_seq[edit_coord] = base
         self.output_dict[transcript]['variants'][exon_number] = {'position': edit_coord, 'new base': base}
-        return transcript_seq
+        return exon_seq

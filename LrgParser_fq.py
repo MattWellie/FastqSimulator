@@ -27,6 +27,8 @@ class LrgParser:
 
     def __init__(self, file_name):
         self.fileName = file_name
+        self.padding = 0
+        self.sequence = ''
         # Read in the specified input file into a variable
         try:
             self.tree = parse(self.fileName)
@@ -40,7 +42,6 @@ class LrgParser:
                 'updatable_annotation/annotation_set/lrg_locus').text
             self.transcriptdict['refseqname'] = self.transcriptdict['root'].find(
                 'fixed_annotation/sequence_source').text
-
             if self.transcriptdict['root'].attrib['schema_version'] != '1.9':
                 print 'This LRG file is not the correct version for this script'
                 print 'This is designed for v.1.8'
@@ -68,26 +69,6 @@ class LrgParser:
             print "No sequence was identified"
             print self.transcriptdict['filename']
             exit()
-
-
-    def get_nm(self):
-        annotation_sets = self.transcriptdict['updatable'].findall('annotation_set')
-        for annotation_set in annotation_sets:
-            if annotation_set.attrib['type'] == 'ncbi':
-                features = annotation_set.find('features')
-                genes = features.findall('gene') # Multiple 'genes' includedin LRG
-                for gene in genes:
-                    transcripts = gene.findall('transcript')
-                    for transcript_block in transcripts:
-                        try:
-                            t_number = transcript_block.attrib['fixed_id'][1:]
-                            # print transcript_block.attrib['accession']
-                            self.transcriptdict['transcripts'][int(t_number)]['NM_number'] = transcript_block.attrib['accession']
-                            protein_block = transcript_block.find('protein_product')
-                            if t_number == protein_block.attrib['fixed_id'][1:]:
-                                self.transcriptdict['transcripts'][int(t_number)]['NP_number'] = protein_block.attrib['accession']
-                        except KeyError:
-                            print 'found redundant transcript'
 
     def get_exon_coords(self):
         """ Traverses the LRG ETree to find all the useful values
@@ -121,12 +102,16 @@ class LrgParser:
                 assert genomic_start >= 0, "Exon index out of bounds"
                 self.transcriptdict['transcripts'][t_number]["exons"][exon_number]['genomic_start'] = genomic_start
                 self.transcriptdict['transcripts'][t_number]["exons"][exon_number]['genomic_end'] = genomic_end
+                self.transcriptdict['offset'] = self.padding
+                exon_seq = list(self.sequence[genomic_start - self.padding: genomic_end + self.padding])
+                self.transcriptdict['transcripts'][t_number]["exons"][exon_number]['padded sequence'] = exon_seq
+                self.transcriptdict['transcripts'][t_number]["exons"][exon_number]['length'] = genomic_end-genomic_start
 
-    def run(self):
+    def run(self, padding):
+        self.padding = padding
         # Initial sequence grabbing and populating dictionaries
-        self.transcriptdict['full genomic sequence'] = self.grab_element('fixed_annotation/sequence')
+        self.sequence = self.grab_element('fixed_annotation/sequence')
         self.get_exon_coords()
-        self.get_nm()
 
         for transcript in self.transcriptdict['transcripts'].keys():
             self.transcriptdict['transcripts'][transcript]['list_of_exons'].sort(key=float)
