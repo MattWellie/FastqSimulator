@@ -23,14 +23,16 @@ class Modifier:
         for transcript in self.dict['transcripts']:
             self.output_dict[transcript] = {'variants': {}, 'sequence': '', 'exons': {}}
             exon_list = self.dict['transcripts'][transcript]['list_of_exons']
+            self.output_dict[transcript]['exon list'] = exon_list
             for exon in exon_list:
                 self.output_dict[transcript]['exons'][exon] = {'start': '', 'end': ''}
             try:
                 for exon in exon_list:
                     exon_seq = self.modify(exon, transcript)
-                    self.output_dict[transcript]['exons'][exon]['seq'] = ''.join(exon_seq)
+                    self.output_dict[transcript]['exons'][exon]['seq'] = exon_seq
+                    self.output_dict[transcript]['exons'][exon]['seq length'] = len(exon_seq)
             except IndexError:
-                print 'The index was out of range, line 34 seq_mod'
+                print 'The index was out of range, line 35 seq_mod'
         return self.output_dict
 
     def modify(self, exon_number, transcript):

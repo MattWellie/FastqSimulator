@@ -22,7 +22,7 @@ class GbkParser:
                                                                           genomic_stop
     """
 
-    def __init__(self, file_name):
+    def __init__(self, file_name, padding):
 
         """
         This class is created by instantiating with a file name and a padding value.
@@ -33,13 +33,16 @@ class GbkParser:
         :param file_name: the location/identity of the target input file
         :param padding: the required amount of intronic padding
         '''
+        self.genomic = ''
+        self.padding = padding
         self.exons = []
         self.cds = []
         self.mrna = []
         self.fileName = file_name
         # Read in the specified input file into a variable
         try:
-            self.transcriptdict = dict(transcripts={}, input=SeqIO.to_dict(SeqIO.parse(file_name, 'genbank')))
+            self.transcriptdict = {'transcripts': {}, 'input': SeqIO.to_dict(SeqIO.parse(file_name, 'genbank')),
+                                   'offset': self.padding}
             self.transcriptdict['refseqname'] = self.transcriptdict['input'].keys()[0]
             self.is_matt_awesome = True
         except IOError as fileNotPresent:
@@ -75,14 +78,17 @@ class GbkParser:
             for coords in subfeatures:
                 self.transcriptdict['transcripts'][alternative]['exons'][exon] = {}
                 self.transcriptdict['transcripts'][alternative]['list_of_exons'].append(exon)
-                self.transcriptdict['transcripts'][alternative]['exons'][exon]['genomic_start'] = coords.location.start
-                self.transcriptdict['transcripts'][alternative]['exons'][exon]['genomic_end'] = coords.location.end
-                exon += 1
-            # print self.transcriptdict['transcripts'][alternative]
+                start = coords.location.start
+                end = coords.location.end
+                exon_seq = list(self.genomic[start - self.padding: end + self.padding])
+                length = len(exon_seq)
+                minidict = {'genomic_start': start, 'genomic_end': end,
+                            'padded sequence': exon_seq, 'length': end - start, 'padded length': length}
+                self.transcriptdict['transcripts'][alternative]['exons'][exon] = minidict
 
     def fill_and_find_features(self):
         dictionary = self.transcriptdict['input'][self.transcriptdict['refseqname']]
-        self.transcriptdict['full genomic sequence'] = dictionary.seq
+        self.genomic = dictionary.seq
         features = dictionary.features
         for feature in features:
             # Multiple exons are expected, not explicitly used

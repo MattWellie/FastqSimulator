@@ -20,10 +20,10 @@ class Sampler:
         self.gene_name = plain['genename']
         self.Read_1 = []
         self.Read_2 = []
-        self.interval = 220  # Change for different fragment lengths
+        self.interval = 140  # Change for different fragment lengths
         self.alternate = 5  # read intervals
         self.reverse = 10  # should be double self.alternate
-        self.read_length = 101  # Change for read sizes
+        self.read_length = 70  # Change for read sizes
         self.qual_string = ''.join(['I']*101)  # Temporary quality string
         self.out_fileR1 = ''
         self.out_fileR2 = ''
@@ -66,30 +66,27 @@ class Sampler:
         """
         Processes the dictionary containing an unaltered reference sequence
         Alternative transcripts may still occur, so each transcript is written separately
+        Dictionary format:
+        Transcripts > Transcript > List of exons
+                                   Exons         > exon numbers > genomic_start
+                                                                  genomic end
+                                                                  padded sequence
+                                                                  length
         """
-        #  Grab the full genetic sequence
-        sequence = list(self.plain_dict['full genomic sequence'])
+
         #  Find the list of exon numbers using the selected transcript (method arg)
         exon_list = self.plain_dict['transcripts'][transcript]['list_of_exons']
-        print exon_list
-        this = raw_input()
         #  Use only the dictionary section which applies for selected transcript (method arg)
         plain_dict = self.plain_dict['transcripts'][transcript]['exons']
-
-        #  Foreach exon
+        #  For each exon
         for exon in exon_list:
-            #  Gather start and stop coordinates from the dict
-            start = plain_dict[exon]['genomic_start']
-            end = plain_dict[exon]['genomic_end']
-
-            #  Sub-select part of the overall sequence with a large area of overlap
-            exon_seq = sequence[start - 330:end + 330]  # Maybe change substring
-            length = len(exon_seq)
+            #  Grab the exon region with padding added in list form
+            exon_seq = plain_dict[exon]['padded sequence']
+            length = plain_dict[exon]['padded length']
             print 'Exon %d length: %d' % (exon, length)
-
             #  Start from start of sequence
             offset = 0
-            while offset <= length - 205:  # To prevent index errors, flanking seq still leaves plenty of coverage
+            while offset <= length - (self.interval+1):  # To prevent index errors, flanking seq still leaves plenty of coverage
 
                 #  Using offset to move through the sequence, select a section of length *interval* (see __init__)
                 sub_list = exon_seq[offset:offset + self.interval]
@@ -114,19 +111,17 @@ class Sampler:
         #  Use only the relevant transcript portion of the dictionary
         tran_dict = self.mod_dict[transcript]
         sequence = list(tran_dict['sequence'])
+        exon_list = tran_dict['exon list']
         #  Select the part which contains the exon numbers and coordinates
-        exon_dict = tran_dict['exons']
-        for exon in exon_dict:
+        for exon in exon_list:
+            exon_dict = tran_dict['exons'][exon]
             #  A variable to count reads created per exon
             count = 0
-            #  Gather start and stop sequences
-            start = exon_dict[exon]['start']
-            end = exon_dict[exon]['end']
-            exon_seq = sequence[start - 330:end + 330]
-            length = len(exon_seq)
+            sequence = exon_dict['seq']
+            length = exon_dict['seq length']
             print 'Exon %d length: %d' % (exon, length)
             offset = 0
-            while offset < length - 205:  # Stopping point to prevent index errors
+            while offset < length - (self.interval+1):  # Stopping point to prevent index errors
                 sub_list = sequence[offset:offset + self.interval]
                 #  Reverse every other 'fragment'
                 if self.interval % self.reverse == 0:
@@ -149,7 +144,6 @@ class Sampler:
 
         read1 = ''.join(sequence[:self.read_length])
         #  Produce a reverse complement of the end of the fragment
-        #  Should this be reverse complemented?
         read2 = ''.join(self.reverse_complement(sequence[self.interval-self.read_length:]))
         #  read2 = ''.join(sequence[self.interval-self.read_length:])
         #  print 'read1: %s' % read1
@@ -205,3 +199,6 @@ class Sampler:
         for base in sequence:
             new_bases.append(complement[base])
         return new_bases[::-1]
+
+    def writer(self):
+        pass

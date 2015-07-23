@@ -20,9 +20,11 @@ class LrgParser:
 
             Dict { filename
                    genename
-                   refseqname
                    transcripts {  transcript {   exons {  exon_number {   genomic_start
                                                                           genomic_stop
+                                                                          padded sequence
+                                                                          length
+                                                                          padded length
     """
 
     def __init__(self, file_name):
@@ -106,6 +108,8 @@ class LrgParser:
                 exon_seq = list(self.sequence[genomic_start - self.padding: genomic_end + self.padding])
                 self.transcriptdict['transcripts'][t_number]["exons"][exon_number]['padded sequence'] = exon_seq
                 self.transcriptdict['transcripts'][t_number]["exons"][exon_number]['length'] = genomic_end-genomic_start
+                self.transcriptdict['transcripts'][t_number]["exons"][exon_number]['padded length'] = len(exon_seq)
+
 
     def run(self, padding):
         self.padding = padding
