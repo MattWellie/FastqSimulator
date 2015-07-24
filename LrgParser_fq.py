@@ -122,4 +122,4 @@ class LrgParser:
         for transcript in self.transcriptdict['transcripts'].keys():
             self.transcriptdict['transcripts'][transcript]['list_of_exons'].sort(key=float)
 
-        return self.transcriptdict
+        return self.transcriptdict 
