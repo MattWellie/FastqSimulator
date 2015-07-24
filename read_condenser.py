@@ -117,4 +117,4 @@ class Condenser:
         Deletes all the old files which have now been combined
         """
         for filename in self.file_list:
-            os.remove(os.path.join('fastQs', filename))
+            os.remove(os.path.join('fastQs', filename)) 
