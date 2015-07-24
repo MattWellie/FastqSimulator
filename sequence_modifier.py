@@ -41,9 +41,8 @@ class Modifier:
                 end = self.dict['transcripts'][transcript]['exons'][exon]['genomic_end']
                 exon_seq = self.genomic[start - self.padding: end + self.padding]
                 self.output_dict[transcript]['exons'][exon] = {}
-                self.output_dict[transcript]['exons'][exon]['padded seq'] = exon_seq
                 self.output_dict[transcript]['exons'][exon] = {'start': start, 'end': end,
-                                                               'seq': exon_seq, 'padded length': len(exon_seq),
+                                                               'padded seq': exon_seq, 'padded length': len(exon_seq),
                                                                'length': end - start}
         return self.output_dict
 
