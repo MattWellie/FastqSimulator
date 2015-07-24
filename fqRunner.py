@@ -21,6 +21,7 @@ reference = '/DATA/references/hg19.fa'
 #  Threshold may need to be increased for increased numbers of references
 x_coord = 1
 y_coord = 1
+tile = 1
 
 def check_file_type(file_name):
     """ This function takes the file name which has been selected
@@ -86,7 +87,7 @@ for filename in input_files:
         genelist.append(dictionary['genename'])
 
         #  Create a sampler instance to extract simulated reads
-        sampler = Sampler(dictionary, new_dict,x_coord, y_coord)
+        sampler = Sampler(dictionary, new_dict,x_coord, y_coord, tile)
         x_coord, y_coord = sampler.run()
     except TypeError:
         print 'problem with file %s' % filename

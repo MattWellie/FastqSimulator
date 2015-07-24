@@ -10,11 +10,12 @@ class Sampler:
         strand with a 1-base offset.
     """
 
-    def __init__(self, plain, modified, x, y):
+    def __init__(self, plain, modified, x, y, tile):
         """
         :param plain: The unaltered dictionary
         :param modified: The dictionary containing modified sequence
         """
+        self.tile = tile
         self.x = x
         self.y = y
         self.plain_dict = plain
@@ -56,7 +57,7 @@ class Sampler:
             r1_filename = os.path.join('fastQs', self.gene_name + '%sR1.fq' % transcript)
             r2_filename = os.path.join('fastQs', self.gene_name + '%sR2.fq' % transcript)
             self.write_out(r1_filename, r2_filename)
-        return self.x, self.y
+        return self.x, self.y, self.tile
 
     def run_plain(self, transcript):
         """
@@ -165,18 +166,19 @@ class Sampler:
         run_number = 00001
         flow_id = 'FLOW%d' % 01
         lane = 1
-        tile = 1
+        tile = self.tile
         #  Don't repeat same numbers
         x_pos = self.x
         y_pos = self.y
         end = '%d:N:0:1'
         self.x += 1
-        if self.x > 10000:
+        if self.x > 2500:
             self.y += 1
             self.x = self.y + 1
-        if self.y == 10000:
-            print 'X coord threshold in sampler needs to be increased'
-            this = raw_input()
+        if self.y == 2500:
+            self.tile += 1
+            self.x = 1
+            self.y = 1
 
         return '@%s:%d:%s:%d:%d:%d:%d %s' % (instrument, run_number, flow_id, lane, tile, x_pos, y_pos, end)
 
