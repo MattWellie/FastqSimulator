@@ -174,7 +174,7 @@ class Sampler:
         self.x += 1
         if self.x > 2500:
             self.y += 1
-            self.x = self.y + 1
+            self.x = 1
         if self.y == 2500:
             self.tile += 1
             self.x = 1
