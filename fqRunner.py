@@ -100,8 +100,8 @@ with open(os.path.join('pickles', 'genelist.cPickle'), 'wb') as handle:
 #  This is saved as a new .fq file
 file_condenser = Condenser(genelist)
 file_condenser.run()
-#aligner = Aligner(sam_directory, output_name, reference)
-#aligner.run()
+aligner = Aligner(sam_directory, output_name, reference)
+aligner.run()
 
 print 'Run %s completed' % run_number
 print 'successes:'
