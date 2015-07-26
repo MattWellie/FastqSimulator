@@ -88,7 +88,7 @@ for filename in input_files:
 
         #  Create a sampler instance to extract simulated reads
         sampler = Sampler(dictionary, new_dict,x_coord, y_coord, tile)
-        x_coord, y_coord = sampler.run()
+        x_coord, y_coord, tile = sampler.run()
     except TypeError:
         print 'problem with file %s' % filename
 
@@ -100,8 +100,8 @@ with open(os.path.join('pickles', 'genelist.cPickle'), 'wb') as handle:
 #  This is saved as a new .fq file
 file_condenser = Condenser(genelist)
 file_condenser.run()
-aligner = Aligner(sam_directory, output_name, reference)
-aligner.run()
+#aligner = Aligner(sam_directory, output_name, reference)
+#aligner.run()
 
 print 'Run %s completed' % run_number
 print 'successes:'

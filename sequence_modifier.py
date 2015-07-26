@@ -15,6 +15,7 @@ class Modifier:
         self.output_dict = {}
         self.genomic = file_dict['full sequence']
         self.padding = file_dict['offset']
+        self.transcript_pos = 0
 
     def run_modifier(self):
         """
@@ -23,6 +24,8 @@ class Modifier:
         """
 
         for transcript in self.dict['transcripts']:
+            self.transcript_pos = 0
+
             self.output_dict[transcript] = {'variants': {}, 'exons': {}}
             exon_list = self.dict['transcripts'][transcript]['list_of_exons']
 
@@ -30,9 +33,11 @@ class Modifier:
             #this = raw_input()
             self.output_dict[transcript]['exon list'] = exon_list
             for exon in exon_list:
+
                 try:
                     start = self.dict['transcripts'][transcript]['exons'][exon]['genomic_start']
                     end = self.dict['transcripts'][transcript]['exons'][exon]['genomic_end']
+
                     self.modify(exon, transcript, start, end)
                 except IndexError:
                     print 'The index was out of range, line 35 seq_mod'
@@ -40,7 +45,6 @@ class Modifier:
                 start = self.dict['transcripts'][transcript]['exons'][exon]['genomic_start']
                 end = self.dict['transcripts'][transcript]['exons'][exon]['genomic_end']
                 exon_seq = self.genomic[start - self.padding: end + self.padding]
-                self.output_dict[transcript]['exons'][exon] = {}
                 self.output_dict[transcript]['exons'][exon] = {'start': start, 'end': end,
                                                                'padded seq': exon_seq, 'padded length': len(exon_seq),
                                                                'length': end - start}
@@ -61,4 +65,11 @@ class Modifier:
         while base == old_base:
             base = str(random.sample(['A', 'C', 'G', 'T'], 1)[0])
         self.genomic[edit_coord] = base
-        self.output_dict[transcript]['variants'][exon_number] = {'position': edit_coord, 'new base': base}
+
+        ### Identify the position of the variant within the transcript (For HGVS)
+        exon_length = end - start
+        variant_pos = end - edit_coord
+        hgvs_pos = self.transcript_pos + variant_pos
+        hgvs = '%d%s>%s' %(hgvs_pos, old_base, base)
+        self.transcript_pos += exon_length
+        self.output_dict[transcript]['variants'][exon_number] = {'position': edit_coord, 'new base': base, 'hgvs': hgvs}
