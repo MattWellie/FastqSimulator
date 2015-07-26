@@ -25,7 +25,8 @@ class Aligner:
         
         self.separate_files()
         self.add_file_contents_to_single_file()
-        self.run_alignment()
+        output_name = self.run_alignment()
+        return output_name
 
     def add_file_contents_to_single_file(self):
         """ Takes each file from each read numbered list and adds all the contents
@@ -78,4 +79,5 @@ class Aligner:
         with open(bam_name, 'w') as bam_out:
             call(['samtools', 'view', '-b', sam_name], stdout=bam_out)
         call(['samtools', 'sort', bam_name, sorted_file])
-        call(['samtools', 'index', sorted_file+'.bam']) 
+        call(['samtools', 'index', sorted_file+'.bam'])
+        return os.path.join(self.sam_directory, sorted_file+'.bam')

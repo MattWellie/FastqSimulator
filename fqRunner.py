@@ -7,6 +7,7 @@ from sequence_modifier import Modifier
 from fq_sampler import Sampler
 from read_condenser import Condenser
 from aligner import Aligner
+from variant_caller import VariantCaller
 
 genelist = []
 sam_directory = os.path.join(os.getcwd(), 'SAMs')
@@ -22,6 +23,9 @@ reference = '/DATA/references/hg19.fa'
 x_coord = 1
 y_coord = 1
 tile = 1
+vcf_name = 'run_%d.vcf' % run_number
+depth = 5
+cpu = 4
 
 def check_file_type(file_name):
     """ This function takes the file name which has been selected
@@ -101,7 +105,10 @@ with open(os.path.join('pickles', 'genelist.cPickle'), 'wb') as handle:
 file_condenser = Condenser(genelist)
 file_condenser.run()
 aligner = Aligner(sam_directory, output_name, reference)
-aligner.run()
+bam_filename = aligner.run()
+
+caller = VariantCaller(bam_filename, os.path.join(sam_directory, vcf_name), depth, cpu)
+caller.run()
 
 print 'Run %s completed' % run_number
 print 'successes:'
