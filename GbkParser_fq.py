@@ -18,8 +18,9 @@ class GbkParser:
             Dict { full genomic sequence
                    genename
                    refseqname
-                   transcripts {  transcript {   exons {  exon_number {   genomic_start
-                                                                          genomic_stop
+                   transcripts {  transcript { cds_offset
+                                               exons      {  exon_number {   genomic_start
+                                                                             genomic_stop
     """
 
     def __init__(self, file_name, padding):
@@ -87,6 +88,42 @@ class GbkParser:
                 self.transcriptdict['transcripts'][alternative]['exons'][exon] = minidict
                 exon += 1
 
+    def get_protein(self):
+        """
+        This method takes the CDS tagged block from the GenBank features section and parses the
+        contents to retrieve the protein sequence. This is added to the appropriate section of
+        dictionary used to hold all required details of the file.
+        """
+        '''
+        :param cds: a list containing the cds element(s) of the genbank features
+        '''
+        for alternative in self.transcriptdict['Alt transcripts']:
+            selected_cds = self.cds[alternative-1]
+            minidict = {'protein_length': len(selected_cds.qualifiers['translation'][0])*3,
+                        'cds_offset': selected_cds.location.start}
+            self.transcriptdict['transcripts'][alternative] = minidict
+
+    def find_cds_delay(self):
+        """ Method to find the actual start of the translated sequence
+            introduced to sort out non-coding exon problems """
+        '''
+        :param transcript: currently a relic of the LRG process (29-01-2015), designed to separate the
+                           dictionary population process into distinct sections for each transcript
+        '''
+        for transcript in self.transcriptdict['transcripts'].keys():
+            offset_total = 0
+            offset = self.transcriptdict['transcripts'][transcript]['cds_offset']
+            exon_list = self.transcriptdict['transcripts'][transcript]['list_of_exons']
+            # exon_list.sort(key=float)
+            for exon in exon_list:
+                g_start = self.transcriptdict['transcripts'][transcript]['exons'][exon]['genomic_start']
+                g_stop = self.transcriptdict['transcripts'][transcript]['exons'][exon]['genomic_end']
+                if offset > g_stop:
+                    offset_total = offset_total + (g_stop - g_start)
+                elif g_stop > offset > g_start:
+                    self.transcriptdict['transcripts'][transcript]['cds_offset'] = offset_total + (offset - g_start)
+                    break
+
     def fill_and_find_features(self):
         dictionary = self.transcriptdict['input'][self.transcriptdict['refseqname']]
         self.genomic = dictionary.seq
@@ -135,4 +172,6 @@ class GbkParser:
         self.transcriptdict['full sequence'] = list(self.genomic)
         self.transcriptdict['Alt transcripts'] = range(1, len(self.cds)+1)
         self.get_mrna_exons()
+        self.get_protein()
+        self.find_cds_delay()
         return self.transcriptdict

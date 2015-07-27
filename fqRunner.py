@@ -16,9 +16,13 @@ print 'This is Run number %d' % run_number
 output_name = 'run_num_%d' % run_number
 vcf_name = 'run_%d.vcf' % run_number
 reference = '/DATA/references/hg19.fa'
+annovar = '/DATA/annovar/table_annovar.pl'
+anno_db = '/DATA/annovar/humandb/'
 #  Arguments in order are: reference, input, output
 variant_call_string = 'samtools mpileup -g -f %s %s'
-var_call_filter_string = 'bcftools call -vc'
+var_call_filter_string = 'bcftools call -vc %s'
+anno_string = '%s --vcfinput %s %s --buildver hg19 --out %s --remove --protocol refGene --operation g --nastring .'
+fail_list = []
 
 #  these numbers will represent coordinates, and will be passed to the sampler class
 #  X will be incremented up to a set value, then it will be reduced to 1 and Y will increase by 1
@@ -56,6 +60,12 @@ input_files = os.listdir('input')
 file_list = os.listdir('fastQs')
 for filename in file_list:
     os.remove(os.path.join('fastQs', filename))
+file_list = os.listdir('pickles')
+for filename in file_list:
+    os.remove(os.path.join('fastQs', filename))
+file_list = os.listdir('VCFs')
+for filename in file_list:
+    os.remove(os.path.join('fastQs', filename))
 
 for filename in input_files:
     try:
@@ -83,10 +93,8 @@ for filename in input_files:
         modifier = Modifier(dictionary)
         new_dict = modifier.run_modifier()
         #  Dump a copy of the changed dictionary using cPickle (troubleshooting)
-        with open(os.path.join('pickles', dictionary['genename']+'_mod.cPickle'), 'wb') as handle:
+        with open(os.path.join('pickles', dictionary['genename']+'.cPickle'), 'wb') as handle:
             cPickle.dump(new_dict, handle)
-        with open(os.path.join('pickles', dictionary['genename']+'_std.cPickle'), 'wb') as handle:
-            cPickle.dump(dictionary, handle)
         print 'dict modified'
 
         #  Keep a record of the genes which have been processed
@@ -94,9 +102,10 @@ for filename in input_files:
         genelist.append(dictionary['genename'])
 
         #  Create a sampler instance to extract simulated reads
-        sampler = Sampler(dictionary, new_dict,x_coord, y_coord, tile)
+        sampler = Sampler(dictionary, new_dict, x_coord, y_coord, tile)
         x_coord, y_coord, tile = sampler.run()
     except TypeError:
+        fail_list.append(filename)
         print 'problem with file %s' % filename
 
 #  Dump a copy of the gene list
@@ -107,20 +116,38 @@ with open(os.path.join('pickles', 'genelist.cPickle'), 'wb') as handle:
 #  This is saved as a new .fq file
 file_condenser = Condenser(genelist)
 file_condenser.run()
+
+#  Creates an aligner instance and converts the multiple fq files into a single pair of files for conversion
 aligner = Aligner(sam_directory, output_name, reference)
 bam_filename = aligner.run()
 bam_location = os.path.join('fastQs', bam_filename)
+
+"""
+This section is for the variant calling on the aligned files.
+Due to some aspect of the read generation, Platypus is unable to generate variant calls from the aligned input data.
+The SAMtools mpileup feature, combined with the bcftools call function are used for the two-step cariant calling.
+"""
+
 temp_bcf = os.path.join('VCFs', 'temp.bcf')
 vcf_location = os.path.join('VCFs', vcf_name)
 variant_filled = variant_call_string % (reference, bam_location)
+filled_filter = var_call_filter_string % temp_bcf
 
 print variant_filled
 with open(temp_bcf, 'w') as out_file:
     call(variant_filled.split(' '), stdout=out_file)
 
+print 'filter command: %s' % filled_filter
 with open(vcf_location, 'w') as vcf_out:
-    call(var_call_filter_string.split(' '), stdout=vcf_out)
+    call(filled_filter.split(' '), stdout=vcf_out)
+
+#  The next step is annotating the variant calls
+anno_out = os.path.join('VCFs', '%d_anno.vcf' % run_number)
+filled_anno = anno_string % (annovar, vcf_location, anno_db, anno_out)
+call(filled_anno.split(' '))
 
 print 'Run %s completed' % run_number
 print 'successes:'
 print genelist
+print 'failures:'
+print fail_list

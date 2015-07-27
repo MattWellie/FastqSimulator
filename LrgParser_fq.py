@@ -11,10 +11,8 @@ class LrgParser:
     Class version: 0.9
     Modified Date: 21/07/2015
     Author : Matt Welland
-
     Minimal version of previously developed class
     Only requires exon numbers and coordinates, and full sequence
-
     Parses the input file to find all the useful values
     This will populate a dictionary to be returned at completion
 
@@ -111,6 +109,30 @@ class LrgParser:
                 self.transcriptdict['transcripts'][t_number]["exons"][exon_number]['length'] = genomic_end-genomic_start
                 self.transcriptdict['transcripts'][t_number]["exons"][exon_number]['padded length'] = len(exon_seq)
 
+    def find_cds_delay(self, transcript):
+        """ Method to find the actual start of the translated sequence
+            introduced to sort out non-coding exon problems """
+        offset_total = 0
+        offset = self.transcriptdict['transcripts'][transcript]['cds_offset']
+        for exon in self.transcriptdict['transcripts'][transcript]['list_of_exons']:
+            g_start = self.transcriptdict['transcripts'][transcript]['exons'][exon]['genomic_start']
+            g_stop = self.transcriptdict['transcripts'][transcript]['exons'][exon]['genomic_end']
+            if offset > g_stop:
+                offset_total = offset_total + (g_stop - g_start) + 1
+            elif g_stop > offset > g_start:
+                self.transcriptdict['transcripts'][transcript]['cds_offset'] = offset_total + (offset - g_start)
+                break
+
+    def get_protein_exons(self):
+        """ Collects full protein sequence for the appropriate transcript """
+        for item in self.transcriptdict['fixannot'].findall('transcript'):
+            p_number = int(item.attrib['name'][1:])
+            coding_region = item.find('coding_region')
+            coordinates = coding_region.find('coordinates')
+            self.transcriptdict['transcripts'][p_number]['cds_offset'] = int(coordinates.attrib['start'])
+            translation = coding_region.find('translation')
+            sequence = translation.find('sequence').text
+            self.transcriptdict['transcripts'][p_number]['protein_length'] = len(sequence)*3
 
     def run(self, padding):
         self.padding = padding
@@ -118,8 +140,10 @@ class LrgParser:
         self.sequence = self.grab_element('fixed_annotation/sequence')
         self.transcriptdict['full sequence'] = list(self.sequence)
         self.get_exon_coords()
+        self.get_protein_exons()
 
         for transcript in self.transcriptdict['transcripts'].keys():
+            self.find_cds_delay(transcript)
             self.transcriptdict['transcripts'][transcript]['list_of_exons'].sort(key=float)
 
         return self.transcriptdict 

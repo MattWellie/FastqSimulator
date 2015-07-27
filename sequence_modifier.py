@@ -59,7 +59,6 @@ class Modifier:
         """
 
         edit_coord = random.randint(start+1, end-1)
-        # edit_coord = random.randint(start, end)
         base = str(random.sample(['A', 'C', 'G', 'T'], 1)[0])
         old_base = self.genomic[edit_coord]
         while base == old_base:
@@ -67,9 +66,18 @@ class Modifier:
         self.genomic[edit_coord] = base
 
         ### Identify the position of the variant within the transcript (For HGVS)
+        # Requires using the CDS offset
+        cds_delay = self.dict['transcripts'][transcript]['cds_offset']
+        p_length = self.dict['transcripts'][transcript]['protein_length']
         exon_length = end - start
-        variant_pos = end - edit_coord
-        hgvs_pos = self.transcript_pos + variant_pos
-        hgvs = '%d%s>%s' %(hgvs_pos, old_base, base)
+        variant_pos = end - (edit_coord+1)
+        hgvs_pos = (self.transcript_pos + variant_pos) - cds_delay
+        if hgvs_pos < 0:
+            hgvs = '%d%s>%s' % (hgvs_pos, old_base, base)
+        elif hgvs_pos > p_length:
+            after_coding = hgvs_pos - p_length
+            hgvs = '*%d%s>%s' % (after_coding, old_base, base)
+        else:
+            hgvs = 'c.%s%d>%s' % (old_base, hgvs_pos, base)
         self.transcript_pos += exon_length
         self.output_dict[transcript]['variants'][exon_number] = {'position': edit_coord, 'new base': base, 'hgvs': hgvs}
