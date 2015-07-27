@@ -7,14 +7,18 @@ from sequence_modifier import Modifier
 from fq_sampler import Sampler
 from read_condenser import Condenser
 from aligner import Aligner
-from variant_caller import VariantCaller
+from subprocess import call
 
 genelist = []
 sam_directory = os.path.join(os.getcwd(), 'SAMs')
 run_number = random.randint(1, 1000)
 print 'This is Run number %d' % run_number
 output_name = 'run_num_%d' % run_number
+vcf_name = 'run_%d.vcf' % run_number
 reference = '/DATA/references/hg19.fa'
+platypus = '/home/mwelland/Downloads/Platypus_0.8.1/Platypus.py'
+variant_call_string = 'python %s callVariants --bamFiles=%s --refFile=%s --output=%s --nCPU=2'
+
 #  these numbers will represent coordinates, and will be passed to the sampler class
 #  X will be incremented up to a set value, then it will be reduced to 1 and Y will increase by 1
 #  X will take on the value of Y + 1 to prevent coordinate clashes
@@ -23,9 +27,7 @@ reference = '/DATA/references/hg19.fa'
 x_coord = 1
 y_coord = 1
 tile = 1
-vcf_name = 'run_%d.vcf' % run_number
-depth = 5
-cpu = 4
+
 
 def check_file_type(file_name):
     """ This function takes the file name which has been selected
@@ -106,9 +108,12 @@ file_condenser = Condenser(genelist)
 file_condenser.run()
 aligner = Aligner(sam_directory, output_name, reference)
 bam_filename = aligner.run()
-
-caller = VariantCaller(bam_filename, os.path.join(sam_directory, vcf_name), depth, cpu)
-caller.run()
+bam_location = os.path.join('fastQs', bam_filename)
+vcf_location = os.path.join('VCFs', vcf_name)
+variant_filled = variant_call_string % (platypus, bam_location, reference, vcf_location)
+print variant_filled
+#call(variant_filled.split(' '), shell=True)
+os.system(variant_filled)
 
 print 'Run %s completed' % run_number
 print 'successes:'
