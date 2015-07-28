@@ -124,6 +124,23 @@ class LrgParser:
                 self.transcriptdict['transcripts'][transcript]['cds_offset'] = offset_total + (offset - g_start)
                 break
 
+    def get_nm(self):
+        annotation_sets = self.transcriptdict['updatable'].findall('annotation_set')
+        for annotation_set in annotation_sets:
+            if annotation_set.attrib['type'] == 'ncbi':
+                features = annotation_set.find('features')
+                genes = features.findall('gene') # Multiple 'genes' includedin LRG
+                for gene in genes:
+                    transcripts = gene.findall('transcript')
+                    for transcript_block in transcripts:
+                        try:
+                            t_number = transcript_block.attrib['fixed_id'][1:]
+                            # print transcript_block.attrib['accession']
+                            self.transcriptdict['transcripts'][int(t_number)]['NM_number'] = transcript_block.attrib['accession']
+                        except KeyError:
+                            pass
+                            # print 'found redundant transcript'
+
     def get_protein_exons(self):
         """ Collects full protein sequence for the appropriate transcript """
         for item in self.transcriptdict['fixannot'].findall('transcript'):
@@ -141,10 +158,11 @@ class LrgParser:
         self.sequence = self.grab_element('fixed_annotation/sequence')
         self.transcriptdict['full sequence'] = list(self.sequence)
         self.get_exon_coords()
+        self.get_nm()
         self.get_protein_exons()
 
         for transcript in self.transcriptdict['transcripts'].keys():
             self.find_cds_delay(transcript)
             self.transcriptdict['transcripts'][transcript]['list_of_exons'].sort(key=float)
 
-        return self.transcriptdict 
+        return self.transcriptdict
