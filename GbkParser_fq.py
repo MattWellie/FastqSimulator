@@ -42,8 +42,10 @@ class GbkParser:
         self.fileName = file_name
         # Read in the specified input file into a variable
         try:
-            self.transcriptdict = {'transcripts': {}, 'input': SeqIO.to_dict(SeqIO.parse(file_name, 'genbank')),
-                                   'offset': self.padding}
+            self.transcriptdict = {'transcripts': {},
+                                   'input': SeqIO.to_dict(SeqIO.parse(file_name, 'genbank')),
+                                   'offset': self.padding,
+                                   'filename': file_name}
             self.transcriptdict['refseqname'] = self.transcriptdict['input'].keys()[0]
             self.is_matt_awesome = True
         except IOError as fileNotPresent:
@@ -174,4 +176,5 @@ class GbkParser:
         self.get_mrna_exons()
         self.get_protein()
         self.find_cds_delay()
+        del self.transcriptdict['input']
         return self.transcriptdict
