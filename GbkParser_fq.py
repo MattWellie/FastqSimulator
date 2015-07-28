@@ -65,30 +65,35 @@ class GbkParser:
             the exon positions in the dictionary""" 
 
         for alternative in self.transcriptdict['Alt transcripts']:
-            self.transcriptdict['transcripts'][alternative] = {}
-            self.transcriptdict['transcripts'][alternative]['list_of_exons'] = []
-            self.transcriptdict['transcripts'][alternative]['exons'] = {}
+            alt_dict = {'list_of_exons': [], 'exons': {}}
             selected_mrna = self.mrna[alternative-1]
             try:
-                self.transcriptdict['transcripts'][alternative]['NM_number'] = selected_mrna.qualifiers['transcript_id'][0]
+                alt_dict['NM_number'] = selected_mrna.qualifiers['transcript_id'][0]
             except KeyError:
-                self.transcriptdict['transcripts'][alternative]['NM_number'] = self.transcriptdict['genename']
+                alt_dict['NM_number'] = self.transcriptdict['genename']
                 self.transcriptdict['refseqname'] = self.transcriptdict['genename']
                 self.transcriptdict['genename'] = self.cds[0].qualifiers['gene'][0]
             exon = 1
-            subfeatures = selected_mrna._get_sub_features()
-            
-            for coords in subfeatures:
-                self.transcriptdict['transcripts'][alternative]['exons'][exon] = {}
-                self.transcriptdict['transcripts'][alternative]['list_of_exons'].append(exon)
-                start = coords.location.start
-                end = coords.location.end
-                exon_seq = list(self.genomic[start - self.padding: end + self.padding])
-                length = len(exon_seq)
-                minidict = {'genomic_start': start, 'genomic_end': end,
-                            'padded seq': exon_seq, 'length': end - start, 'padded length': length}
-                self.transcriptdict['transcripts'][alternative]['exons'][exon] = minidict
-                exon += 1
+            if len(self.exons) == 1:
+                alt_dict['exons'][exon] = {}
+                alt_dict['list_of_exons'].append(exon)
+                alt_dict['exons'][exon]['genomic_end'] = selected_mrna.location.end
+                alt_dict['exons'][exon]['genomic_start'] = selected_mrna.location.start
+            else:
+                subfeatures = selected_mrna._get_sub_features()
+                for coords in subfeatures:
+                    alt_dict['list_of_exons'].append(exon)
+                    start = coords.location.start
+                    end = coords.location.end
+                    exon_seq = list(self.genomic[start - self.padding: end + self.padding])
+                    length = len(exon_seq)
+                    minidict = {'genomic_start': start, 'genomic_end': end,
+                                'padded seq': exon_seq, 'length': end - start, 'padded length': length}
+                    alt_dict['exons'][exon] = minidict
+                    exon += 1
+            self.transcriptdict['transcripts'][alternative] = alt_dict
+            print 'Transcript: %s' % alternative
+            print 'list: %s' % self.transcriptdict['transcripts'][alternative]['list_of_exons']
 
     def get_protein(self):
         """
@@ -101,22 +106,16 @@ class GbkParser:
         '''
         for alternative in self.transcriptdict['Alt transcripts']:
             selected_cds = self.cds[alternative-1]
-            minidict = {'protein_length': len(selected_cds.qualifiers['translation'][0])*3,
-                        'cds_offset': selected_cds.location.start}
-            self.transcriptdict['transcripts'][alternative] = minidict
+            self.transcriptdict['transcripts'][alternative]['protein_length'] = len(selected_cds.qualifiers['translation'][0])*3
+            self.transcriptdict['transcripts'][alternative]['cds_offset'] = selected_cds.location.start
 
     def find_cds_delay(self):
         """ Method to find the actual start of the translated sequence
             introduced to sort out non-coding exon problems """
-        '''
-        :param transcript: currently a relic of the LRG process (29-01-2015), designed to separate the
-                           dictionary population process into distinct sections for each transcript
-        '''
-        for transcript in self.transcriptdict['transcripts'].keys():
+        for transcript in self.transcriptdict['transcripts']:
             offset_total = 0
             offset = self.transcriptdict['transcripts'][transcript]['cds_offset']
             exon_list = self.transcriptdict['transcripts'][transcript]['list_of_exons']
-            # exon_list.sort(key=float)
             for exon in exon_list:
                 g_start = self.transcriptdict['transcripts'][transcript]['exons'][exon]['genomic_start']
                 g_stop = self.transcriptdict['transcripts'][transcript]['exons'][exon]['genomic_end']
