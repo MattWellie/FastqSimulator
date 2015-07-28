@@ -62,10 +62,10 @@ for filename in file_list:
     os.remove(os.path.join('fastQs', filename))
 file_list = os.listdir('pickles')
 for filename in file_list:
-    os.remove(os.path.join('fastQs', filename))
+    os.remove(os.path.join('pickles', filename))
 file_list = os.listdir('VCFs')
 for filename in file_list:
-    os.remove(os.path.join('fastQs', filename))
+    os.remove(os.path.join('VCFs', filename))
 
 for filename in input_files:
     try:
