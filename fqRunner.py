@@ -69,6 +69,7 @@ for filename in file_list:
 
 for filename in input_files:
     try:
+        print 'File name: %s' % filename
         file_type = check_file_type(filename)
 
         #  Use the PARSER project parsers to read required file contents
@@ -90,7 +91,7 @@ for filename in input_files:
 
         #  Create a modifier instance and modify the dictionary
         #  This has been written to introduce one variant into each exon
-        modifier = Modifier(dictionary)
+        modifier = Modifier(dictionary, file_type)
         new_dict = modifier.run_modifier()
         #  Dump a copy of the changed dictionary using cPickle (troubleshooting)
         with open(os.path.join('pickles', dictionary['genename']+'.cPickle'), 'wb') as handle:
@@ -145,6 +146,7 @@ with open(vcf_location, 'w') as vcf_out:
 anno_out = os.path.join('VCFs', '%d_anno.vcf' % run_number)
 filled_anno = anno_string % (annovar, vcf_location, anno_db, anno_out)
 call(filled_anno.split(' '))
+os.remove(os.path.join('VCFs', 'temp.bcf'))
 
 print 'Run %s completed' % run_number
 print 'successes:'
