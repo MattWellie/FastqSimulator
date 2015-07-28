@@ -81,3 +81,8 @@ class Aligner:
         call(['samtools', 'sort', bam_name, sorted_file])
         call(['samtools', 'index', sorted_file+'.bam'])
         return os.path.join(self.sam_directory, sorted_file+'.bam')
+
+    def clear_out_sams(self):
+        file_list = [name for name in os.listdir(self.sam_directory) if name[:6] != 'sorted']
+        for x in file_list:
+            os.remove(os.path.join(self.sam_directory, x))
