@@ -33,7 +33,8 @@ class LrgParser:
         try:
             self.tree = parse(self.fileName)
             self.transcriptdict = {'transcripts': {},
-                                   'root': self.tree.getroot()}
+                                   'root': self.tree.getroot(),
+                                   'filename': file_name}
             self.transcriptdict['fixannot'] = self.transcriptdict['root'].find(
                 'fixed_annotation')  # ensures only exons from the fixed annotation will be taken
             self.transcriptdict['updatable'] = self.transcriptdict['root'].find(
