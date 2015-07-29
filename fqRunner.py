@@ -157,5 +157,6 @@ vcf_comparison.run()
 print 'Run %s completed' % run_number
 print 'successes:'
 print geneset
-print 'failures:'
-print fail_list
+if fail_list:
+    print 'failures:'
+    print fail_list
