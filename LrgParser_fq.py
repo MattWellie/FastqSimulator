@@ -120,7 +120,7 @@ class LrgParser:
             g_stop = self.transcriptdict['transcripts'][transcript]['exons'][exon]['genomic_end']
             if offset > g_stop:
                 offset_total = offset_total + (g_stop - g_start) + 1
-            elif g_stop > offset > g_start:
+            elif g_stop > offset >= g_start:
                 self.transcriptdict['transcripts'][transcript]['cds_offset'] = offset_total + (offset - g_start)
                 break
 
