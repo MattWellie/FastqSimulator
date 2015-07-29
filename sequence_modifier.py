@@ -66,21 +66,25 @@ class Modifier:
             base = str(random.sample(['A', 'C', 'G', 'T'], 1)[0])
         self.genomic[edit_coord] = base
         # Identify the position of the variant within the transcript (For HGVS)
-        # Requires using the CDS offset
         cds_delay = self.transcript_dict['cds_offset']
         p_length = self.transcript_dict['protein_length'] + 3  # For stop codon length
-        exon_length = end - (start)
+        exon_length = end - start
         # Edit coord + 1 to compensate for 0-base counting
         variant_pos = (edit_coord + 1) - start
         hgvs_pos = (self.transcript_pos + variant_pos) - cds_delay
+
+        """
+        This is the correct hgvs nomenclature for annotation by annovar
+        """
         if hgvs_pos <= 0:
-            hgvs = '%d%s>%s' % (hgvs_pos - 1, old_base, base)
+            hgvs = 'c.%d%s>%s' % (hgvs_pos - 1, old_base, base)
         elif hgvs_pos > p_length:
             after_coding = hgvs_pos - p_length  # compensate for no 0s
-            hgvs = '*%d%s>%s' % (after_coding, old_base, base)
+            hgvs = 'c.*%d%s>%s' % (after_coding, old_base, base)
         else:
             hgvs = 'c.%s%d%s' % (old_base, hgvs_pos, base)
         self.transcript_pos += exon_length
+
         """
         # Un comment this section for positional debugging
         print 'start: %d, end: %d' % (start, end)
@@ -108,7 +112,6 @@ class Modifier:
                 break
         this = raw_input()
         """
-        print 'for gene: %s, exon: %d, hgvs: %s' % (self.dict['genename'], exon_number, hgvs)
         self.output_dict[transcript]['variants'][exon_number] = {'position': edit_coord,
                                                                  'new base': base,
                                                                  'hgvs': hgvs,
