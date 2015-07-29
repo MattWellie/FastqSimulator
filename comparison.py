@@ -11,26 +11,51 @@ class VCF_Comparison:
         self.pickle_dir = pickle_dir
         self.pickles = os.listdir(os.path.join(self.pickle_dir))
         self.vcf = {}
+        self.missing = {}
         self.tempvcf = os.path.join(vcf_dir, 'tempout.vcf')
         with open(os.path.join(self.pickle_dir, 'genelist.cPickle'), 'rU') as handle:
             self.geneset = cPickle.load(handle)
         self.titles = 'CHROM,POS,ID,REF,ALT,QUAL,FILTER,INFO,FORMAT,OTHER\n'
         self.matches = 0
-        self.rows = 0
         self.variants = 0
 
     def run(self):
         self.squish_vcf()
         self.open_vcf()
         for gene in self.geneset:
+            self.missing[gene] = []
             self.check_gene(gene)
-        if self.matches != self.rows:
-            print 'Total variants counted: %s' % self.variants
-            print 'Total variants in VCF: %d' % self.rows
-            print 'Total matches: %d' % self.matches
+
         else:
             print 'All variants found'
         os.remove(self.tempvcf)
+        print 'Remaining entries:'
+        self.add_missing_variants()
+        for gene in self.missing:
+            if self.missing[gene]:
+                print gene
+                for row in self.missing[gene]:
+                    print row
+            else:
+                print 'All variants in %s found' % gene
+        if self.matches != self.variants:
+            print 'Total variants counted: %s' % self.variants
+            print 'Total matches: %d' % self.matches
+
+    def add_missing_variants(self):
+        for gene in self.vcf:
+            for row in self.vcf[gene]:
+                # Search for specific string in complete row
+                # Example row:
+                # GeneDetail.refGene=NM_002506:c.-6897A>G
+                m = re.search('GeneDetail.refGene=(?P<HGVS>NM.*?);', row)
+                if m:
+                    try:
+                        self.missing[gene].append('In VCF, not found: %s: %s' % (gene, m.group('HGVS')))
+                    except KeyError:
+                        self.missing[gene].append('In VCF, not found: %s: %s' % (gene.split(',')[0], m.group('HGVS')))
+                    except:
+                        self.missing[gene].append('In VCF, not found: %s: %s' % (gene.split(',')[1], m.group('HGVS')))
 
     def squish_vcf(self):
         """
@@ -45,7 +70,6 @@ class VCF_Comparison:
                         pass
                     else:
                         output_vcf.write(line)
-                        self.rows += 1
 
     def open_vcf(self):
         """
@@ -57,7 +81,6 @@ class VCF_Comparison:
         Ready to begin matching against pickled contents
         """
         with open(self.tempvcf) as csvfile:
-
             for row in csvfile:
                 search_string = row.split('\t')[7]
                 match = re.search(';Gene\.refGene=(?P<gene_name>,?.*?);', search_string)
@@ -67,13 +90,15 @@ class VCF_Comparison:
                         self.vcf[gene].append(search_string)
                     else:
                         self.vcf[gene] = [search_string]
-            for gene in self.vcf:
-                print 'Gene located: %s, %d rows' % (gene, len(self.vcf[gene]))
+                else:
+                    print "couldn't match the variant in %s" % row
 
     def check_gene(self, gene):
         gene_pickles = [x for x in self.pickles if x.split('.')[0] == gene]
         try:
+            rows_to_delete = []
             gene_vcf = self.vcf[gene]
+            rows = range(len(gene_vcf))
             for gene_file in gene_pickles:
                 with open(os.path.join(self.pickle_dir, gene_file), 'rU') as handle:
                     pickledict = cPickle.load(handle)
@@ -87,20 +112,38 @@ class VCF_Comparison:
                         found = False
                         if hgvs[2] == '-' or hgvs[2] == '*':
                             variant = '%s:%s:%s' % (gene, transcript, hgvs)
-                            for row in gene_vcf:
-                                match = re.search('(%s:)?%s:%s' % (gene, transcript, hgvs), row)
+                            for row in rows:
+                                match = re.search('(%s:)?%s:%s' % (gene, transcript, hgvs), gene_vcf[row])
                                 if match:
+                                    rows_to_delete.append(row)
                                     found = True
                                     self.matches += 1
                         else:
                             variant = '%s:%s:exon%d:%s' % (gene, transcript, exon, hgvs)
-                            for row in gene_vcf:
-                                match = re.search('(%s:)?%s:(exon%d)?:%s' % (gene, transcript, exon, hgvs), row)
+                            for row in rows:
+                                # match = re.search('(%s:)?%s:exon.{1,3}?:%s' % (gene, transcript, hgvs), row)
+                                match = re.search('(%s:)?%s:.*?:%s' % (gene, transcript, hgvs), gene_vcf[row])
+                                # match = re.search('(%s:)?%s:exon%d?:%s' % (gene, transcript, exon, hgvs), row)
                                 if match:
+                                    rows_to_delete.append(row)
                                     found = True
                                     self.matches += 1
                         if not found:
-                            print 'This variant was not found: %s' % variant
+                            self.missing[gene].append('Predicted, not found in VCF: %s' % variant)
+            # Delete any rows which have been matched against
+            # This is done in reverse, high indexes first
+            # From low to high means the list shrinks and high indexes are invalid
+            # print 'Delete list: %s' % sorted(rows_to_delete, reverse=True)
+            for row in sorted(rows_to_delete, reverse=True):
+                try:
+                    del gene_vcf[row]
+                except IndexError:
+                    print 'problem with this list: %s' % str(sorted(rows_to_delete, reverse=True))
+                    print 'Index: %d' % row
+                    print 'vcf length: %d' % len(gene_vcf)
+                    this = raw_input()
+
+            self.vcf[gene] = gene_vcf
         except KeyError:
-            print '%s not found as a key' % gene
+            print 'Gene %s not found as a key' % gene
             this = raw_input()
