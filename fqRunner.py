@@ -8,8 +8,9 @@ from fq_sampler import Sampler
 from read_condenser import Condenser
 from aligner import Aligner
 from subprocess import call
+from comparison import VCF_Comparison
 
-genelist = []
+geneset = set()
 sam_directory = os.path.join(os.getcwd(), 'SAMs')
 run_number = random.randint(1, 1000)
 print 'This is Run number %d' % run_number
@@ -94,13 +95,14 @@ for filename in input_files:
         modifier = Modifier(dictionary, file_type)
         new_dict = modifier.run_modifier()
         #  Dump a copy of the changed dictionary using cPickle (troubleshooting)
-        with open(os.path.join('pickles', dictionary['genename']+'.cPickle'), 'wb') as handle:
+        with open(os.path.join('pickles', '%s.cPickle' % dictionary['genename']), 'wb') as handle:
             cPickle.dump(new_dict, handle)
         print 'dict modified'
 
         #  Keep a record of the genes which have been processed
         #  This is used later on when combining files
-        genelist.append(dictionary['genename'])
+        if dictionary['genename'] not in geneset:
+            geneset.add(dictionary['genename'])
 
         #  Create a sampler instance to extract simulated reads
         sampler = Sampler(dictionary, new_dict, x_coord, y_coord, tile)
@@ -111,11 +113,11 @@ for filename in input_files:
 
 #  Dump a copy of the gene list
 with open(os.path.join('pickles', 'genelist.cPickle'), 'wb') as handle:
-    cPickle.dump(genelist, handle)
+    cPickle.dump(geneset, handle)
 
 #  Create a condenser instance, and mix each variant transcript with the reference version
 #  This is saved as a new .fq file
-file_condenser = Condenser(genelist)
+file_condenser = Condenser(geneset)
 file_condenser.run()
 
 #  Creates an aligner instance and converts the multiple fq files into a single pair of files for conversion
@@ -148,8 +150,12 @@ filled_anno = anno_string % (annovar, vcf_location, anno_db, anno_out)
 call(filled_anno.split(' '))
 os.remove(os.path.join('VCFs', 'temp.bcf'))
 
+# And compare the VCF to the predicted:
+vcf_comparison = VCF_Comparison(run_number, 'pickles', 'VCFs')
+vcf_comparison.run()
+
 print 'Run %s completed' % run_number
 print 'successes:'
-print genelist
+print geneset
 print 'failures:'
 print fail_list
