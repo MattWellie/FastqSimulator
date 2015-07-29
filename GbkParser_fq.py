@@ -107,14 +107,14 @@ class GbkParser:
         for alternative in self.transcriptdict['Alt transcripts']:
             selected_cds = self.cds[alternative-1]
             self.transcriptdict['transcripts'][alternative]['protein_length'] = len(selected_cds.qualifiers['translation'][0])*3
-            self.transcriptdict['transcripts'][alternative]['cds_offset'] = selected_cds.location.start
+            self.transcriptdict['transcripts'][alternative]['old_cds_offset'] = selected_cds.location.start
 
     def find_cds_delay(self):
         """ Method to find the actual start of the translated sequence
             introduced to sort out non-coding exon problems """
         for transcript in self.transcriptdict['transcripts']:
             offset_total = 0
-            offset = self.transcriptdict['transcripts'][transcript]['cds_offset']
+            offset = self.transcriptdict['transcripts'][transcript]['old_cds_offset']
             exon_list = self.transcriptdict['transcripts'][transcript]['list_of_exons']
             for exon in exon_list:
                 g_start = self.transcriptdict['transcripts'][transcript]['exons'][exon]['genomic_start']

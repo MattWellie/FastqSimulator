@@ -114,7 +114,7 @@ class LrgParser:
         """ Method to find the actual start of the translated sequence
             introduced to sort out non-coding exon problems """
         offset_total = 0
-        offset = self.transcriptdict['transcripts'][transcript]['cds_offset']
+        offset = self.transcriptdict['transcripts'][transcript]['old_cds_offset']
         for exon in self.transcriptdict['transcripts'][transcript]['list_of_exons']:
             g_start = self.transcriptdict['transcripts'][transcript]['exons'][exon]['genomic_start']
             g_stop = self.transcriptdict['transcripts'][transcript]['exons'][exon]['genomic_end']
@@ -147,7 +147,7 @@ class LrgParser:
             p_number = int(item.attrib['name'][1:])
             coding_region = item.find('coding_region')
             coordinates = coding_region.find('coordinates')
-            self.transcriptdict['transcripts'][p_number]['cds_offset'] = int(coordinates.attrib['start'])
+            self.transcriptdict['transcripts'][p_number]['old_cds_offset'] = int(coordinates.attrib['start'])
             translation = coding_region.find('translation')
             sequence = translation.find('sequence').text
             self.transcriptdict['transcripts'][p_number]['protein_length'] = len(sequence)*3
