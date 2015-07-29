@@ -35,7 +35,9 @@ class Modifier:
                 try:
                     start = self.transcript_dict['exons'][exon]['genomic_start']
                     end = self.transcript_dict['exons'][exon]['genomic_end']
-                    self.modify(exon, transcript, start, end)
+                    b_or_a = self.transcript_dict['exons'][exon]['cds']
+                    old_cds = self.transcript_dict['exons'][exon]['old_cds_offset']
+                    self.modify(exon, transcript, start, end, b_or_a, old_cds)
                 except IndexError:
                     print 'The index was out of range, line 43 seq_mod'
             for exon in exon_list:
@@ -49,7 +51,7 @@ class Modifier:
                                                                'length': end - start}
         return self.output_dict
 
-    def modify(self, exon_number, transcript, start, end):
+    def modify(self, exon_number, transcript, start, end, b_or_a, old_cds):
         """
         Method to execute substitutions. This is called for each exon number.
         This creates a single substitution per exon.
@@ -69,6 +71,10 @@ class Modifier:
         cds_delay = self.transcript_dict['cds_offset']
         p_length = self.transcript_dict['protein_length'] + 3  # For stop codon length
         exon_length = end - start
+
+        """
+        Put in something here to deal with if the exon is pre-coding
+        """
         # Edit coord + 1 to compensate for 0-base counting
         variant_pos = (edit_coord + 1) - start
         hgvs_pos = (self.transcript_pos + variant_pos) - cds_delay
