@@ -1,0 +1,728 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="application/xml" href="lrg2html.xsl"?>
+
+<lrg schema_version="1.9">
+  <fixed_annotation>
+    <id>LRG_256</id>
+    <hgnc_id>7225</hgnc_id>
+    <sequence_source>NG_008055.1</sequence_source>
+    <organism taxon="9606">Homo sapiens</organism>
+    <source>
+      <name></name>
+      <contact>
+        <name>Valerie Delague</name>
+        <address>Aix-Marseille University, Marseille, France</address>
+        <email>valerie.delague@univ-amu.fr</email>
+      </contact>
+    </source>
+    <mol_type>dna</mol_type>
+    <creation_date>2012-03-21</creation_date>
+    <sequence>AGCAGAGGTCCGCCCTGGGTGCTAATGCTAATCGCCACCCCAGTAGGGATCCACCCTTTGCCAGCAGCCCGCTGGGAACCCAGACAGCGCCCACTCACGGTGGGAGCAGCTAGTGTCTGAAGGCATTCGAAGCAAAGGCAAAATACACGAAGATCTCTCTCTCCGAAGCTAAATGTCTAAATACGCTCTCGAAATCGTAGGACCCATGGGTGGCTGACCTTGAAGTTATTTTCTCAGAGCTCGGCTCTGGGTGCAGGCCCGAGAGCAATTTGCGTTAGAAGTACTAGAGGAGGTGGGGAAAACAGAAGGGGCGAGAGCCGAGGGCCCCTCGATACGAAGTCAGTGACCCCGAAGCCCTACGGAGCGCACCGGAGCGGCTGGGGGGGACGGGAAAAGGGGTCTCTAGGATCCCCGAGCGCTTGGCCTCCACACCCATGGGTCCTTTCCCTGCCCAGGCACAGGATAAACAGTTATCAGCAAAACGTGAGGGGCCAGTTCAGATCTCCGGAGGGCCGCAGGCACCAACTCCCAGTCCCACTGAAGTCACCTCAGCAACAGCGCAGCCATCTTGGGTTCCGGTCTGGACGGAAGTGACGCCAGGCGGCCCCGCCACCCGAGGGCGGAGGCGCGCCGGCTGGGGGTCGGGGTTGGGGGTGTCATGTGACGAGAGTCTCTTTAAAAGGCTCTGGAGCTTCTCCGCTCAGCTCTGCCTAGCTGGTTTGCTGGTTGTTTTCTGGTTTTTTAGTCTCCTCCTCCGCCTCCTGCAGCCGACTTCTACCGGAATTTGCCAGGATTTCGGCAGAAACGCCGCTGGCTCAAAATCTGCAGTCTACGTTCCACCTGCGTACATATTCATTTTGTATCGCACTCCCAAACAGCAAACGGCGGACTTGTTTAGATTCTTCCTTAAGGACTTCGCAGTCTGTTGCGTTCCCCCTGCCTCCCAGGTCGGCCTAAAAACGTGGTGGTTGGCCGGTTGAGACCCCGAAGAGAAAAGATACTTTGGGTTCCCTCCCTTTCTAATACGAAGCTTTAACCAGACAGATACATAAATTGTGACCTAAGTTGGGGAGTGTGTAGAGGGGCCTCGAGAAGACCTTGCGGACCACCATTCCCGAAAACGAGGAGCCTCATCTAACCACCTCGATTAGACCCCACAATTCCTGGGTTTGAGCTGCCACATGGACCAGGCGCCCACTAGCCGAGGACAATGCTCCCTTGTTCGTTGTTTCAGCGCTATGTGGGTGACACCCACAGCTAGAAGAACCCGGAGTGAGGGGAAGAACACGCTTTGATTTATATATGTGTATATATATATATACAGTTTTAGGGAACCCAAGCACAGGAATCAACTGCCGAGCACTCAAGACTGAAGAAAGAAGAAGAGCAAATGATAAAGGAAGGGAACAGAGCACAAAAGTTCTTGACTCTTGTGGGGAGTAGGGTGGAGAGGAGTAAAAGGGACAGGCTAGAGCAACTCCTATTTCTACAAAAAAAATACTCAATTATATTAATATTCAGATCTTATGTATATTTAGCATCCCTGCACTTCAGGATTTAAATAGCACAAATTCACTTATTTCTGCATCAGATGAATAATACTACTTTGCATTTCTATAATGCTTGACAAAGCACATTCGTACACTTTAGGATTGAAAGAGGCTCTCTAATCCAATCTACTATCTATGCAGGGATCTCCTCTGCAACACCCATAACAGCTGATCTTCAAGACTCTACCCCCCCATATTCAATGATGGGTACCTCAAACAACAAGTTTTATTTAATGAACAACTTATTCGTTAGTTATTATATTTAAATACAGTTTTGTGCTATCGAAATTCCAGTCATTGACTTGGCTCTCTGGAGCTTCACGTTAACAAACCCAAGGAATGCCTTTTTCACTCAGATCTTTTTTGGTTTTTCTTTTTCTTTTTCTTTTTCTTTTATTTTGAGACGTAGTCTCACTCTGTCGCCCAGGTTGGAGTGCAGTGGCGCTATCTCAGCTCACTGCAGCCTCTGCCTCCCAGGTTCAAGCGATTCTCCTGCCTCAGCCTCCCCCCAAGTAGCTGGGATTACAGGCCTGCACCACCATGCCCGGCTAATTTTCTGTATTTTTAGTAGAGATGGAATTTCACCATGTTGGCTAGGCTGGTCTAGAACTCCTGACCTCAAGTGATCCACCGGCCTCGGCCTCCCAAAGTCCTGGGATTATAGGTGCGAGCTACCACTCCCAGCCCACTCAGCTCTTTAAATATTAATAATTTCATTTAGCATGTAGTTATGGACTTTTTGTCAGTCCGTGAAAAGTTCTGTAGGGGATTCAAAGATACAGATGTTTGTACTGTCCCCAAGAAGGTTATAGCCTTAGCAGGATCAATAAAGACATGCAACAAAGAAAGTAGCAACAACCCATTGAAGAGGGTGTTGATAAAAGGGGTGGTTAGATAAAGAGGAAATGATTGCTTACAGTTGGGAGGTGGAGTTAGGTGGAAATTTTGGAGGGGAGAGTTTTGGGGGTTTTTTTTTTTTTGTACTTTGAATTGCTGTTTTATAGAAATGTTGACTACAACATCCTGTAAACATTTGTCAATGATGATGGTTTTGCCTATGGACTTCATAAGCAATCCCATATTTAGAATTCCACAACCCAAATCTAATACTAATGACCATACCCACCAGGGCTGTGGTCTAATGAGATGCCAGGAAGGTACCAGGACACTGTCCTTCACCTGGGTGAGCCTGCAGTGGTCTCATAGCAGGAATAACAATGACCACCCCACTTACATTAACTTCTAGAGGTCAGGCACGGTGACTCACACCTGTAATCCCAGTACTTAGGGAAGCCAAGGCAGAAGGATCACTTGAGTATAGGAGTTCAAGATCAACCTGAGCAACACAGTGAGATCCTCATCTCTACAAAAAATTGAAAAATTAGCTGGGTATGGTGGTGGCTGCCTGTGGCTCAGCTAATCTGGAGGCTGAAGTGGGAGGATCGCTTGAGCCTGGGAGGTTGAGGCTGCAGTGAGCTATCATTGCACCACTGCACTACAGCCTGGGCCACAGAGCAAGACCTTATCTCTGAAAAAAAAAAAAAAAAAATTTTAAACTAGCCCAGCATGCTGGCATGCGCCTGTAGTTCCCAGCTACTTGGAAAGCTGAGGTAGGACAATTGCTTGAGCCTCAGAGGTCAAGGCTGCAGTGAGCCATGATCATGCCACTGCATTCCAGCCTGGGCAACAGAGCGAGACTGCCTCAACAAACAAAAAAACCTCAGCTCTGGTTATGTAGACATCCCCATGGCTAACTCCACCCCAACACCTTCAGGTTCTCATGATGTACCAAATTGAATTCACCTTCTTTCACCTGTCATTTAAGGCCTTTCACAAACTGGTTTCGACTTTCCTGTCCAGTCTCATTTCTGACTATGCCACTTCAAGTTTCCCCAAATCAAGTCAAAGTGGATGGCACAAGATCGGCCCTGAATATATCCAACACTTCAGAAACCTACATCTCATATACATACACACACACACACACACACACACACACACACACACACACACACACACACACATTCTGTCTCTCCGTCTCACCTCTTTGTCCTTGCTTTTGCTGTTCTATCTTCTGGTAACCCTCCCTATCTCCCTTTCCAAAATGACAGTCATCCTTCAAGGCTGATTCATATCTAACATTGCCTCCTAGACACAACTATTCTTCCCTCTGAACTATTTATTTGTTTGATTATTTATTTATTTATTTATTTTTGAGACAGAGTTTCATTCTGTAGCCCAGGGTGGAAAGCAGTGGCACAATCATAGCTCGCTGCAGCCTTGATTTCCCAGGTTCAAGCGATCTTCCTGCCTCAGCCTCCCAAGTAGCTGGGACTACAAGCATGTGATAACATGCCCAGCTGATTTTTTAAAAAATTTTGGTAGAGGCGAGGTCTTGCTATGTTGCCCAGACAGGTCTCAAACTCCTAAACTCAAGCAATCCTCCTGCATAAGCCTACCAAAGTGCTGAGATTACAGGTGTCAGCCACTATGCCTGGCATAAACTTCATTTATTAAAGTTTATTTTGTCTTTAATCTCTCATATAACTTAGTCTTCCTGATATTGCAGCTGTGTGTGCCCCTCTTTTGTACTCCCAGCATTTTGTTCATTACTAAAGGAAGTGTCATGGCTTATTATACTTGATTGTTGATGGGTTTGTCCTCTGATCTTCCCATCTCCACCTCCCCAAACCAAATTTTCAACTCCTTGCTGGAAGGACTTAATTTTTATTCCTCTCTCTATTACCTGCATTCTCATACTTTACATATTGCTGGCACTTAATACAATTTTGTAGCCTTGAAATAAATTGAAATGGACTTAAACAGCAGCATGAAGCACTGAAGGACTTCTTGACAAACGGAAAGGTCAGGGGCTTCTTGCCTGGAAATAGTCCAGTGGAGAAAAACTTCTGTCTGGGAAGAATCGCACAGGATGAAGGGAGGTGCGGGGAAAAAAACTCCCATAGGACTTGGTCATCTCAAGAAGTCTGTAATGCAGCCCACATTAGAGGAGATAACAGGGGATATCCTATTTTCAGAGTTCTCTGGGGGAAACCTCCCTCTAGTTCCTAGGGCTGTGAGGCAGCCTCTCTCAGGCAAGGAGGCTGAGGAGAAATCCCTTTTTATGGCCTTTAAATTGAGGTTCCATATCTATCCCTCAGAGAAGTGTGTCTGTGTCCCTGTTTTTGTCCCTCTCCCTCACCACCCCCCACAACATTCCAGCCTGGGGCAGGGGGAGGCCAGTGGACACAAAGCCCTCTGTGTATGGGGTGGTATGTGTCCCCCCACCCCTCCACCCAGACTATACAATGCCCCTTCTGCTCCCTGCACTCTGCCCCCCTCCCCACCACCTCTCAACTGCACATGCCAGGCTGCAATTGGTTACTGGCTGAGGACAGCCCCCTCATGCTGGGGCCCTAGGGGATTTTAAGCAGGTTCCAGGAACCCCCCGTTCAGTTCCTGGTCCCCCACTTTCTCAACCCCACAGATGCTCCGGGCCCCTGCCCCTGCCCCAGCTATGGCTCCTGGGGCTCCCTCATCCAGCCCCAGCCCTATCCTGGCTGTGCTGCTCTTCTCTTCTTTGGGTAAGTGGAGCCACTCTACTCTGGGAGTCTTGGGACTCAGGTGTCTCTCAGCAATCCCCACAGCCTTTGCTGCACTCCCCACTGCAACCAAAGAAAGAACAAGCAGGAGCAGGAAGGTGACATTATATTCAGAAAGAAAAAATATGCGGCTGGGCATGGTGGCTCATGCCTGTAATCCCAGCACTTTGGGAGGCCAAGGTGGGATAATTATTTGAGCCCCAGGAGTTGGAGACCAGCCTGGACAACATAACCAGACTCCATCTGTAAAATTCAAAAAAAAAAAAAATATATATATATATATATGAAAAGAAAAAAATATGCATTTAGAGGGAGGAAGTAGAGGTTTTATTTTAAAAGAAAGGGTAAAAGAGAGTGTAGCAAGCTTCCCTGAGTGGTGGCCATGGCTGGACCCAGGTTGGAAATAGTAGCATGCCCCCAGAGCCATGCTAACAGCCTGGTGGGAAGCAGTGTTAGATTACATAAAGAAATAGGCTCAAACACCTGGGTTTGGTTCCCACTCGTCCCCTAGCAGTGCAGGAGGTGCCTTAACCTTAGTTTCCCAGAAGGAAAAAGAGAGTGCGATCTAAGTAAGGAGCCCAGGTTTGTGGTCTCAGCTCCTCAGATTTTTTGTCTCTCTATGGCTCCTCACCTGTTGTGTGGGTGAATGGAGTGAGGTTCTATGAGATTCTGGGATCTTATCCCTCTAAAGCTGTCTTCCTTCATAAGCTGACCAGCCCTTTCCTTGCCCCCTGGCAGATGTTGGGTGAGTAAGAGGTCAAAGCAGGATTATTGGAATGGCCCCTTCCCTTCTCTGAACTGCCCTGAATCCTAGTGCAATGAGTGAGCCATAGGCAAGTGGGGGTGGTGGGGAGGACATCAAGGGAAAGGGGGCTGGCCAGAATGCCCAGGGTTCTCTGCTGTCAGCTGCTTGAGCCCTAGACTCTTCTGGGTTGTACTGGGCTATTTGGGGGTACCCTGAGAAAATGTTAAAGATAGAGAGTTGGAGAAGGGCATAGTGAGGGAAATAGGGGGAAGGAATCTTGATGTATAAGGAAGAGGGAGAGTTGTGTCTCAACACTTGTTCCACTCATAGAACCATTGAGCACAGCTGAGAAGGGCAATGGTTGATATTGTAACAGGAGGAATAGAAGTTAGAGCCAGTGAATTATCTCCCTTGTTAAACAAGGGGGATTCCCAAGAAGGTTCTAAGGTGGAAGTTCCAGAAGGTAAGTACATGGTATTGCATGCTGAGGTGAGAGATTCAGGACAGTTGGGGTGGGAGTAGGGGTGGCATGAGCCCCCCAGCGTTGGTCAGACAATGGAACTTTGTTTGGTTGCCACCTCCCCCTCCTGTAGAACAAAAAGGTCTACAGTTGCCCCTCCCTGGGGCCAGCCCACACACATAGTCTCTCTGGAATGACCTTCCTTGTGTGGGTAAGTCTTGGGGATGGCACTGGGCCACAGTGGCCAAGAGGAAGGTGAGGACAGTTGAACCATAGAGGGCTCACATGTAGGGTCATCTGAGCTGTAGGCTTGGGGTGTTGCTCTGCACCCAGCTGAGAGGGGTATGAGGCCCTTCCCTTCCTGACTCTCCAGTCAAGAGCAAGCTGTATGGCAACCAGGGATTCAGCAATGAGGACAGTTGTGCCAGGGAAGAAGACTTATATTTTCTAGTTATCTTCATTTTTTTCTGCAAGAAATCTGAGTTTGCTGTATTGTGAAATCCAATGCAGCTGTTAAAATAAGATTGATATCTATGAATCAACAGGGAAAGCTCCTCCAGATACGTAAGTTCTTAAGCAAAAAGACACTAGAATACAATGCAATATGTATGTGGAAAAAAAAACTCCACAAAACTATTTGTTGTAAGTATGTGTATATCTTGAGTTTATTGAGTTTATACTGAGTTTGATTCATATTAAATGGATAACTTGTTACATCTTGGAAGGGAATACAGGAAAGGAATTTGTTGGGCTAAGTGTCAAAGGAGACTTTTGTTTTATTTCTATTGCTTGAATAGTTTATAAGAAGAGTACAATATGTATTACCTGTATAATTTATAATAAATTTTAAAAATTTAGAACACTGCATCTAAAGGATAGCTTAAAAGTTAGATACTGACCCAAAGGAGAAGTGAGACTTAAAGACAGAACCCAATCTCTGGAAGTCCTCAAGAGAATTCTGTTACTGCTGATTTCATCTTCTCTACAGACATGCTAAAGAGCTTGACAGACACAGCATTTATGCTCATCTGTTCAGTTAGTCCCCAGAGACTTGGGGCTCAGAATTTGTTGTTTCTTTTCCAAATTGGCCTCTGACCTGTGACTCAGCACTTGATTTCCTACTGATCTCACTTCCTCTGTATCCCTTACTGGGCCCATAGGTGCATCTGATTCCCCACTTTGTGCTTGCAGTGCTGTCCCCGGCCCAGGCCATCGTGGTTTACACCGACAGGGAGGTCCATGGTGCTGTGGGCTCCCGGGTGACCCTGCACTGCTCCTTCTGGTCCAGTGAGTGGGTCTCAGATGACATCTCCTTCACCTGGCGCTACCAGCCCGAAGGGGGCAGAGATGCCATTTCGGTGAGTGCCTGGGGGAATCCTGGGGTTGGATAACAGAAAGTGCTTCAAAGAACAACAAAAAAGATAACTTGGGCTAAGGAGGGGGAAATCCTTTTTGAGCCATAACCCCAACTTTGGCAAGGTAAATGACAGTCTTTGTCACCCTGACTACATTGTCCTCCCTTCTCCAGCACTACCCTTTCCAGCCCAAGATCCCTTACCCTGAGGCTGGAGCGAAGCTTTTTTTTTTTTTTTTTTTTTTTTGCTTTTTTCTTTCTGTAACAAATTATGGAGCTAAGCTTTGACAGCTGTGTTCTCATTAGGGTCCTCTCACATGCTTCCCCTCATTCCTCATAGATCTTCCACTATGCCAAGGGACAACCCTACATTGACGAGGTGGGGACCTTCAAAGAGCGCATCCAGTGGGTAGGGGACCCTCGCTGGAAGGATGGCTCCATTGTCATACACAACCTAGACTACAGTGACAATGGCACGTTCACTTGTGACGTCAAAAACCCTCCAGACATAGTGGGCAAGACCTCTCAGGTCACGCTGTATGTCTTTGAAAAAGGTGTGAGAAGGGATGGGGACAAGGGTATGGGAAGCAGTTTGGGAGGGGATCAGGGAGGACTGATAGGTTGGGGGAAGAGGCAAAAAGCCCGGCCTAAGGACCTTTATTCAGGCTCTGGGAGCGTGGGCAGAAGGCAGTTTTAGCTGGGAGTCCTACATCCTCAATGCAGGGCATACACTCGGACTAGGAACCACAGATACAGGGCCCTGCTCATTCTCCCACTTCTTTTCCCACCCCTCCTAGTGCCAACTAGGTACGGGGTCGTTCTGGGAGCTGTGATCGGGGGTGTCCTCGGGGTGGTGCTGTTGCTGCTGCTGCTTTTCTACGTGGTTCGGTACTGCTGGCTACGCAGGCAGGCGGCCCTGCAGAGGAGGCTCAGGTAAGGGGCGGAGCCTAGCTCCCCTCCCCCTCTCCCCACTATCCCCCATCTGGGCGGAGACTACTCCAGTGGGTGGGAGGGCCAAGGGGAAGAGGAAGCTGTGTCCGCGGTGCAAGGGGTTCCGGCGAGGCCAAACGTACAGCAGTCTCTCTTCTTGCAGTGCTATGGAGAAGGGGAAATTGCACAAGCCAGGAAAGGACGCGTCGAAGCGCGGGCGGCAGGTTAGCGGGACTTGGGGCCTAGACAAGATGGGAAGGAGAACCCTGGGAGCCGCCGGGCAGCAGTGAGGGGTGGGATGGGAACAGTCAAGCCCCAGTCGCTCGGTGACTGATGTGTGCGCCCCTCCCCCAGACGCCAGTGCTGTATGCAATGCTGGACCACAGCAGAAGCACCAAAGCTGTCAGTGAGAAGAAGGCCAAGGGGCTGGGGGAGTCTCGCAAGGATAAGAAATAGCGGTTAGCGGGCCGGGCGGGGGATCGGGGGTTAGGGGTGGAGTCCGCCAAAGGCCCAAAGGTGATGGTCATCGAGATGGAGCTACGAAAGGATGAGCAGAGCCCGGAGCTCCGGCCTGCTGTCAAGTCCCCCAGCAGAACCAGCCTCAAAAACGCCCTCAAGAACATGATGGGCCTGAACTCGGACAAGTGATCGCCACCCCCCCACCCCAGGCCCTGCCAGAGCAGGGGGACCTAGGCTCCTCTTACCCCCGTCTAGGTGCTTTCCCTCTTTGCTCCCCCGCCCTGCCCTGCCCTCACCTCCCTTTGAGATGTAAGTTTCATTCCAGAATTCATTCCCCAGGCAATTGTATTCTCCCCCACCTTCACCCCTGGCTTTCTGGGAGCCCAGGAGCTAATCCTACCCCTCACCTGCCCCGGGGGCTGTGTGTTTGGTGCCTGTCCACCTGAGCACTGAGAAGAAAGGGACTTTGATACCCTCTGCCTCAAGTCCAGGCCACCTGGCATTCCCATCTCCTGCATCCCCCAGCCTGTCCCCCTGGCTGTTTCCTCTCCCGTCCCTCCCTCCCCTCTACCAGGTGGCCCAGCTCCATACTCTGTCCCCCCAGCTAATACCCAGAGCACCCAGATCAGACTCTCCTTCAGGGTTTATTTAGGTTATTATTTTTTATTTTTTAATCCATTCTTTGTTTGTTTACCTGTGCTCATCCTCTGCCCTTACACCCATGACTGAGGACCAATGACGTCATGTGGCTTTTGCAATTCACGCCCCCCTTAAGTCCTTAATGAAGAGCCAGCCCAAGTAGAGGGGCCCCTGATCCTCACACTTCAGTATAGCATTGGTTCCCCCTGACCACTTTGGAGCACTGTTCTGGGACTCCAGGTCTTGAGGAGAGAGACAGAGAGAGAGAATGGATCCTCATAGGTCAGGGAGTGGGGGAGGGGGCAAATGAGCCTTAAGAAATGGTTTTTAAACAACCAAACAAAAAGCAGGAAAAACAAATGGGAAATGGGGGGGCGGGGGGGAGGAAGAGGCTGCACTGCAGCCACAGGGGATTCTTAGGATTTTTCTACATTCTGTATATTTCTTCTCAAACCTCCAAATGTCCTTAAATGTTTAATAAACACTGACATTTCCAGAAGCTGCTGCCTTGTCTAGAATTTCCTAGTCCTCCTGGGAATAATTCCTGCCCCTTATCCCATCCCCAACCTTCCATACTTGGCTTCAGTTGTTTAGTTTGTTTTTTTGGGGTGGGCTTATATAGTATACTAGAAAGAACTCTGAAATAGCCTCACAAGACACATTCATACCTTCAGCAAATAATCAGTGAGATTATACTACGTTGTAAACTCTGCCAGTCTCTGCTTTTACATGAGTTAAAACGCAGAATCTGTCTTCACCAAGATCTGAATTTTAAAACATCCCAGCCACTCTCTAGCTGTGTGATCCCCAGGACAGTTACCTGACTTTGGTAAGCTTGTTTATGTACTTGTAAACAACTGAGATAATGATATCTGCCCTGCTTAATTCCTAGGGATTTTATAATAATCAAATGAGATCCTGTGTATGGAAAACTTTGTAAACTGTAAGTTGATATACAACTAAATATTAAGGTGTTCAATATTTGTTTCTAGTGCTTGCCTAAGGTAGTACACTTTACAAATTAGCACAAATCCCATTCACCTCTCTAAACAATCACTGCTTTGTTTTGTTGGTACATGATTTTACTTCTGTTTACCTATTAATAGGTATACTATTAATACCTCATTAGCTAGTTTGTTGGTATGTTGATTTAGGTATACCATTAATATCCTGGTATCCTGAACTGATTGTGGAAAAACATATACGTATCATTTTCCCCTGGGGATTACTGATGGCACAAAAAAACCCAAAGTGCCCACAAGTAATTTCTTCCCCTTGTTAAGAAGCTAAAGATATGATTAACACCAGCTTTACCAAAACCCAGAGTGCTTCCATTTGTTTGAGGGGTGTCTTCAATGTCTTTTAAAAAAAATCAATCTGCCTTCATTTAAATATAAAAGCTAATAGAGTATATATAGCCTTTTGTTGGGGGGAAGTGGGAGAGGAAACTTAGTCACAACCCAGTAATAAAGTTGGGAATATCTTAAGCCCAAGATTCCTTATTAGTTAAGATGCTAAACTGTCCATTATTCATTAGATAGTTGCAGCTGGGTTCCCTGCTTAAACTTCCCAGACTGTCAGGAGAGTCAAATGAGGTTGGATGTGGTGGCTCATGCCTGTAATGCCAGCACTTTGGGAGGCCGAGGTGGGCAGATCACTTCAGGCTAGGAGGTTGAGGCCAGCCTGACCAACATGGCTAAACACTGTCTCCACTAAAAATACAAAAATTAGCCGAGCATGGTGGTGAACGCCTTCTAACCCTGGCTACTTGGGCAGCTGGGGCACGAGAATTGCTTGAACCGCGGAGGCGGAGGTTGCAGTGAGCCGAGATCATGCCGCTGCACTCTAGCCTGGGCAACACAGCGAGACTATGTCTCATAAAAATAAAAAAGAAAGAGAGAGAGAGAGAGTCAAATGAAATATTATGCTACTTATGAGATAGAGTATAGCTCAAAGCTTCTCATTTAATTACACTTTTGTTCTAAAATTTATCAGCCACCTGCATTTTGCTAGCTCAGTTTATCCAATTATTTTAATATTTCTTATTCCATCAAGAATCCTGGTACCCTGGGACAACATTTTGCAATCTCTTGCATTAGGCATTTTCACAAGCATTGCACACTTAATGTGGGTTTTTCCAGGACTGTGCCCATTTTCCACAATCCCCAACAAAGTAAGCCACATCCCCCCTTTCTTTCCTCTGCAGTAAAGCATTAAATAAAGTCTAGAATAATGATTCAGATAAAGGGAAATGACATTGTTATATGGGAAACTTTGAATCCCATCTAATTATTACTTTGAAATAAATCGTTCACAATCCTCAGTGCGTTGTTAATAATAGCAATAATTTTGCCCAGGCATGTGAGCACTTTGAGAATAATTTAAAGCCTTTTTCAGTGTTAACCATAAAAAGAAAAAGATTATAACCCAATTTATGAATACGCAGACAAAGAGTCTAAATAAAATATTTGCAAAAGAGAATTCCACAATGAGTTAATA</sequence>
+    <transcript name="t1">
+      <comment>This transcript is identical to the RefSeq transcript NM_000530.6 but with the polyA tail removed.</comment>
+      <coordinates coord_system="LRG_256" start="5001" end="10238" strand="1" />
+      <cdna>
+        <sequence>GTTCAGTTCCTGGTCCCCCACTTTCTCAACCCCACAGATGCTCCGGGCCCCTGCCCCTGCCCCAGCTATGGCTCCTGGGGCTCCCTCATCCAGCCCCAGCCCTATCCTGGCTGTGCTGCTCTTCTCTTCTTTGGTGCTGTCCCCGGCCCAGGCCATCGTGGTTTACACCGACAGGGAGGTCCATGGTGCTGTGGGCTCCCGGGTGACCCTGCACTGCTCCTTCTGGTCCAGTGAGTGGGTCTCAGATGACATCTCCTTCACCTGGCGCTACCAGCCCGAAGGGGGCAGAGATGCCATTTCGATCTTCCACTATGCCAAGGGACAACCCTACATTGACGAGGTGGGGACCTTCAAAGAGCGCATCCAGTGGGTAGGGGACCCTCGCTGGAAGGATGGCTCCATTGTCATACACAACCTAGACTACAGTGACAATGGCACGTTCACTTGTGACGTCAAAAACCCTCCAGACATAGTGGGCAAGACCTCTCAGGTCACGCTGTATGTCTTTGAAAAAGTGCCAACTAGGTACGGGGTCGTTCTGGGAGCTGTGATCGGGGGTGTCCTCGGGGTGGTGCTGTTGCTGCTGCTGCTTTTCTACGTGGTTCGGTACTGCTGGCTACGCAGGCAGGCGGCCCTGCAGAGGAGGCTCAGTGCTATGGAGAAGGGGAAATTGCACAAGCCAGGAAAGGACGCGTCGAAGCGCGGGCGGCAGACGCCAGTGCTGTATGCAATGCTGGACCACAGCAGAAGCACCAAAGCTGTCAGTGAGAAGAAGGCCAAGGGGCTGGGGGAGTCTCGCAAGGATAAGAAATAGCGGTTAGCGGGCCGGGCGGGGGATCGGGGGTTAGGGGTGGAGTCCGCCAAAGGCCCAAAGGTGATGGTCATCGAGATGGAGCTACGAAAGGATGAGCAGAGCCCGGAGCTCCGGCCTGCTGTCAAGTCCCCCAGCAGAACCAGCCTCAAAAACGCCCTCAAGAACATGATGGGCCTGAACTCGGACAAGTGATCGCCACCCCCCCACCCCAGGCCCTGCCAGAGCAGGGGGACCTAGGCTCCTCTTACCCCCGTCTAGGTGCTTTCCCTCTTTGCTCCCCCGCCCTGCCCTGCCCTCACCTCCCTTTGAGATGTAAGTTTCATTCCAGAATTCATTCCCCAGGCAATTGTATTCTCCCCCACCTTCACCCCTGGCTTTCTGGGAGCCCAGGAGCTAATCCTACCCCTCACCTGCCCCGGGGGCTGTGTGTTTGGTGCCTGTCCACCTGAGCACTGAGAAGAAAGGGACTTTGATACCCTCTGCCTCAAGTCCAGGCCACCTGGCATTCCCATCTCCTGCATCCCCCAGCCTGTCCCCCTGGCTGTTTCCTCTCCCGTCCCTCCCTCCCCTCTACCAGGTGGCCCAGCTCCATACTCTGTCCCCCCAGCTAATACCCAGAGCACCCAGATCAGACTCTCCTTCAGGGTTTATTTAGGTTATTATTTTTTATTTTTTAATCCATTCTTTGTTTGTTTACCTGTGCTCATCCTCTGCCCTTACACCCATGACTGAGGACCAATGACGTCATGTGGCTTTTGCAATTCACGCCCCCCTTAAGTCCTTAATGAAGAGCCAGCCCAAGTAGAGGGGCCCCTGATCCTCACACTTCAGTATAGCATTGGTTCCCCCTGACCACTTTGGAGCACTGTTCTGGGACTCCAGGTCTTGAGGAGAGAGACAGAGAGAGAGAATGGATCCTCATAGGTCAGGGAGTGGGGGAGGGGGCAAATGAGCCTTAAGAAATGGTTTTTAAACAACCAAACAAAAAGCAGGAAAAACAAATGGGAAATGGGGGGGCGGGGGGGAGGAAGAGGCTGCACTGCAGCCACAGGGGATTCTTAGGATTTTTCTACATTCTGTATATTTCTTCTCAAACCTCCAAATGTCCTTAAATGTTTAATAAACACTGACATTTCCAGAA</sequence>
+      </cdna>
+      <coding_region>
+        <coordinates coord_system="LRG_256" start="5068" end="9097" strand="1" />
+        <translation name="p1">
+          <sequence>MAPGAPSSSPSPILAVLLFSSLVLSPAQAIVVYTDREVHGAVGSRVTLHCSFWSSEWVSDDISFTWRYQPEGGRDAISIFHYAKGQPYIDEVGTFKERIQWVGDPRWKDGSIVIHNLDYSDNGTFTCDVKNPPDIVGKTSQVTLYVFEKVPTRYGVVLGAVIGGVLGVVLLLLLLFYVVRYCWLRRQAALQRRLSAMEKGKLHKPGKDASKRGRQTPVLYAMLDHSRSTKAVSEKKAKGLGESRKDKK</sequence>
+        </translation>
+      </coding_region>
+      <exon label="1">
+        <coordinates coord_system="LRG_256" start="5001" end="5134" strand="1" />
+        <coordinates coord_system="LRG_256t1" start="1" end="134" />
+        <coordinates coord_system="LRG_256p1" start="1" end="23" />
+      </exon>
+      <intron phase="1" />
+      <exon label="2">
+        <coordinates coord_system="LRG_256" start="7549" end="7715" strand="1" />
+        <coordinates coord_system="LRG_256t1" start="135" end="301" />
+        <coordinates coord_system="LRG_256p1" start="23" end="78" />
+      </exon>
+      <intron phase="0" />
+      <exon label="3">
+        <coordinates coord_system="LRG_256" start="8052" end="8265" strand="1" />
+        <coordinates coord_system="LRG_256t1" start="302" end="515" />
+        <coordinates coord_system="LRG_256p1" start="79" end="150" />
+      </exon>
+      <intron phase="1" />
+      <exon label="4">
+        <coordinates coord_system="LRG_256" start="8509" end="8644" strand="1" />
+        <coordinates coord_system="LRG_256t1" start="516" end="651" />
+        <coordinates coord_system="LRG_256p1" start="150" end="195" />
+      </exon>
+      <intron phase="2" />
+      <exon label="5">
+        <coordinates coord_system="LRG_256" start="8805" end="8865" strand="1" />
+        <coordinates coord_system="LRG_256t1" start="652" end="712" />
+        <coordinates coord_system="LRG_256p1" start="195" end="215" />
+      </exon>
+      <intron phase="0" />
+      <exon label="6">
+        <coordinates coord_system="LRG_256" start="8996" end="10238" strand="1" />
+        <coordinates coord_system="LRG_256t1" start="713" end="1955" />
+        <coordinates coord_system="LRG_256p1" start="216" end="248" />
+      </exon>
+    </transcript>
+  </fixed_annotation>
+  <updatable_annotation>
+    <annotation_set type="requester">
+      <source>
+        <name></name>
+        <contact>
+          <name>Valerie Delague</name>
+          <address>Aix-Marseille University, Marseille, France</address>
+          <email>valerie.delague@univ-amu.fr</email>
+        </contact>
+      </source>
+      <modification_date>2015-06-22</modification_date>
+    </annotation_set>
+    <annotation_set type="lrg">
+      <source>
+        <name>LRG</name>
+        <url>http://www.lrg-sequence.org/</url>
+        <contact>
+          <name>Locus Reference Genomic</name>
+          <url>http://www.lrg-sequence.org/contact</url>
+          <email>feedback@lrg-sequence.org</email>
+        </contact>
+      </source>
+      <modification_date>2015-06-22</modification_date>
+      <mapping coord_system="GRCh37.p13" other_name="1" other_id="NC_000001.10" other_id_syn="CM000663.1" other_start="161272525" other_end="161284762" type="other_assembly">
+        <mapping_span lrg_start="1" lrg_end="12238" other_start="161272525" other_end="161284762" strand="-1" />
+      </mapping>
+      <mapping coord_system="GRCh38.p2" other_name="1" other_id="NC_000001.11" other_id_syn="CM000663.2" other_start="161302735" other_end="161314972" type="main_assembly">
+        <mapping_span lrg_start="1" lrg_end="12238" other_start="161302735" other_end="161314972" strand="-1" />
+      </mapping>
+      <lrg_locus source="HGNC">MPZ</lrg_locus>
+    </annotation_set>
+    <annotation_set type="ncbi">
+      <source>
+        <name>NCBI RefSeqGene</name>
+        <url>http://www.ncbi.nlm.nih.gov/projects/RefSeq/RSG/</url>
+        <contact>
+          <name>RefSeqGene Group</name>
+          <address>NCBI/NLM/NIH</address>
+          <email>rsgene@ncbi.nlm.nih.gov</email>
+        </contact>
+      </source>
+      <comment>Annotation from NG_008055.1</comment>
+      <modification_date>2015-06-19</modification_date>
+      <mapping coord_system="NM_000530.6" other_name="NM_000530.6" other_id="NM_000530.6" other_start="1" other_end="1955" type="transcript">
+        <mapping_span lrg_start="5001" lrg_end="5134" other_start="1" other_end="134" strand="1" />
+        <mapping_span lrg_start="7549" lrg_end="7715" other_start="135" other_end="301" strand="1" />
+        <mapping_span lrg_start="8052" lrg_end="8265" other_start="302" other_end="515" strand="1" />
+        <mapping_span lrg_start="8509" lrg_end="8644" other_start="516" other_end="651" strand="1" />
+        <mapping_span lrg_start="8805" lrg_end="8865" other_start="652" other_end="712" strand="1" />
+        <mapping_span lrg_start="8996" lrg_end="10238" other_start="713" other_end="1955" strand="1" />
+      </mapping>
+      <features>
+        <gene source="NCBI-Gene" accession="6391">
+          <symbol source="HGNC" name="SDHC">
+            <synonym>CYB560</synonym>
+            <synonym>CYBL</synonym>
+            <synonym>PGL3</synonym>
+            <synonym>QPS1</synonym>
+            <synonym>SDH3</synonym>
+          </symbol>
+          <coordinates coord_system="LRG_256" start="1" end="597" strand="-1" />
+          <partial>3-prime</partial>
+          <long_name>succinate dehydrogenase complex, subunit C, integral membrane protein, 15kDa</long_name>
+          <db_xref source="GeneID" accession="6391" />
+          <db_xref source="HGNC" accession="HGNC:10682" />
+          <db_xref source="MIM" accession="602413" />
+          <db_xref source="CCDS" accession="CCDS44263.1" />
+          <db_xref source="CCDS" accession="CCDS1230.1" />
+          <db_xref source="CCDS" accession="CCDS41431.1" />
+          <db_xref source="CCDS" accession="CCDS41432.1" />
+          <db_xref source="CCDS" accession="CCDS60330.1" />
+          <transcript source="RefSeq" accession="NM_001278172.1">
+            <coordinates coord_system="LRG_256" start="548" end="597" strand="-1" />
+            <partial>3-prime</partial>
+            <long_name>succinate dehydrogenase complex, subunit C, integral membrane protein, 15kDa, transcript variant 5</long_name>
+            <db_xref source="GeneID" accession="6391" />
+            <db_xref source="GI" accession="498917304" />
+            <exon source="RefSeq" accession="">
+              <coordinates coord_system="LRG_256" start="548" end="597" strand="-1" />
+              <partial>3-prime</partial>
+            </exon>
+            <protein_product source="RefSeq" accession="NP_001265101.1" codon_start="1">
+              <coordinates coord_system="LRG_256" start="548" end="567" strand="-1" />
+              <partial>3-prime</partial>
+              <long_name>succinate dehydrogenase cytochrome b560 subunit, mitochondrial isoform 5 precursor</long_name>
+              <long_name>cytochrome B large subunit of complex II</long_name>
+              <long_name>succinate dehydrogenase cytochrome b560 subunit, mitochondrial</long_name>
+              <long_name>integral membrane protein CII-3b</long_name>
+              <long_name>succinate-ubiquinone oxidoreductase cytochrome B large subunit</long_name>
+              <long_name>succinate dehydrogenase 3, integral membrane subunit</long_name>
+              <long_name>succinate dehydrgenase cytochrome b</long_name>
+              <long_name>succinate dehydrogenase complex, subunit C, integral membrane protein, 15kD</long_name>
+              <db_xref source="CCDS" accession="CCDS60330.1" />
+              <db_xref source="GeneID" accession="6391" />
+              <db_xref source="GI" accession="498917305" />
+            </protein_product>
+          </transcript>
+          <transcript source="RefSeq" accession="NM_003001.3">
+            <coordinates coord_system="LRG_256" start="548" end="597" strand="-1" />
+            <partial>3-prime</partial>
+            <long_name>succinate dehydrogenase complex, subunit C, integral membrane protein, 15kDa, transcript variant 1</long_name>
+            <db_xref source="GeneID" accession="6391" />
+            <db_xref source="GI" accession="78711818" />
+            <exon source="RefSeq" accession="">
+              <coordinates coord_system="LRG_256" start="548" end="597" strand="-1" />
+              <partial>3-prime</partial>
+            </exon>
+            <protein_product source="RefSeq" accession="NP_002992.1" codon_start="1">
+              <coordinates coord_system="LRG_256" start="548" end="567" strand="-1" />
+              <partial>3-prime</partial>
+              <long_name>succinate dehydrogenase cytochrome b560 subunit, mitochondrial isoform 1 precursor</long_name>
+              <long_name>cytochrome B large subunit of complex II</long_name>
+              <long_name>succinate dehydrogenase cytochrome b560 subunit, mitochondrial</long_name>
+              <long_name>integral membrane protein CII-3b</long_name>
+              <long_name>succinate-ubiquinone oxidoreductase cytochrome B large subunit</long_name>
+              <long_name>succinate dehydrogenase 3, integral membrane subunit</long_name>
+              <long_name>succinate dehydrgenase cytochrome b</long_name>
+              <long_name>succinate dehydrogenase complex, subunit C, integral membrane protein, 15kD</long_name>
+              <db_xref source="CCDS" accession="CCDS1230.1" />
+              <db_xref source="GeneID" accession="6391" />
+              <db_xref source="GI" accession="4506863" />
+            </protein_product>
+          </transcript>
+          <transcript source="RefSeq" accession="NM_001035511.1">
+            <coordinates coord_system="LRG_256" start="548" end="597" strand="-1" />
+            <partial>3-prime</partial>
+            <long_name>succinate dehydrogenase complex, subunit C, integral membrane protein, 15kDa, transcript variant 2</long_name>
+            <db_xref source="GeneID" accession="6391" />
+            <db_xref source="GI" accession="78711819" />
+            <exon source="RefSeq" accession="">
+              <coordinates coord_system="LRG_256" start="548" end="597" strand="-1" />
+              <partial>3-prime</partial>
+            </exon>
+            <protein_product source="RefSeq" accession="NP_001030588.1" codon_start="1">
+              <coordinates coord_system="LRG_256" start="548" end="567" strand="-1" />
+              <partial>3-prime</partial>
+              <long_name>succinate dehydrogenase cytochrome b560 subunit, mitochondrial isoform 2 precursor</long_name>
+              <long_name>cytochrome B large subunit of complex II</long_name>
+              <long_name>succinate dehydrogenase cytochrome b560 subunit, mitochondrial</long_name>
+              <long_name>integral membrane protein CII-3b</long_name>
+              <long_name>succinate-ubiquinone oxidoreductase cytochrome B large subunit</long_name>
+              <long_name>succinate dehydrogenase 3, integral membrane subunit</long_name>
+              <long_name>succinate dehydrgenase cytochrome b</long_name>
+              <long_name>succinate dehydrogenase complex, subunit C, integral membrane protein, 15kD</long_name>
+              <db_xref source="CCDS" accession="CCDS41431.1" />
+              <db_xref source="GeneID" accession="6391" />
+              <db_xref source="GI" accession="78711820" />
+            </protein_product>
+          </transcript>
+          <transcript source="RefSeq" accession="NM_001035512.1">
+            <coordinates coord_system="LRG_256" start="548" end="597" strand="-1" />
+            <partial>3-prime</partial>
+            <long_name>succinate dehydrogenase complex, subunit C, integral membrane protein, 15kDa, transcript variant 3</long_name>
+            <db_xref source="GeneID" accession="6391" />
+            <db_xref source="GI" accession="78711821" />
+            <exon source="RefSeq" accession="">
+              <coordinates coord_system="LRG_256" start="548" end="597" strand="-1" />
+              <partial>3-prime</partial>
+            </exon>
+            <protein_product source="RefSeq" accession="NP_001030589.1" codon_start="1">
+              <coordinates coord_system="LRG_256" start="548" end="567" strand="-1" />
+              <partial>3-prime</partial>
+              <long_name>succinate dehydrogenase cytochrome b560 subunit, mitochondrial isoform 3 precursor</long_name>
+              <long_name>cytochrome B large subunit of complex II</long_name>
+              <long_name>succinate dehydrogenase cytochrome b560 subunit, mitochondrial</long_name>
+              <long_name>integral membrane protein CII-3b</long_name>
+              <long_name>succinate-ubiquinone oxidoreductase cytochrome B large subunit</long_name>
+              <long_name>succinate dehydrogenase 3, integral membrane subunit</long_name>
+              <long_name>succinate dehydrgenase cytochrome b</long_name>
+              <long_name>succinate dehydrogenase complex, subunit C, integral membrane protein, 15kD</long_name>
+              <db_xref source="CCDS" accession="CCDS44263.1" />
+              <db_xref source="GeneID" accession="6391" />
+              <db_xref source="GI" accession="78711822" />
+            </protein_product>
+          </transcript>
+          <transcript source="RefSeq" accession="NM_001035513.1">
+            <coordinates coord_system="LRG_256" start="548" end="597" strand="-1" />
+            <partial>3-prime</partial>
+            <long_name>succinate dehydrogenase complex, subunit C, integral membrane protein, 15kDa, transcript variant 4</long_name>
+            <db_xref source="GeneID" accession="6391" />
+            <db_xref source="GI" accession="78711823" />
+            <exon source="RefSeq" accession="">
+              <coordinates coord_system="LRG_256" start="548" end="597" strand="-1" />
+              <partial>3-prime</partial>
+            </exon>
+            <protein_product source="RefSeq" accession="NP_001030590.1" codon_start="1">
+              <coordinates coord_system="LRG_256" start="548" end="567" strand="-1" />
+              <partial>3-prime</partial>
+              <long_name>succinate dehydrogenase cytochrome b560 subunit, mitochondrial isoform 4 precursor</long_name>
+              <long_name>cytochrome B large subunit of complex II</long_name>
+              <long_name>succinate dehydrogenase cytochrome b560 subunit, mitochondrial</long_name>
+              <long_name>integral membrane protein CII-3b</long_name>
+              <long_name>succinate-ubiquinone oxidoreductase cytochrome B large subunit</long_name>
+              <long_name>succinate dehydrogenase 3, integral membrane subunit</long_name>
+              <long_name>succinate dehydrgenase cytochrome b</long_name>
+              <long_name>succinate dehydrogenase complex, subunit C, integral membrane protein, 15kD</long_name>
+              <db_xref source="CCDS" accession="CCDS41432.1" />
+              <db_xref source="GeneID" accession="6391" />
+              <db_xref source="GI" accession="78711824" />
+            </protein_product>
+          </transcript>
+          <transcript source="RefSeq" accession="NR_103459.1">
+            <coordinates coord_system="LRG_256" start="548" end="597" strand="-1" />
+            <partial>3-prime</partial>
+            <long_name>succinate dehydrogenase complex, subunit C, integral membrane protein, 15kDa, transcript variant 6</long_name>
+            <db_xref source="GeneID" accession="6391" />
+            <db_xref source="GI" accession="498917467" />
+            <exon source="RefSeq" accession="">
+              <coordinates coord_system="LRG_256" start="548" end="597" strand="-1" />
+              <partial>3-prime</partial>
+            </exon>
+            <protein_product source="RefSeq" accession="NP_002992.1" codon_start="1">
+              <coordinates coord_system="LRG_256" start="548" end="567" strand="-1" />
+              <partial>3-prime</partial>
+              <long_name>succinate dehydrogenase cytochrome b560 subunit, mitochondrial isoform 1 precursor</long_name>
+              <long_name>cytochrome B large subunit of complex II</long_name>
+              <long_name>succinate dehydrogenase cytochrome b560 subunit, mitochondrial</long_name>
+              <long_name>integral membrane protein CII-3b</long_name>
+              <long_name>succinate-ubiquinone oxidoreductase cytochrome B large subunit</long_name>
+              <long_name>succinate dehydrogenase 3, integral membrane subunit</long_name>
+              <long_name>succinate dehydrgenase cytochrome b</long_name>
+              <long_name>succinate dehydrogenase complex, subunit C, integral membrane protein, 15kD</long_name>
+              <db_xref source="CCDS" accession="CCDS1230.1" />
+              <db_xref source="GeneID" accession="6391" />
+              <db_xref source="GI" accession="4506863" />
+            </protein_product>
+          </transcript>
+        </gene>
+        <gene source="NCBI-Gene" accession="4359">
+          <symbol source="HGNC" name="MPZ">
+            <synonym>CHM</synonym>
+            <synonym>CMT1</synonym>
+            <synonym>CMT1B</synonym>
+            <synonym>CMT2I</synonym>
+            <synonym>CMT2J</synonym>
+            <synonym>CMT4E</synonym>
+            <synonym>CMTDI3</synonym>
+            <synonym>CMTDID</synonym>
+            <synonym>DSS</synonym>
+            <synonym>HMSNIB</synonym>
+            <synonym>MPP</synonym>
+            <synonym>P0</synonym>
+          </symbol>
+          <coordinates coord_system="LRG_256" start="5001" end="10238" strand="1" />
+          <long_name>myelin protein zero</long_name>
+          <db_xref source="GeneID" accession="4359" />
+          <db_xref source="HGNC" accession="HGNC:7225" />
+          <db_xref source="MIM" accession="159440" />
+          <db_xref source="CCDS" accession="CCDS1229.2" />
+          <db_xref source="GI" accession="190570180" />
+          <transcript source="RefSeq" accession="NM_000530.6" fixed_id="t1">
+            <coordinates coord_system="LRG_256" start="5001" end="10238" strand="1" />
+            <long_name>myelin protein zero</long_name>
+            <db_xref source="GeneID" accession="4359" />
+            <db_xref source="GI" accession="295391070" />
+            <exon source="RefSeq" accession="">
+              <coordinates coord_system="LRG_256" start="5001" end="5134" strand="1" />
+            </exon>
+            <exon source="RefSeq" accession="">
+              <coordinates coord_system="LRG_256" start="7549" end="7715" strand="1" />
+            </exon>
+            <exon source="RefSeq" accession="">
+              <coordinates coord_system="LRG_256" start="8052" end="8265" strand="1" />
+            </exon>
+            <exon source="RefSeq" accession="">
+              <coordinates coord_system="LRG_256" start="8509" end="8644" strand="1" />
+            </exon>
+            <exon source="RefSeq" accession="">
+              <coordinates coord_system="LRG_256" start="8805" end="8865" strand="1" />
+            </exon>
+            <exon source="RefSeq" accession="">
+              <coordinates coord_system="LRG_256" start="8996" end="10238" strand="1" />
+            </exon>
+            <protein_product source="RefSeq" accession="NP_000521.2" fixed_id="p1">
+              <coordinates coord_system="LRG_256" start="5068" end="9097" strand="1" />
+              <long_name>myelin protein P0 precursor</long_name>
+              <long_name>Charcot-Marie-Tooth neuropathy 1B</long_name>
+              <long_name>myelin protein P0</long_name>
+              <long_name>myelin peripheral protein</long_name>
+              <db_xref source="CCDS" accession="CCDS1229.2" />
+              <db_xref source="GeneID" accession="4359" />
+              <db_xref source="GI" accession="295391071" />
+            </protein_product>
+          </transcript>
+        </gene>
+      </features>
+    </annotation_set>
+    <annotation_set type="ensembl">
+      <source>
+        <name>Ensembl</name>
+        <url>http://www.ensembl.org/</url>
+        <contact>
+          <name>Ensembl</name>
+          <address>European Bioinformatics Institute</address>
+          <email>helpdesk@ensembl.org</email>
+        </contact>
+      </source>
+      <comment>Annotation is based on Ensembl release 80 (GRCh38  primary assembly)</comment>
+      <modification_date>2015-06-22</modification_date>
+      <mapping coord_system="ENST00000463290.4" other_name="ENST00000463290.4" other_id="ENST00000463290.4" other_start="1" other_end="1693" type="transcript">
+        <mapping_span lrg_start="5019" lrg_end="5134" other_start="1" other_end="116" strand="1" />
+        <mapping_span lrg_start="7549" lrg_end="7715" other_start="117" other_end="283" strand="1" />
+        <mapping_span lrg_start="8052" lrg_end="8265" other_start="284" other_end="497" strand="1" />
+        <mapping_span lrg_start="8509" lrg_end="8644" other_start="498" other_end="633" strand="1" />
+        <mapping_span lrg_start="8805" lrg_end="8865" other_start="634" other_end="694" strand="1" />
+        <mapping_span lrg_start="8996" lrg_end="9439" other_start="695" other_end="1138" strand="1" />
+        <mapping_span lrg_start="9684" lrg_end="10238" other_start="1139" other_end="1693" strand="1" />
+      </mapping>
+      <mapping coord_system="ENST00000476410.1" other_name="ENST00000476410.1" other_id="ENST00000476410.1" other_start="1" other_end="878" type="transcript">
+        <mapping_span lrg_start="8601" lrg_end="8644" other_start="1" other_end="44" strand="1" />
+        <mapping_span lrg_start="8805" lrg_end="9638" other_start="45" other_end="878" strand="1" />
+      </mapping>
+      <mapping coord_system="ENST00000488271.1" other_name="ENST00000488271.1" other_id="ENST00000488271.1" other_start="1" other_end="366" type="transcript">
+        <mapping_span lrg_start="8783" lrg_end="8865" other_start="1" other_end="83" strand="1" />
+        <mapping_span lrg_start="8996" lrg_end="9278" other_start="84" other_end="366" strand="1" />
+      </mapping>
+      <mapping coord_system="ENST00000491222.5" other_name="ENST00000491222.5" other_id="ENST00000491222.5" other_start="1" other_end="1824" type="transcript">
+        <mapping_span lrg_start="7502" lrg_end="7715" other_start="1" other_end="214" strand="1" />
+        <mapping_span lrg_start="8052" lrg_end="8265" other_start="215" other_end="428" strand="1" />
+        <mapping_span lrg_start="8509" lrg_end="8644" other_start="429" other_end="564" strand="1" />
+        <mapping_span lrg_start="8805" lrg_end="8865" other_start="565" other_end="625" strand="1" />
+        <mapping_span lrg_start="8996" lrg_end="10194" other_start="626" other_end="1824" strand="1" />
+      </mapping>
+      <mapping coord_system="ENST00000526189.1" other_name="ENST00000526189.1" other_id="ENST00000526189.1" other_start="1" other_end="957" type="transcript">
+        <mapping_span lrg_start="8074" lrg_end="8184" other_start="1" other_end="111" strand="1" />
+        <mapping_span lrg_start="8509" lrg_end="8644" other_start="112" other_end="247" strand="1" />
+        <mapping_span lrg_start="8805" lrg_end="8865" other_start="248" other_end="308" strand="1" />
+        <mapping_span lrg_start="8996" lrg_end="9644" other_start="309" other_end="957" strand="1" />
+      </mapping>
+      <mapping coord_system="ENST00000533357.3" other_name="ENST00000533357.3" other_id="ENST00000533357.3" other_start="1" other_end="1955" type="transcript">
+        <mapping_span lrg_start="5001" lrg_end="5134" other_start="1" other_end="134" strand="1" />
+        <mapping_span lrg_start="7549" lrg_end="7715" other_start="135" other_end="301" strand="1" />
+        <mapping_span lrg_start="8052" lrg_end="8265" other_start="302" other_end="515" strand="1" />
+        <mapping_span lrg_start="8509" lrg_end="8644" other_start="516" other_end="651" strand="1" />
+        <mapping_span lrg_start="8805" lrg_end="8865" other_start="652" other_end="712" strand="1" />
+        <mapping_span lrg_start="8996" lrg_end="10238" other_start="713" other_end="1955" strand="1" />
+      </mapping>
+      <features>
+        <gene source="Ensembl" accession="ENSG00000143252.13">
+          <symbol source="HGNC" name="SDHC" />
+          <coordinates coord_system="LRG_256" start="1" end="716" strand="-1" mapped_from="GRCh38" />
+          <partial>3-prime</partial>
+          <long_name>succinate dehydrogenase complex, subunit C, integral membrane protein, 15kDa (protein_coding)</long_name>
+          <db_xref source="GeneID" accession="6391">
+            <synonym>CYB560</synonym>
+            <synonym>CYBL</synonym>
+            <synonym>PGL3</synonym>
+            <synonym>QPS1</synonym>
+            <synonym>SDH3</synonym>
+          </db_xref>
+          <db_xref source="MIM" accession="602413">
+            <synonym>603067</synonym>
+          </db_xref>
+          <db_xref source="HGNC" accession="10682">
+            <synonym>CYB560</synonym>
+            <synonym>PGL3</synonym>
+          </db_xref>
+          <db_xref source="Ensembl" accession="ENSG00000143252" />
+          <transcript source="Ensembl" accession="ENST00000367975.5">
+            <coordinates coord_system="LRG_256" start="1" end="716" strand="-1" mapped_from="GRCh38" />
+            <partial>3-prime</partial>
+            <long_name>SDHC-001 (protein_coding)</long_name>
+            <db_xref source="CCDS" accession="CCDS1230.1" />
+            <db_xref source="RefSeq" accession="NM_003001.3" />
+            <exon source="Ensembl" accession="ENSE00001843316">
+              <coordinates coord_system="LRG_256" start="548" end="716" strand="-1" mapped_from="GRCh38" />
+            </exon>
+            <protein_product source="Ensembl" accession="ENSP00000356953.2">
+              <coordinates coord_system="LRG_256" start="1" end="567" strand="-1" mapped_from="GRCh38" />
+              <partial>3-prime</partial>
+              <long_name>succinate dehydrogenase cytochrome b560 subunit, mitochondrial isoform 1 precursor</long_name>
+              <db_xref source="RefSeq" accession="NP_002992.1" />
+              <db_xref source="UniProtKB" accession="Q99643">
+                <synonym>O75609</synonym>
+                <synonym>Q3C259</synonym>
+                <synonym>Q3C2D8</synonym>
+                <synonym>Q3C2H4</synonym>
+                <synonym>Q5VTH3</synonym>
+              </db_xref>
+            </protein_product>
+          </transcript>
+          <transcript source="Ensembl" accession="ENST00000515731.1">
+            <coordinates coord_system="LRG_256" start="1" end="592" strand="-1" mapped_from="GRCh38" />
+            <partial>3-prime</partial>
+            <long_name>SDHC-008 (processed_transcript)</long_name>
+            <exon source="Ensembl" accession="ENSE00002027379">
+              <coordinates coord_system="LRG_256" start="99" end="592" strand="-1" mapped_from="GRCh38" />
+            </exon>
+          </transcript>
+          <transcript source="Ensembl" accession="ENST00000342751.7">
+            <coordinates coord_system="LRG_256" start="1" end="592" strand="-1" mapped_from="GRCh38" />
+            <partial>3-prime</partial>
+            <long_name>SDHC-003 (protein_coding)</long_name>
+            <db_xref source="CCDS" accession="CCDS41431.1" />
+            <db_xref source="RefSeq" accession="NM_001035511.1" />
+            <exon source="Ensembl" accession="ENSE00001265370">
+              <coordinates coord_system="LRG_256" start="548" end="592" strand="-1" mapped_from="GRCh38" />
+            </exon>
+            <protein_product source="Ensembl" accession="ENSP00000356952.3">
+              <coordinates coord_system="LRG_256" start="1" end="567" strand="-1" mapped_from="GRCh38" />
+              <partial>3-prime</partial>
+              <long_name>succinate dehydrogenase cytochrome b560 subunit, mitochondrial isoform 2 precursor</long_name>
+              <db_xref source="RefSeq" accession="NP_001030588.1" />
+              <db_xref source="UniProtKB" accession="Q99643">
+                <synonym>O75609</synonym>
+                <synonym>Q3C259</synonym>
+                <synonym>Q3C2D8</synonym>
+                <synonym>Q3C2H4</synonym>
+                <synonym>Q5VTH3</synonym>
+              </db_xref>
+            </protein_product>
+          </transcript>
+          <transcript source="Ensembl" accession="ENST00000432287.5">
+            <coordinates coord_system="LRG_256" start="1" end="591" strand="-1" mapped_from="GRCh38" />
+            <partial>3-prime</partial>
+            <long_name>SDHC-005 (protein_coding)</long_name>
+            <db_xref source="CCDS" accession="CCDS44263.1" />
+            <db_xref source="RefSeq" accession="NM_001035512.1" />
+            <exon source="Ensembl" accession="ENSE00002065134">
+              <coordinates coord_system="LRG_256" start="548" end="591" strand="-1" mapped_from="GRCh38" />
+            </exon>
+            <protein_product source="Ensembl" accession="ENSP00000390558.2">
+              <coordinates coord_system="LRG_256" start="1" end="567" strand="-1" mapped_from="GRCh38" />
+              <partial>3-prime</partial>
+              <long_name>succinate dehydrogenase cytochrome b560 subunit, mitochondrial isoform 3 precursor</long_name>
+              <db_xref source="RefSeq" accession="NP_001030589.1" />
+              <db_xref source="UniProtKB" accession="Q99643">
+                <synonym>O75609</synonym>
+                <synonym>Q3C259</synonym>
+                <synonym>Q3C2D8</synonym>
+                <synonym>Q3C2H4</synonym>
+                <synonym>Q5VTH3</synonym>
+              </db_xref>
+            </protein_product>
+          </transcript>
+          <transcript source="Ensembl" accession="ENST00000392169.5">
+            <coordinates coord_system="LRG_256" start="1" end="585" strand="-1" mapped_from="GRCh38" />
+            <partial>3-prime</partial>
+            <long_name>SDHC-006 (protein_coding)</long_name>
+            <db_xref source="CCDS" accession="CCDS41432.1" />
+            <db_xref source="RefSeq" accession="NM_001035513.1" />
+            <exon source="Ensembl" accession="ENSE00002043185">
+              <coordinates coord_system="LRG_256" start="548" end="585" strand="-1" mapped_from="GRCh38" />
+            </exon>
+            <protein_product source="Ensembl" accession="ENSP00000376009.2">
+              <coordinates coord_system="LRG_256" start="1" end="567" strand="-1" mapped_from="GRCh38" />
+              <partial>3-prime</partial>
+              <long_name>succinate dehydrogenase cytochrome b560 subunit, mitochondrial isoform 4 precursor</long_name>
+              <db_xref source="RefSeq" accession="NP_001030590.1" />
+              <db_xref source="UniProtKB" accession="Q99643">
+                <synonym>O75609</synonym>
+                <synonym>Q3C259</synonym>
+                <synonym>Q3C2D8</synonym>
+                <synonym>Q3C2H4</synonym>
+                <synonym>Q5VTH3</synonym>
+              </db_xref>
+            </protein_product>
+          </transcript>
+          <transcript source="Ensembl" accession="ENST00000513009.4">
+            <coordinates coord_system="LRG_256" start="1" end="585" strand="-1" mapped_from="GRCh38" />
+            <partial>3-prime</partial>
+            <long_name>SDHC-007 (protein_coding)</long_name>
+            <db_xref source="CCDS" accession="CCDS60330.1" />
+            <db_xref source="RefSeq" accession="NM_001278172.1" />
+            <exon source="Ensembl" accession="ENSE00002043185">
+              <coordinates coord_system="LRG_256" start="548" end="585" strand="-1" mapped_from="GRCh38" />
+            </exon>
+            <protein_product source="Ensembl" accession="ENSP00000423260.1">
+              <coordinates coord_system="LRG_256" start="1" end="567" strand="-1" mapped_from="GRCh38" />
+              <partial>3-prime</partial>
+              <long_name>succinate dehydrogenase cytochrome b560 subunit, mitochondrial isoform 5 precursor</long_name>
+              <db_xref source="RefSeq" accession="NP_001265101.1" />
+              <db_xref source="UniProtKB" accession="Q99643">
+                <synonym>O75609</synonym>
+                <synonym>Q3C259</synonym>
+                <synonym>Q3C2D8</synonym>
+                <synonym>Q3C2H4</synonym>
+                <synonym>Q5VTH3</synonym>
+              </db_xref>
+            </protein_product>
+          </transcript>
+          <transcript source="Ensembl" accession="ENST00000504963.4">
+            <coordinates coord_system="LRG_256" start="1" end="582" strand="-1" mapped_from="GRCh38" />
+            <partial>3-prime</partial>
+            <long_name>SDHC-009 (nonsense_mediated_decay)</long_name>
+            <exon source="Ensembl" accession="ENSE00001861634">
+              <coordinates coord_system="LRG_256" start="548" end="582" strand="-1" mapped_from="GRCh38" />
+            </exon>
+            <protein_product source="Ensembl" accession="ENSP00000423929.1">
+              <coordinates coord_system="LRG_256" start="1" end="567" strand="-1" mapped_from="GRCh38" />
+              <partial>3-prime</partial>
+            </protein_product>
+          </transcript>
+        </gene>
+        <gene source="Ensembl" accession="ENSG00000158887.14">
+          <symbol source="HGNC" name="MPZ" />
+          <coordinates coord_system="LRG_256" start="5001" end="10238" strand="1" mapped_from="GRCh38" />
+          <long_name>myelin protein zero (protein_coding)</long_name>
+          <db_xref source="GeneID" accession="4359">
+            <synonym>CHM</synonym>
+            <synonym>CMT1</synonym>
+            <synonym>CMT1B</synonym>
+            <synonym>CMT2I</synonym>
+            <synonym>CMT2J</synonym>
+            <synonym>CMT4E</synonym>
+            <synonym>CMTDI3</synonym>
+            <synonym>CMTDID</synonym>
+            <synonym>DSS</synonym>
+            <synonym>HMSNIB</synonym>
+            <synonym>MPP</synonym>
+            <synonym>P0</synonym>
+          </db_xref>
+          <db_xref source="MIM" accession="159440" />
+          <db_xref source="HGNC" accession="7225">
+            <synonym>CMT1</synonym>
+            <synonym>CMT1B</synonym>
+            <synonym>HMSNIB</synonym>
+          </db_xref>
+          <db_xref source="Ensembl" accession="ENSG00000158887" />
+          <transcript source="Ensembl" accession="ENST00000533357.3" fixed_id="t1">
+            <coordinates coord_system="LRG_256" start="5001" end="10238" strand="1" mapped_from="GRCh38" />
+            <long_name>MPZ-001 (protein_coding)</long_name>
+            <db_xref source="CCDS" accession="CCDS1229.2" />
+            <db_xref source="RefSeq" accession="NM_000530.6" />
+            <exon source="Ensembl" accession="ENSE00001313871">
+              <coordinates coord_system="LRG_256" start="5001" end="5134" strand="1" mapped_from="GRCh38" />
+            </exon>
+            <exon source="Ensembl" accession="ENSE00001041809">
+              <coordinates coord_system="LRG_256" start="7549" end="7715" strand="1" mapped_from="GRCh38" />
+            </exon>
+            <exon source="Ensembl" accession="ENSE00003643873">
+              <coordinates coord_system="LRG_256" start="8052" end="8265" strand="1" mapped_from="GRCh38" />
+            </exon>
+            <exon source="Ensembl" accession="ENSE00003615032">
+              <coordinates coord_system="LRG_256" start="8509" end="8644" strand="1" mapped_from="GRCh38" />
+            </exon>
+            <exon source="Ensembl" accession="ENSE00003629276">
+              <coordinates coord_system="LRG_256" start="8805" end="8865" strand="1" mapped_from="GRCh38" />
+            </exon>
+            <exon source="Ensembl" accession="ENSE00001414908">
+              <coordinates coord_system="LRG_256" start="8996" end="10238" strand="1" mapped_from="GRCh38" />
+            </exon>
+            <protein_product source="Ensembl" accession="ENSP00000432943.1">
+              <coordinates coord_system="LRG_256" start="5068" end="9097" strand="1" mapped_from="GRCh38" />
+              <long_name>myelin protein P0 precursor</long_name>
+              <db_xref source="RefSeq" accession="NP_000521.2" />
+              <db_xref source="UniProtKB" accession="P25189">
+                <synonym>Q16072</synonym>
+                <synonym>Q5VTH4</synonym>
+                <synonym>Q92677</synonym>
+                <synonym>Q9BR67</synonym>
+              </db_xref>
+            </protein_product>
+          </transcript>
+          <transcript source="Ensembl" accession="ENST00000463290.4">
+            <coordinates coord_system="LRG_256" start="5019" end="10238" strand="1" mapped_from="GRCh38" />
+            <long_name>MPZ-002 (nonsense_mediated_decay)</long_name>
+            <db_xref source="CCDS" accession="CCDS1229.2" />
+            <exon source="Ensembl" accession="ENSE00001899303">
+              <coordinates coord_system="LRG_256" start="5019" end="5134" strand="1" mapped_from="GRCh38" />
+            </exon>
+            <exon source="Ensembl" accession="ENSE00001041809">
+              <coordinates coord_system="LRG_256" start="7549" end="7715" strand="1" mapped_from="GRCh38" />
+            </exon>
+            <exon source="Ensembl" accession="ENSE00003643873">
+              <coordinates coord_system="LRG_256" start="8052" end="8265" strand="1" mapped_from="GRCh38" />
+            </exon>
+            <exon source="Ensembl" accession="ENSE00003615032">
+              <coordinates coord_system="LRG_256" start="8509" end="8644" strand="1" mapped_from="GRCh38" />
+            </exon>
+            <exon source="Ensembl" accession="ENSE00003629276">
+              <coordinates coord_system="LRG_256" start="8805" end="8865" strand="1" mapped_from="GRCh38" />
+            </exon>
+            <exon source="Ensembl" accession="ENSE00001939463">
+              <coordinates coord_system="LRG_256" start="8996" end="9439" strand="1" mapped_from="GRCh38" />
+            </exon>
+            <exon source="Ensembl" accession="ENSE00001919545">
+              <coordinates coord_system="LRG_256" start="9684" end="10238" strand="1" mapped_from="GRCh38" />
+            </exon>
+            <protein_product source="Ensembl" accession="ENSP00000431538.1">
+              <coordinates coord_system="LRG_256" start="5068" end="9097" strand="1" mapped_from="GRCh38" />
+              <db_xref source="UniProtKB" accession="P25189">
+                <synonym>Q16072</synonym>
+                <synonym>Q5VTH4</synonym>
+                <synonym>Q92677</synonym>
+                <synonym>Q9BR67</synonym>
+              </db_xref>
+            </protein_product>
+          </transcript>
+          <transcript source="Ensembl" accession="ENST00000491222.5">
+            <coordinates coord_system="LRG_256" start="7502" end="10194" strand="1" mapped_from="GRCh38" />
+            <long_name>MPZ-005 (protein_coding)</long_name>
+            <exon source="Ensembl" accession="ENSE00001931533">
+              <coordinates coord_system="LRG_256" start="7502" end="7715" strand="1" mapped_from="GRCh38" />
+            </exon>
+            <exon source="Ensembl" accession="ENSE00003548408">
+              <coordinates coord_system="LRG_256" start="8052" end="8265" strand="1" mapped_from="GRCh38" />
+            </exon>
+            <exon source="Ensembl" accession="ENSE00003571903">
+              <coordinates coord_system="LRG_256" start="8509" end="8644" strand="1" mapped_from="GRCh38" />
+            </exon>
+            <exon source="Ensembl" accession="ENSE00003594925">
+              <coordinates coord_system="LRG_256" start="8805" end="8865" strand="1" mapped_from="GRCh38" />
+            </exon>
+            <exon source="Ensembl" accession="ENSE00002180848">
+              <coordinates coord_system="LRG_256" start="8996" end="10194" strand="1" mapped_from="GRCh38" />
+            </exon>
+            <protein_product source="Ensembl" accession="ENSP00000431441.1">
+              <coordinates coord_system="LRG_256" start="8809" end="9097" strand="1" mapped_from="GRCh38" />
+            </protein_product>
+          </transcript>
+          <transcript source="Ensembl" accession="ENST00000526189.1">
+            <coordinates coord_system="LRG_256" start="8074" end="9644" strand="1" mapped_from="GRCh38" />
+            <long_name>MPZ-006 (processed_transcript)</long_name>
+            <exon source="Ensembl" accession="ENSE00002145910">
+              <coordinates coord_system="LRG_256" start="8074" end="8184" strand="1" mapped_from="GRCh38" />
+            </exon>
+            <exon source="Ensembl" accession="ENSE00003571903">
+              <coordinates coord_system="LRG_256" start="8509" end="8644" strand="1" mapped_from="GRCh38" />
+            </exon>
+            <exon source="Ensembl" accession="ENSE00003517423">
+              <coordinates coord_system="LRG_256" start="8805" end="8865" strand="1" mapped_from="GRCh38" />
+            </exon>
+            <exon source="Ensembl" accession="ENSE00001888443">
+              <coordinates coord_system="LRG_256" start="8996" end="9644" strand="1" mapped_from="GRCh38" />
+            </exon>
+          </transcript>
+          <transcript source="Ensembl" accession="ENST00000476410.1">
+            <coordinates coord_system="LRG_256" start="8601" end="9638" strand="1" mapped_from="GRCh38" />
+            <long_name>MPZ-003 (retained_intron)</long_name>
+            <exon source="Ensembl" accession="ENSE00001842155">
+              <coordinates coord_system="LRG_256" start="8601" end="8644" strand="1" mapped_from="GRCh38" />
+            </exon>
+            <exon source="Ensembl" accession="ENSE00001812838">
+              <coordinates coord_system="LRG_256" start="8805" end="9638" strand="1" mapped_from="GRCh38" />
+            </exon>
+          </transcript>
+          <transcript source="Ensembl" accession="ENST00000488271.1">
+            <coordinates coord_system="LRG_256" start="8783" end="9278" strand="1" mapped_from="GRCh38" />
+            <long_name>MPZ-004 (retained_intron)</long_name>
+            <exon source="Ensembl" accession="ENSE00001841082">
+              <coordinates coord_system="LRG_256" start="8783" end="8865" strand="1" mapped_from="GRCh38" />
+            </exon>
+            <exon source="Ensembl" accession="ENSE00001834683">
+              <coordinates coord_system="LRG_256" start="8996" end="9278" strand="1" mapped_from="GRCh38" />
+            </exon>
+          </transcript>
+        </gene>
+      </features>
+    </annotation_set>
+    <annotation_set type="lsdb">
+      <source>
+        <name>List of locus specific databases for MPZ</name>
+        <url>http://grenada.lumc.nl/LSDB_list/lsdbs/MPZ</url>
+      </source>
+      <modification_date>2015-06-22</modification_date>
+    </annotation_set>
+  </updatable_annotation>
+</lrg>

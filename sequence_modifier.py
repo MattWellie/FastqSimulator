@@ -36,7 +36,7 @@ class Modifier:
                     start = self.transcript_dict['exons'][exon]['genomic_start']
                     end = self.transcript_dict['exons'][exon]['genomic_end']
                     b_or_a = self.transcript_dict['exons'][exon]['cds']
-                    old_cds = self.transcript_dict['exons'][exon]['old_cds_offset']
+                    old_cds = self.transcript_dict['old_cds_offset']
                     self.modify(exon, transcript, start, end, b_or_a, old_cds)
                 except IndexError:
                     print 'The index was out of range, line 43 seq_mod'
@@ -68,16 +68,22 @@ class Modifier:
             base = str(random.sample(['A', 'C', 'G', 'T'], 1)[0])
         self.genomic[edit_coord] = base
         # Identify the position of the variant within the transcript (For HGVS)
-        cds_delay = self.transcript_dict['cds_offset']
+        if b_or_a == 'before':
+            cds_delay = old_cds
+        else:
+            cds_delay = self.transcript_dict['cds_offset']
         p_length = self.transcript_dict['protein_length'] + 3  # For stop codon length
         exon_length = end - start
-
         """
         Put in something here to deal with if the exon is pre-coding
+        b_or_a is 'before' if the exon is pre-coding sequence
         """
-        # Edit coord + 1 to compensate for 0-base counting
-        variant_pos = (edit_coord + 1) - start
-        hgvs_pos = (self.transcript_pos + variant_pos) - cds_delay
+        # Edit coord + 1 to compensate for 0-base counting sequence index
+        if b_or_a == 'before':
+            hgvs_pos = (edit_coord + 1) - (old_cds - 1)  # Trying to fix indexing
+        else:
+            variant_pos = (edit_coord + 1) - start
+            hgvs_pos = (self.transcript_pos + variant_pos) - cds_delay
 
         """
         This is the correct hgvs nomenclature for annotation by annovar

@@ -125,7 +125,8 @@ class GbkParser:
                 elif g_stop > offset > g_start:
                     self.transcriptdict['transcripts'][transcript]['cds_offset'] = offset_total + (offset - g_start)
                     self.transcriptdict['transcripts'][transcript]['exons'][exon]['cds'] = 'after'
-                    break
+                elif offset < g_start:
+                    self.transcriptdict['transcripts'][transcript]['exons'][exon]['cds'] = 'after'
 
     def fill_and_find_features(self):
         dictionary = self.transcriptdict['input'][self.transcriptdict['refseqname']]

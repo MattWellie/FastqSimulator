@@ -124,14 +124,16 @@ class LrgParser:
             elif g_stop >= offset >= g_start:
                 self.transcriptdict['transcripts'][transcript]['cds_offset'] = offset_total + (offset - g_start)
                 self.transcriptdict['transcripts'][transcript]['exons'][exon]['cds'] = 'after'
-                break
+            elif offset < g_start:
+                self.transcriptdict['transcripts'][transcript]['exons'][exon]['cds'] = 'after'
+
 
     def get_nm(self):
         annotation_sets = self.transcriptdict['updatable'].findall('annotation_set')
         for annotation_set in annotation_sets:
             if annotation_set.attrib['type'] == 'ncbi':
                 features = annotation_set.find('features')
-                genes = features.findall('gene') # Multiple 'genes' includedin LRG
+                genes = features.findall('gene')  # Multiple 'genes' includedin LRG
                 for gene in genes:
                     transcripts = gene.findall('transcript')
                     for transcript_block in transcripts:
