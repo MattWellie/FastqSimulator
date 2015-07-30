@@ -110,6 +110,9 @@ for filename in input_files:
     except TypeError:
         fail_list.append(filename)
         print 'problem with file %s' % filename
+    except AttributeError:
+        fail_list.append(filename)
+        print 'problem with file %s' % filename
 
 #  Dump a copy of the gene list
 with open(os.path.join('pickles', 'genelist.cPickle'), 'wb') as handle:

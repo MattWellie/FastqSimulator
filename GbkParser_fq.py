@@ -92,8 +92,6 @@ class GbkParser:
                     alt_dict['exons'][exon] = minidict
                     exon += 1
             self.transcriptdict['transcripts'][alternative] = alt_dict
-            print 'Transcript: %s' % alternative
-            print 'list: %s' % self.transcriptdict['transcripts'][alternative]['list_of_exons']
 
     def get_protein(self):
         """

@@ -2,12 +2,48 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="707b5109-de10-40a7-91d8-eb9720a47995" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/FastqSimulator.iml" afterPath="$PROJECT_DIR$/.idea/FastqSimulator.iml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/VCFs/744_anno.vcf.avinput" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/VCFs/744_anno.vcf.hg19_multianno.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/VCFs/744_anno.vcf.hg19_multianno.vcf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/VCFs/run_744.vcf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/input/LRG_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/input/LRG_15.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/input/LRG_19.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/input/LRG_252.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/input/LRG_253.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/input/LRG_255.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/input/LRG_257.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/input/LRG_258.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/input/LRG_259.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/input/LRG_262.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/input/LRG_263.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/input/LRG_264.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/input/LRG_860.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/pickles/COL1A1.cPickle" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/pickles/KIF1B.cPickle" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/pickles/LITAF.cPickle" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/pickles/MFN2.cPickle" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/pickles/MTMR2.cPickle" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/pickles/NDRG1.cPickle" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/pickles/NEFL.cPickle" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/pickles/PLEKHG5.cPickle" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/pickles/PMP22.cPickle" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/pickles/PRPS1.cPickle" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/pickles/UBE3A.cPickle" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/pickles/VMA21.cPickle" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/pickles/XIAP.cPickle" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pickles/BAP1.cPickle" afterPath="$PROJECT_DIR$/pickles/BAP1.cPickle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pickles/EGFR.cPickle" afterPath="$PROJECT_DIR$/pickles/EGFR.cPickle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GbkParser_fq.py" afterPath="$PROJECT_DIR$/GbkParser_fq.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LrgParser_fq.py" afterPath="$PROJECT_DIR$/LrgParser_fq.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pickles/IKBKAP.cPickle" afterPath="$PROJECT_DIR$/pickles/IKBKAP.cPickle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pickles/MPZ.cPickle" afterPath="$PROJECT_DIR$/pickles/MPZ.cPickle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pickles/MYBPC3.cPickle" afterPath="$PROJECT_DIR$/pickles/MYBPC3.cPickle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pickles/NTRK1.cPickle" afterPath="$PROJECT_DIR$/pickles/NTRK1.cPickle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fastQs/all_refsR1.fq" afterPath="$PROJECT_DIR$/fastQs/all_refsR1.fq" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fastQs/all_refsR2.fq" afterPath="$PROJECT_DIR$/fastQs/all_refsR2.fq" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/comparison.py" afterPath="$PROJECT_DIR$/comparison.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fqRunner.py" afterPath="$PROJECT_DIR$/fqRunner.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pickles/genelist.cPickle" afterPath="$PROJECT_DIR$/pickles/genelist.cPickle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sequence_modifier.py" afterPath="$PROJECT_DIR$/sequence_modifier.py" />
     </list>
     <ignored path="FastqSimulator.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,12 +67,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="sequence_modifier.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="sequence_modifier.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sequence_modifier.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44444445" vertical-offset="978" max-vertical-offset="2040">
+            <state vertical-scroll-proportion="0.0" vertical-offset="33" max-vertical-offset="2040">
               <caret line="82" column="54" selection-start-line="82" selection-start-column="54" selection-end-line="82" selection-end-column="54" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fqRunner.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fqRunner.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1440" max-vertical-offset="2565">
+              <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="comparison.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/comparison.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.76719576" vertical-offset="540" max-vertical-offset="2445">
+              <caret line="65" column="69" selection-start-line="65" selection-start-column="69" selection-end-line="65" selection-end-column="69" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -44,8 +104,8 @@
       <file leaf-file-name="GbkParser_fq.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GbkParser_fq.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1395" max-vertical-offset="2820">
-              <caret line="110" column="0" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1214" max-vertical-offset="2790">
+              <caret line="111" column="63" selection-start-line="111" selection-start-column="63" selection-end-line="111" selection-end-column="63" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -72,8 +132,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/LrgParser_fq.py" />
-        <option value="$PROJECT_DIR$/GbkParser_fq.py" />
         <option value="$PROJECT_DIR$/sequence_modifier.py" />
+        <option value="$PROJECT_DIR$/GbkParser_fq.py" />
+        <option value="$PROJECT_DIR$/fqRunner.py" />
+        <option value="$PROJECT_DIR$/comparison.py" />
       </list>
     </option>
   </component>
@@ -275,8 +337,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="28" width="1602" height="736" extended-state="7" />
-    <editor active="false" />
+    <frame x="-1" y="28" width="1602" height="736" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -330,8 +392,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/GbkParser_fq.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1395" max-vertical-offset="2820">
-          <caret line="110" column="0" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1214" max-vertical-offset="2790">
+          <caret line="111" column="63" selection-start-line="111" selection-start-column="63" selection-end-line="111" selection-end-column="63" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
@@ -340,9 +402,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sequence_modifier.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44444445" vertical-offset="978" max-vertical-offset="2040">
+        <state vertical-scroll-proportion="0.0" vertical-offset="33" max-vertical-offset="2040">
           <caret line="82" column="54" selection-start-line="82" selection-start-column="54" selection-end-line="82" selection-end-column="54" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fqRunner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1440" max-vertical-offset="2565">
+          <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comparison.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.76719576" vertical-offset="540" max-vertical-offset="2445">
+          <caret line="65" column="69" selection-start-line="65" selection-start-column="69" selection-end-line="65" selection-end-column="69" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

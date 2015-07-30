@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="application/xml" href="lrg2html.xsl"?>
+
+<lrg schema_version="1.9">
+  <fixed_annotation>
+    <id>LRG_408</id>
+    <hgnc_id>2499</hgnc_id>
+    <sequence_source>NG_009171.1</sequence_source>
+    <organism taxon="9606">Homo sapiens</organism>
+    <source>
+      <name></name>
+      <contact>
+        <name>James Ware</name>
+        <address>Molecular Cardiology, Imperial College, London, UK</address>
+        <email>j.ware@imperial.ac.uk</email>
+      </contact>
+    </source>
+    <mol_type>dna</mol_type>
+    <creation_date>2013-01-16</creation_date>
+    <sequence>TCAACAGATATTTACTGAGCACCTACTATGTGTCCCATATTATTCTGAGGATACAGTAGTGAACAAGATCACATAGGGCCAGGCACAGTGACTCACGCCTATAATCCCAGCACCTTGGGAGGCTGAGACAGGAGGATCATTTCAGGCCACGAGTTCAAAACCAACCTTGGCAACATAGCGAGACCCTACCTCTACAAAAAATTTAAGAATTGGCTGGGCATGGTGGCACACACCTGAGTCCCAGCTATTTGGGAGGCTGGGGCCAGAGGATCCCTTGAGCCCAGGAGTTTGAGGCTGCAGTGAGCTATGATTGCACCAGAGTACTCCAGCGTGGGTGACAGAGACCTTGTCTCTAAAAAAAAGGGGGGGGAGGGCCGGGTGTGGGTGTGATGGCTCACACCCGTAATCCCAGCACTTTGGGAGGCTGAAGGTGGAGGACTGCTTGAGCAAGTGAGTTTGAGACCAGCCTGGGCAACATGGTGAAACCTTATCTCTACAAAAAATACAAAAATTAGCCAGGTGTGGTGGCATATGCCTGTGGTCCCAGCTACTTGGGAGGCTGAGGCGGGAGGATCGCTTGAGCCCAGGAAGTTCAAGGCTGCAGTGAGCTATGATCACACCACTATACTACTCCAGCCTGGGTGACAGAGCGAGACCCTTTCTCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGGATCAATATGGGCCCAACATTCAGGAAACTGACATGAGAGTGAGGAGAAAGATAAACTAGTAAAAAATTAATTTACATGAAAATCTCAGACAGTGATATGTCTGTATAGATTCTAAGAGACCAGAGGAATGAGACTGTAGCTACAGGGAGATTCTGCAGGAGTCGGAAGGCGCCTTGAGGAGGGTGCACAAGACGGGGAGCAGGTATAGGGATGAGCTGGTAGGTTAGACTCTGGAGAAGACAGGACTTAGAGGAGAGAGCTCCTGGGAGGTACCTGGTCCTACCTCTCTCTTGGCCCAGCCGTGGGGGCTGAGCCTCCTCAGGGACCCCTTCTGGGGGTCCGGCAGGTGACACAGGGCGGCTGGGCTGGGGGGTGCCCCCAGGACTGGGCTCTGTGCCCTTTTGCAGGGAACCTTCCGAATGGAAACTCTGGTTGCTGTTCTCATCTGCGGGAGCAAGAGCCGAGATGGTTGGCCTGAGATCCCTAGTACACTCCTTCAGTCCCCACAGCCCCCCGCGTTTCAGGATCCCTACCTACCATTAAGATCCAGCAGGATGAGAGGGCCACCCCCTCGGGGACTGGCGCCCCTGCCCCGACGTTCCCGGCCACGGGATCTCTCTGCCCCGCCACCTGCCCGCCTTCGCTCCTGGGGGTTAGAGGATTAGGGTCAGAGCTCTTGGAAAGCCCCACCATACACCTAAGGAAACTGAGGCACTGAGAAGCAAAAGGGCTCAAACTCAGGGGGTGTGGAGCAGAAAAGAGGGCAAAAGGGGAGGAGCTGCTAATGATGGTTCCCGTCTGTCCTGCTGCATCTGAGGTCTCGGGGAGCTGGAGGTAGAGGTCAGCGTGGGGAGGAACTTGCCTGAGGTTGCACAGATGCAGGGCCTTGTGGGAATGGGGGTTGCTCACCTCCTCCTGGGGATCCACCACTGGCACCCACTTGAAGATACGAAGGGAAGTGTCGCCCACAGTCACCCATCGCTTCTCCCTGTGGGAGGGTGGGGGGCTGGGTCAGAGAGGCCTGAGGGGAGACCCACCCCCCTAGGAGCTGGACACATCTGGGGGTACCTGCAGAGGTTGAGGAGGCACAGGAGGATAGCAACAGTTTTGCTAATGGGGCATAGTTACATGGAGGAAGAGAGTCCTGCAAACCCCAGGGCATAGGCGGTGGGTGCCTCTAGAGAGAGGATATGATTTGGGGCCCTGGCTCTGCGGACCCCTGGGGCACACATGGGGGGCGTGGCTATGGGCCTGGCCCGGGATCAGAGCCCTGCAGATCCTGGGGCGCACCTGCAGGAGGGGTGTCAAAGCTTTAGGGGGCGGGGCACAAGAGGGGGCTCCCGCTCTGGGAGGACACGGCTGGGGATCACGCTTTGTAGACCCCCAGGAGTAGCCAGGCGAACGGGGACAGAGCCCTGTGGATCCAGGGCAAAGCTAGTGGGTGGAGATACACCGAACACCCGGGGCCCAGAGCTGGCGAGGGCAGCGTAGACGCCTTTGGTGCTGGTGGTCCCGCTGTGTCCCGTCCCTGGCCCCCGAGCAGCGCTCACCATCTCCGGACCTTCTCGATGGTCGCCATCACCTTCTTGATGTCATCCTTGGCCCGGCTCCGGGTCTCGGCCCGTACAGTCCGGCCGGCCATGCTGGCGGGGCTGGGGCCGGGGCCGAGCCCGCGGCGGGGCCGCCTCCCGTCCGGCGGGCTCAGGCTCCGCGCCAGGCCCGGGCGCCGCGCTCTCGGCCTGCCGTCCCCCCTGGAGTTGGCCGCGCCCTCTCTCGTCCCCAACGCCTCCGCAAGTCCCCGCCCCGTTTCCTGCCGCCGCGCCCCGCCCCGGCCTGTCCCCGGAGCGGCCCGGTGGCGCGGGCGGCCAGAGCCCAGGCCTGGAAGCCCGGCCGGCCCCGCCCCGACCCGGGCCCGCCCCCTTGGAGCGCCTGGACGCTCAGCGCCCCCTGCCCGCCGCCGAGAGCGGGAGTTGGGGACGGACGCGCGAGTTGGGGACGGAGAGCGGGAGTTGCGACCGGACGCGCGAGGCAGGGCCGAGGCCGTGTGTTCAGACCACGTGGGCGCGGGGTGCGCGACAGGGTCTGTGTCCTGCGCTGCGTGAGCCGCGGTGGGTGTCCGCGAAACGCTGTGTGTGGAGTGCGTGCGTGTGTCCGCCCTCGCCAGGCTGTTGGTCTACACCGCCCAACTTACTCAGTCATCCATTCATTCAACAGTCTTGTTAACTGAGTGCCAATTACGCTCCAGGCGCTGCGAATACGAGTGGGTCTCCACCACCAGAATGGCTAAAGTGAAAAAGACCGCACCGTGTGGAGGCGAGAAAGTAGAGCGACTGGACCTCTCTTGTATTTCTGGGGGAGTGTAAATTGGTAGAGACATTTTGGAAAACTGGCAGTTTTCTAATGAAGCCGAACATATGCCACCTCTGTGATCCAGCAGTTCCACTCCTAGGCTGTCAACACCCAGCAGAAATGTGTAGGTGTGAGCATCAAGAGGGTGCATGGGAATGTTCAGAGCCCTTTCATAACAGCCCCAAACTGGAAATAACCCATCAACAGAATGGAAAATGAATGATGCCCTACTCACTACCATGCACATAGACACAGCAACGGGATTGACATGCCCGGCTACACACAGCAACATAGACAAGTCGCATGATGAAATCTTGAGTGACAGAAGCCAAATGCAACAGTACATACTAGATGGTTCCAGGTGTATTACGTTCAGAACCAGACAAAACTAATTTATAGTGCACCAAAGTCAAGATAGTGATCGCCCTTAGGGTTGGGAGGGGACGAGGGGAGAGCTTCTGGGAGCTGATCCAGTTCTGTTGTGTAATCTGGTGCTGGTTCCCTGGGCATATGTATTCTGTGAAAATCCATCACATGACTTAAATAAAATGTACATTACTTAAATAAAATGAGTGTGTCTTTGTTGACTTTATTTGAGGCTGGCTTGTCAGCAGATAAGACCATGTCAAAATTTGTGCTGCTGTTGTGTGTGTGTGTGTGTTTCAAGGTGTGGCTGTTGTGTCTGTGAATTTGGGCGTGACCATGTCCAGAGGTTAAGGGTATAAGGGGTTAGGAGCATGGTTAAGACAGCATTTTTTTGAGCCAAGCTGCTTAGGTAAAATCCCAGTTGTGCCACACCTAACTGTGTTACCCTGGACAAGTCACTTCTCTCTATTCCGCATCTATAACACAGGAGTTAGTTAATGTGCATATGGCTCTTAGAACAGTGCCCAGCACATGGTAAATGCCCAATAAATATTTACAGTTAATACACATGTGATTGTGGGCCCTACCAATTGTCTGGCTCAATTCTATCTGCTGTGCCCTCTCCAGTTAAACTCTTTCTTCTTTTATTCCAGCAATTGCTCACGGCAATACACACACCCACTCACACGAACACACGCACACACATGCACGCGCACATGCACACACGCGCACACCTGCACACTCACACGCACACAAATCCACTCGCACACACGCATGCTCACACGCACACACGTCCGCATGCACGCACACACGCAGACACACGCAAGCGCACACACACACGGGCCTCCTCGTCTTCATTCACAAACCCCATTAGCTTCTGTTGTCTATGGGCTTCCTCGACAGACCGCGAGCCCCTCGCGGGGGCCAGAAACCAAGTATGGATCATCCCTATGTGCCTTCCTTTCCGTCTACACCAGGTTAATGGGGTTGACGTATGGGTGTGACTTCCTGTCCAGGTCTCTGTAGCTTGTTCTCCTGGGGGTGGGGGGCGGGGTGTGATTGTTACTAGGCCTGCTAAGAAGAGGAGAGCAGTGTATCTGTCTCCCTCCTGGTGGGTGTGACAATGAGATTGGAAGCCATCTAAGATAGGCCAGGAGATGTATGTCTGGACAAACATGCCCCAAGCCTGACGGCCCCCATCGTAGCCTCCCTCGCAAGCCGCGCCCCAGACTAGAGAGAGGGCCTGCGCATTCCTGTCCTGCCAGTCCGGCAGTTCCCTCTCCTGTCTCCTCAGCTTTACACCCAAAGCAGCCGCTGCCTCAGGTCCAAGCCTGAGCCCGCGGCAGAACATTGGGCTGCCTCCCAGGCCCTGACACCCCCAGCCCCGAGGTCCTGTCCACCCGGCAGACAACTTGCCTTCCCCCTCGGGCCCCTTCCCCCACTAGGCCCCACGGACGAGGAGCTGAGCTCAGGGCCAAGGAATCCTGTCTCAAAAGGGGGGGTAGGATGAAATGTTTGGGGTCTGGGCTCTGATTGGCTGCGCCCGGGCCACGCCCCCAGCCCTTTCCCCTTTCTCCCCCCTCGAAAGGGGGGCGTGAAGGGAGCCGGGATCAGCCAGGGGCCAGCATGAGCCGGAGGGAGGGAAGTCTGGGTAAGGGGCTGAGGGACCGGACGCCGGGTCGCTGAGGGGCGCAGGAGTCAGAGGGATTGGGAGCTGGGGGTCTGGGTTTCCGCCACCCCCGGGTCCGGGAGGGGAGCGGCCTTGGCGGGGAAGGGCAGGGCTCCGGTGTCAGGTAACGAGTGAGCGGGTGAGTTGTGAGAAACAGCAGGCGCTAGGGTTTAGAGGAGGCCTGGGGCTGAGGTTTCAGGGACCTGGGCTCAGGGCTTAGATCACCGGTTCGAGTACACCCAGGGGGAGGACTGGGGTCGGGGCTGGGGCAGGACCCCTGCGTCCACTGAGTCTCGGGAAAGAATCAGAGCTGGGGGGCTGAAGGAAGGGGTAGAGTAAGGGAAGGCAGTCTTGGAGTCACAGGAAGTAGTGAGTGACAACAGGAGACGAAAGTCTGGGCTGCTGAGGATCGCGACTGGTGCTGGGAAACTTCGGGGGTGGGGCGGGGGCGGGGCACCGGGTCAGGACTACATTCCCCAGCACGCATCGGGCGCGCGCTGTGCGTTTCGGGAAATGGAGTCCCTCCCGGGGCGCCAGACACTGGCTCTTGCGGACCTTGATTCGCTGACTAGCCAGGCCAGCGCCTTGCATGGATGGGGCATCAGGGAGAGAAATGGAAATGGAAGTCAGTCTCCCTATCTGTAAAATGGGCCTTCAAGGCACATTTTGATATGAAGTTCTGTACTTCGATGATGTTGAAGTCCACTAGCAGTCACTGAGGTAGAAATATGTAAGCCCTGTCTTCAAAGGGCTCTCAGGCTAAGGCAGATACACACAGAAAAGCCGTTAAAAGAGCTACCCTGGAACTCATGCAAATGGCCTTAAGTCAAAGGAAGGAGTTCGTTTATAAAGGAGAAGTGATTCTGGAGGCTTCACTGAGGAGGCAGTACAGTCATGCACTGCATAACAACATTTGGTCAACAGGTGGACCGCACAGACAATGGAGGTCCCATAAGATTCTATGCATTTTTAGCCTGGGCAACATGGCGAAACCCTGTCTCTACAAAAAAATACAAAAATTAACCGGGCATGGTGGCGCATGCCTGTAGTCCCAGCTACACAGGAGACCCAGGCGGGAGGATCGCTTGAGCCCAGGAGGTCGAGGCTGCAGTGAGCCAAGATTGCACCACTGCACCCCATCCTGGGCGAAAGAGCAAGACTCCGTCTCTCTCTCTCTCTCTCTTTCTCTTTTGGGATGGAGTCTTTCTCTGTTGCCAGGCTGGAGTGCAGTGGCCTTGGCTCACTGCAACCTCTGCCTCCTGGGTTCAAGCAATTCTCCTGCCTCAGCCTCCCAAGTAGCTGGGACTACAGGCGTGTGCCACCAAGTCCAGCTAATTTTTTTTTTTTTGTATTTTTAGTAGAGATGAGGTTTCATCATGTTGGCTAGGATGGTATTGATCTCTTGACCTCGTGATCCACCTGCCTCAGCCCTCCAAAGTGCTAGGATTACAGGCGTGAGCCACTGCGCCTGGACAATTTTTTTTTTTTTTTTTGAGACGAAGTCTCGGTCTGTCACCCAGGCTGGAGTGCAGTGACCTGATCTCAGCTCAATGCAACCTCCTCCTCCCAGGTTCAAGCGATTCTCATGCCTCAGGCCCCCTGGTAGCTGGGATTACAGGCACCCACCATCATGCCTGACTAATTTTTGTATTTTTAGTAGAGACAGGGTTTCACCAGATGGTCCCGAACTCCTGACTTCAAGTGATCCGCCCGCCTCATCCTCCCAAAGTGTGGGATTAAAGGCGTGAACCACTGAGCCCAATGCCTGGCTAATTTTTGTATTTTTAGTAGAAACGGGGTTTCACCATGTTGGCCAGGCTGGTCTCAAACTCCTGACCTCAAGTGATCTGCCCATCTCGGGCTCCCAAAGTGCTGGGATTACAGGCGTGAGCCACCACGCCTAACCGATATATATTATATAATAAAATACATACCTATATATGTATTTTAACTGTAGCTTTTCTATGTTTTTATTTATTTATTTATTTAGAGATAGGGTCTTACTCTGTTGCCCAGGCTGGAGTGCAGTGGCACACTCACAGCTCACTGCAGCCTCGACCTCCCGGGGTTCAAGTGATCCTCTCATCTCAGCCTCTCAATTAGCTGGGACTACCGGCATGTGCCACTATGCCTGGCTTATATTTGTATTTTTTGTAAAGATGGGGTTTCACCATATCGCCCAGGCTGGTCCCAAACTCCTGGGCTCAAACAATCCACCTGCCTTGGCCTCCCGAAATGCTAAGATTACAGACATCAGCAATCTCACCTGGCCCTTTTCTATGTTTAGATACACAAATACCACTGTGTTCCAGTTGCCTGCTGTACTGTAACATGCTGTCCAGGTCTGCAGCCTAGGAACAATTGACTAACACCACATAGCCTGGGCGTGTAGCAGGCTGTACCACCTAGGTTTGTGTAAATACACTCTACGATGTATTTACGTACTCTACGATGAAATCGCCTAAGGATGCATTTCTCAGAATGTATCCATGTTGTTAAGCAAGGCATGACTGTCTTTGAATTTGACTTTAATAGGATTTCAACAGTGATTTGGGGACAGGCAATACATTTCAGGTAGACCACCTGCTTGACAAAGTTCTGGTGCCTCATTTTCCTTCAGTTGGAATGGGACAGACCCTGATGGGGTCAGGAACAAAGAGCCAGCGTGGGAGAGGTGATCAATGAGCAGGAGGTTGGCCATCCTCATTCCTCCCCCCTTTCCCACCAGAAGACCCCCAGACTGATTCCTCAGTCTCACTTCTTCCCCACTTGGAGGCCAAGATCCGTCAGACACACAGCCTTGCGCACCTCCTCACCAAATACGCTGAGCAGCTGCTCCAGGAATATGTGAGTGGGAATGGGGGTGGGGGTGCCGGGGGCCTGGGGAATGGGAGCAGACATCACAGAGGTCCTCGATCACCCATTCTCTCAACCTCATTTTCCAACTGTGGAAATCAGGGCTCCTGAGAGGGACAGCAACTTGCCCCTGGCCACACAGCAAATTGGAAGAGGACCCTGTCTGTGACCCAGATGCCACTCTGTCCTCTCCAGCTTAGAGGCACCCTCCTCAGTGCTTTGTTTTTGAGAGGAGGCCTCGCTCTGTCGCCCAGGCTGGAGTGCAGTGGTGCCATTATGGCTCATTGCAGCCTCAACCTCCTGGGCTTAAGCAATCCTCCTGCCTTAGCCTCTCAAGTAGGTGGGGCCACAGGCACACACCATCATGCCTGGGTAATTTTTTCATTATTTTGTAGAGGCAGGGTCTTGCTGTATTGCCCAGGCTGGTCTTGAACTCCTGGGCTCAAGTGACCTTGGTGCTTTAAGTCAGAGGTAGCCAGGTAGCCTGGGGCAGTGAAGAGAACTCTGATCTGTATCTCAGGAAACCGAGGTTCTAGGCTCTGCGTGACCTTGACACCTCCCCTCCATGGGCCTTGGTCTCTCCCCAACAGTAAAAGGAGGCAGCTAAATATGATTAACTCTGAACTCTCCCACCTGGGATATTCAGGGAAGCCAAGAAGAGGTTCCAATCTGGAGCAACAGTTATCCCAAGAGGGCACTTTCACAGAAGACAGGGATCTGCTGACATCTTTAGTTGGGCAGAGGACCCTGCCCAAGGAAAGAAAATATTTCCCCAAATTACCCTCGTGTAGTGAAGGGAGGGTATAGCTTTGAATCAGACTGCAGGCCTGCCAACTTGTTAACTGTGAGCTTGGGCAGTAACAATAACATTAAAAATAATAATGTAACAATTATGGCAGCGGATAGTGGGAGAATAGTGGCATAATAGAACTAGCTTTGGGCTGGGTGCGTTGGCTCATGCCTGTAATCCCATTGCTTTTGGAGGCTGAGGCAGGAGGATTGCTTGAGCTCGGGAGTTCGAGACCAGCCTGGGTAACACAGTGAGCCCTCATCTCTTAAAAAAGAAAAGAATAAAAGAAAAGAAAATAAAAAGGAAAAGAAAAAAATAGCCAGGCGTGGTGGTGTATGCCTGTGGTTCCATCTACTCAGGAGGCTGAGTGTGGAGGATTGCTTGAGCCCTGGAGGCTGTGTGATCAAACCATTGCTCTCCACCCTTGGCGACAGTGTGAGACCCCATCTATTTAAAACAAACAAAGAAAACTAGCTTTGTACTGCTATGAACTTTGGTTCAAATTCCAGCTCTGCCACTTCCTAGGGTAAGTCACTATAGTCACTGTATCTCCAGCCCAACATTTTTTTTTTTTTTTTGAAATGGAGTTTCGCTCTTGTGGCCCAGGTTGGAGTGCAATGGTGCGATCTCAGTTCACTGCAACCTCCGCCTCCCAGGTTCAAGGGATTCTTCTGCCTCAGTCTCCTGAGTAGCTGGGATTACAGTCACCACCACCATATCTGGCTAATTTTTGTATTTTTAGTAGAGATAGGGTTTCACCATGTTGGCCAGGTGGGTCTTGAACTCCTGACTTCAGCTGATCTGCCTGCCTTGGCCTCCCAGAGTGCCTGGATTACAGGCGTGAGTCACCGTGCCCAGCCCCACATTTATCTTTCATTTGTTCATTCATATGATGTTGATTCATTGAGCCCCTGCTCAATGCAGGTACAGAGGTTGGGGAGGATAGGGAAGGGAATGAAGCCCCCTTGGCCCCTGGACTATCTTATATGATTTCCATGAAGACAGGACAGGAAGCTTCCCCATTCATTGTACAGATGAGAAGGCTGAGGCTCAGAGAAGGGAAGTGGTTTTGCCCCAAACTGCACAGCTAGTAAGTGGTGAAGATAGGATTTGAACTCTGGTCTGTAAGGTAACTTTAATAAAAGAGCTGACATTTTTACTGAACTCTTCCTGGGACCAGGCCCTGTCTTGAACACTTGACATGGTCATAACTGCTTTATGAAGTTGCTGCTGTTATTAGGTCCTATTTATTTATTTATTGAGACAGGGTCTGACTCTCACCCAGGCTGGAGGGCAGTGGTGCCATCATAGCTCATTGAAGCCTTGACCTCCTGGGCTCAAGCAATCCTCCCACCTCAGCCTCAGCCTCCGGAACAGCTGGAACTACAGACATGCGCCACCACACTCGCTATTTTTTTTTTTTTTTTTTTTTTTAGAGCTGTGGTCTTGCTGTGTTGCCTAGGCTGGTCTCGAACCCCTGGGCTCAAGTGATTATCTCACCTTGGCCTCCCAAAGTGCTGACCTAAACTGGCCCAGTCTGGGTCCAGTTTAGGGAGGAAGAAACAGGCATTGGTGTCAAGCGCATGCCACTTTGTTTTGCCTTAAACAGAGCAGCTCTGTTAGGAGGGATTATCATCTGCAAGATGAGGAAACTGACACCCCCAGAGAGCGGGTTGGAGAGCCCAGTTAACAGCCCCCTGCCCGTGCTCCGGGGCCCCGCTGACCCGCCGGCCGTGTCTCCGCAGGTGCAGCTCCAGGGAGACCCCTTCGGGCTGCCCAGCTTCTCGCCGCCGCGGCTGCCGGTGGCCGGCCTGAGCGCCCCGGCTCCGAGCCACGCGGGGCTGCCAGTGCACGAGCGGCTGCGGCTGGACGCGGCGGCGCTGGCCGCGCTGCCCCCGCTGCTGGACGCAGTGTGTCGCCGCCAGGCCGAGCTGAACCCGCGCGCGCCGCGCCTGCTGCGCCGCCTGGAGGACGCGGCGCGCCAGGCCCGGGCCCTGGGCGCCGCCGTGGAGGCCTTGCTGGCCGCGCTGGGCGCCGCCAACCGCGGGCCCCGGGCCGAGCCCCCCGCCGCCACCGCCTCAGCCGCCTCCGCCACCGGGGTCTTCCCCGCCAAGGTGCTGGGGCTCCGCGTTTGCGGCCTCTACCGCGAGTGGCTGAGCCGCACCGAGGGCGACCTGGGCCAGCTGCTGCCCGGGGGCTCGGCCTGAGCGCCGCGGGGCAGCTCGCCCCGCCTCCTCCCGCTGGGTTCCGTCTCTCCTTCCGCTTCTTTGTCTTTCTCTGCCGCTGTCGGTGTCTGTCTGTCTGCTCTTAGCTGTCTCCATTGCCTCGGCCTTCTTTGCTTTTTGTGGGGGAGAGGGGAGGGGACGGGCAGGGTCTCTGTCGCCCAGGCTGGGGTGCAGTGGCGCGATCCCAGCACTGCAGCCTCAACCTCCTGGGCTCAAGCCATCCTTCCGCCTCAGCTTCCCCAGCAGCTGGGACTACAGGCACGCGCCACCACAGCCGGCTAATTTTTTATTTAATTTTTTGTAGAGACGAGGTTTCGCCATGTTGCCCAGGCTGGTCTTGAACTCCGGGGCTCAAGCGATCCTCCCGCTTCAGCCTCCCTAAGTGCTGGGATTGCAGGCGTGAGCCACTTTCCCAGCCTCTCTTTGCTTTGCCTGCCCCGTTCTCTTAACTCTTGGACCCTCCTCGTCTGCATGGTAACTCCGTCTGAGTCTACCATTTTCTTGCTCTCCCTCCTTCCTTGGGCCTGCCTCAGTTCCCTTTGGCCTCCCCCTTTACCCAGCTCTTGGGGTGTCTCTGTTTTTTCCATCCCCACTTCCTGCCTTCTCGTGGCCCTGTGTGAGCACATGTGTACATCTCAGCCTTATCTCAAGGAGGTGACACCTTCTCTCCTTGTCCCCATCTGGCCGTCTCTCTGTGCTTCCCTGGCCAGGGGCGTGCCTGCTGGTCCTATGGGGGGAAGGCTACTCTGCATCTCAGCCACCTTCCTCAGGCTCACTCCACCTACATCCCCAGTCTGCCACACCCCATCCCTTTGGGCCTCAGCCCTGTCCCTTTGATGTCCTCCTTTCCTTCAGCCCCTCTGCCCTGTCCCTGCACACCTCCACTGCCTCCCAGCAGATCTGTGGAGACAAAACAAGCAACACCTTAAAAGAGTTTTATTTCTGAAAATAAATTAATTTTTTGTAAATAAAATGTTTAAAAATAAAAAAGAAACTAAAGTTACTTGTATATATAGTTGTTGAAAATGGGGAGACAGCTTTAGGGAGAAAAGGACCCTTGGGATGCAGCCTAGTCCCCCAGACATGCCCAAGAAGCCCAGCAGTATAAATAGGAGGCTGACAGCCCCTGGCCAGTGGTGCCCTCTGCCAGCCCAGAACAGGAAGTGGATGTGTCCTAACAGGAAACAGATGTGATGCAGTCCTTAGTTCTTCAAGAATTGGGCTTCCATGGATCAGGAAGTGGAGCCCCTGAGGACAGGAAGTGGAACAGTAGCCCCAGAGAGACAGGCCAAGGAGGGGAGCCAATGAACTTCAGCAGGAAGAAGGAAGCCTATCCGCTTAGAAAGGCGGGCTCTTCATACAGCGAATGAGGCAGACAGAGACAGGAAGGCAGCCCCAACCGTCCCAAAATTACAAAAAAGGGAAGGTCTCAGGGAGAGCCTAGGAAGGGGACCAACTGTCCTCTCCCTGTAGAGTGACAGGTGAAGCCTCTTTGGAGAGGTGCATCTTTCCAACCAGGAAGTGGACACCCAGTACCACTGGATGGGTAACCCATGGAATGGCATCCATGGAGGTTGACCCAGACCTAGAACGCAGGCCAGAGGACCTGGGCCGGAAGGCCCTGAAATAAGGAAATTGAGGCCTGGCTCCCAGGAAATATTCCCATACATGGCACCCAAGCCCCATCTGCTAGATGAGGTTTATCTCCTTTTCTAGCCCACAAGCAAGGCAGAAAAGAGGCCATTGTGAAAGAGGAAGTGCTGCAGCCTCTGACAGGAAGTCCTACCCCTCTATGCTGAGTACTTAGCCTTGAGCAGAGCCAAGTCTCTCACAGCTCGGTCTGTCCAGTGGCCATATTCCCGGGTCACCACGTAGCCTCGACATTTCCTCTCAAAGGCCGAGGCCCCAAAGGCAGCAAGCCCTAGAGTATCCTCTTCTGGGGGGATTGGCAGCCCCAGGGCCGTCATGATGGCGGCCATATTGCCCAGCAGGCCTTGGGCCCTGAGTCTCGCAGCCCCGAGCTGAGCCGGCAGGATGGGACTGCCAGGGTTCAGGTCGCTCTGGTCGTCCTCCACGAGCTGGAGGTGCTGGGTCAATGGCCCTCTGGGCAAGGCTCAGCCGTTCCCCGTCATCCAGGGCGTGCCAGGTCTTAAAGAAGGCGGTGGCAGGAGGCAGGCTGCTGAGCTGGAGCTCAGGGGCTGAGAAGCCAGGGTCACTAAAGGGGCTGCCCTGGTACTGGAGCTGCAGGAGGGACAGAGACAGACAGGAGTGAGGGGACCAGAGCGGTGCCTGGGACTCTGACTTCACGCCTGCCCACTGAGACTGGCTTCTTCCCAGGAGTCGTCACTTGCTGCGTCTCAGGGAGCTGCTGGGATGTCCTGACACAGGGCAAGGGCCCTAGGAGGCTCAGGTGTGTCATCCTCTGCACGCTAGCTGTGCAACGTGGAGTCACAAGCTTCAGAAATTCCCACCTGGCAGTGTTATGAAGATTATAGGAAATAATATATATAAAGCCCTTAGCAGGCCGGGCACGGTGGCTCACAGCTGTAATCCTGGCACTTTGGGAAGCCGAGATGGGTAGATCACTTGAGGTCAGGAGTTTGAGACCAGCCTGGTTAATATGCCAAAACCCTGTCTCTACTAAAAATACAAAACTTAGCCAGCTGTGGCAGTGCACGCCTTCTATGCCAGCTACTCAGGAGGCTGAGGCACGAGAATCACTTGAACCCAGGAGGCAGAGGTTGCAGTGAGCCGAGATCATACCACTGCACTCTAGCCTGGGCGACAGAGTGAAACTGTAAAAAAAAAAAAAAAAAAAGCACTTAGCACAGAGTCTAATATACAATACAGCATCTGATATACAATAAGGGTGTGATAAGCCATCATTAATAATATATTTATATTAATATCAATGAACACTATGATTACATTATTTACTGTAATGTTTTCTTTTCTTTTATTATTTATTTATTTATTTTGATACAGAGTTTTGCTCTTGTTGCC</sequence>
+    <transcript name="t1">
+      <comment>This transcript is identical to the RefSeq transcript NM_001330.3 but with the polyA tail removed.</comment>
+      <coordinates coord_system="LRG_408" start="5001" end="11954" strand="1" />
+      <cdna>
+        <sequence>GGGGCGTGAAGGGAGCCGGGATCAGCCAGGGGCCAGCATGAGCCGGAGGGAGGGAAGTCTGGAAGACCCCCAGACTGATTCCTCAGTCTCACTTCTTCCCCACTTGGAGGCCAAGATCCGTCAGACACACAGCCTTGCGCACCTCCTCACCAAATACGCTGAGCAGCTGCTCCAGGAATATGTGCAGCTCCAGGGAGACCCCTTCGGGCTGCCCAGCTTCTCGCCGCCGCGGCTGCCGGTGGCCGGCCTGAGCGCCCCGGCTCCGAGCCACGCGGGGCTGCCAGTGCACGAGCGGCTGCGGCTGGACGCGGCGGCGCTGGCCGCGCTGCCCCCGCTGCTGGACGCAGTGTGTCGCCGCCAGGCCGAGCTGAACCCGCGCGCGCCGCGCCTGCTGCGCCGCCTGGAGGACGCGGCGCGCCAGGCCCGGGCCCTGGGCGCCGCCGTGGAGGCCTTGCTGGCCGCGCTGGGCGCCGCCAACCGCGGGCCCCGGGCCGAGCCCCCCGCCGCCACCGCCTCAGCCGCCTCCGCCACCGGGGTCTTCCCCGCCAAGGTGCTGGGGCTCCGCGTTTGCGGCCTCTACCGCGAGTGGCTGAGCCGCACCGAGGGCGACCTGGGCCAGCTGCTGCCCGGGGGCTCGGCCTGAGCGCCGCGGGGCAGCTCGCCCCGCCTCCTCCCGCTGGGTTCCGTCTCTCCTTCCGCTTCTTTGTCTTTCTCTGCCGCTGTCGGTGTCTGTCTGTCTGCTCTTAGCTGTCTCCATTGCCTCGGCCTTCTTTGCTTTTTGTGGGGGAGAGGGGAGGGGACGGGCAGGGTCTCTGTCGCCCAGGCTGGGGTGCAGTGGCGCGATCCCAGCACTGCAGCCTCAACCTCCTGGGCTCAAGCCATCCTTCCGCCTCAGCTTCCCCAGCAGCTGGGACTACAGGCACGCGCCACCACAGCCGGCTAATTTTTTATTTAATTTTTTGTAGAGACGAGGTTTCGCCATGTTGCCCAGGCTGGTCTTGAACTCCGGGGCTCAAGCGATCCTCCCGCTTCAGCCTCCCTAAGTGCTGGGATTGCAGGCGTGAGCCACTTTCCCAGCCTCTCTTTGCTTTGCCTGCCCCGTTCTCTTAACTCTTGGACCCTCCTCGTCTGCATGGTAACTCCGTCTGAGTCTACCATTTTCTTGCTCTCCCTCCTTCCTTGGGCCTGCCTCAGTTCCCTTTGGCCTCCCCCTTTACCCAGCTCTTGGGGTGTCTCTGTTTTTTCCATCCCCACTTCCTGCCTTCTCGTGGCCCTGTGTGAGCACATGTGTACATCTCAGCCTTATCTCAAGGAGGTGACACCTTCTCTCCTTGTCCCCATCTGGCCGTCTCTCTGTGCTTCCCTGGCCAGGGGCGTGCCTGCTGGTCCTATGGGGGGAAGGCTACTCTGCATCTCAGCCACCTTCCTCAGGCTCACTCCACCTACATCCCCAGTCTGCCACACCCCATCCCTTTGGGCCTCAGCCCTGTCCCTTTGATGTCCTCCTTTCCTTCAGCCCCTCTGCCCTGTCCCTGCACACCTCCACTGCCTCCCAGCAGATCTGTGGAGACAAAACAAGCAACACCTTAAAAGAGTTTTATTTCTGAAAATAAATTAATTTTTTGTAAATAAAATGTTTAAAAATAAAAAAGAAACTAAAGTTA</sequence>
+      </cdna>
+      <coding_region>
+        <coordinates coord_system="LRG_408" start="5038" end="10933" strand="1" />
+        <translation name="p1">
+          <sequence>MSRREGSLEDPQTDSSVSLLPHLEAKIRQTHSLAHLLTKYAEQLLQEYVQLQGDPFGLPSFSPPRLPVAGLSAPAPSHAGLPVHERLRLDAAALAALPPLLDAVCRRQAELNPRAPRLLRRLEDAARQARALGAAVEALLAALGAANRGPRAEPPAATASAASATGVFPAKVLGLRVCGLYREWLSRTEGDLGQLLPGGSA</sequence>
+        </translation>
+      </coding_region>
+      <exon label="1">
+        <coordinates coord_system="LRG_408" start="5001" end="5062" strand="1" />
+        <coordinates coord_system="LRG_408t1" start="1" end="62" />
+        <coordinates coord_system="LRG_408p1" start="1" end="9" />
+      </exon>
+      <intron phase="1" />
+      <exon label="2">
+        <coordinates coord_system="LRG_408" start="7809" end="7927" strand="1" />
+        <coordinates coord_system="LRG_408t1" start="63" end="181" />
+        <coordinates coord_system="LRG_408p1" start="9" end="48" />
+      </exon>
+      <intron phase="0" />
+      <exon label="3">
+        <coordinates coord_system="LRG_408" start="10472" end="11954" strand="1" />
+        <coordinates coord_system="LRG_408t1" start="182" end="1664" />
+        <coordinates coord_system="LRG_408p1" start="49" end="201" />
+      </exon>
+    </transcript>
+  </fixed_annotation>
+  <updatable_annotation>
+    <annotation_set type="requester">
+      <source>
+        <name></name>
+        <contact>
+          <name>James Ware</name>
+          <address>Molecular Cardiology, Imperial College, London, UK</address>
+          <email>j.ware@imperial.ac.uk</email>
+        </contact>
+      </source>
+      <modification_date>2015-06-22</modification_date>
+    </annotation_set>
+    <annotation_set type="lrg">
+      <source>
+        <name>LRG</name>
+        <url>http://www.lrg-sequence.org/</url>
+        <contact>
+          <name>Locus Reference Genomic</name>
+          <url>http://www.lrg-sequence.org/contact</url>
+          <email>feedback@lrg-sequence.org</email>
+        </contact>
+      </source>
+      <modification_date>2015-06-22</modification_date>
+      <mapping coord_system="GRCh37.p13" other_name="16" other_id="NC_000016.9" other_id_syn="CM000678.1" other_start="30902928" other_end="30916881" type="other_assembly">
+        <mapping_span lrg_start="1" lrg_end="13954" other_start="30902928" other_end="30916881" strand="1">
+          <diff type="mismatch" lrg_start="11637" lrg_end="11637" other_start="30914564" other_end="30914564" lrg_sequence="C" other_sequence="T" />
+        </mapping_span>
+      </mapping>
+      <mapping coord_system="GRCh38.p2" other_name="16" other_id="NC_000016.10" other_id_syn="CM000678.2" other_start="30891607" other_end="30905560" type="main_assembly">
+        <mapping_span lrg_start="1" lrg_end="13954" other_start="30891607" other_end="30905560" strand="1">
+          <diff type="mismatch" lrg_start="11637" lrg_end="11637" other_start="30903243" other_end="30903243" lrg_sequence="C" other_sequence="T" />
+        </mapping_span>
+      </mapping>
+      <lrg_locus source="HGNC">CTF1</lrg_locus>
+    </annotation_set>
+    <annotation_set type="ncbi">
+      <source>
+        <name>NCBI RefSeqGene</name>
+        <url>http://www.ncbi.nlm.nih.gov/projects/RefSeq/RSG/</url>
+        <contact>
+          <name>RefSeqGene Group</name>
+          <address>NCBI/NLM/NIH</address>
+          <email>rsgene@ncbi.nlm.nih.gov</email>
+        </contact>
+      </source>
+      <comment>Annotation from NG_009171.1</comment>
+      <modification_date>2015-06-19</modification_date>
+      <mapping coord_system="NM_001142544.1" other_name="NM_001142544.1" other_id="NM_001142544.1" other_start="1" other_end="1661" type="transcript">
+        <mapping_span lrg_start="5001" lrg_end="5062" other_start="1" other_end="62" strand="1" />
+        <mapping_span lrg_start="7812" lrg_end="7927" other_start="63" other_end="178" strand="1" />
+        <mapping_span lrg_start="10472" lrg_end="11954" other_start="179" other_end="1661" strand="1" />
+      </mapping>
+      <mapping coord_system="NM_001330.3" other_name="NM_001330.3" other_id="NM_001330.3" other_start="1" other_end="1664" type="transcript">
+        <mapping_span lrg_start="5001" lrg_end="5062" other_start="1" other_end="62" strand="1" />
+        <mapping_span lrg_start="7809" lrg_end="7927" other_start="63" other_end="181" strand="1" />
+        <mapping_span lrg_start="10472" lrg_end="11954" other_start="182" other_end="1664" strand="1" />
+      </mapping>
+      <features>
+        <gene source="NCBI-Gene" accession="101928736">
+          <symbol source="HGNC" name="MIR762HG" />
+          <coordinates coord_system="LRG_408" start="1" end="3614" strand="1" />
+          <partial>5-prime</partial>
+          <long_name>MIR762 host gene</long_name>
+          <db_xref source="GeneID" accession="101928736" />
+          <db_xref source="HGNC" accession="HGNC:51386" />
+          <transcript source="RefSeq" accession="NR_110942.1">
+            <coordinates coord_system="LRG_408" start="2942" end="3614" strand="1" />
+            <partial>5-prime</partial>
+            <long_name>MIR762 host gene, transcript variant 3</long_name>
+            <db_xref source="GeneID" accession="101928736" />
+            <db_xref source="GI" accession="594191202" />
+            <exon source="RefSeq" accession="">
+              <coordinates coord_system="LRG_408" start="2942" end="3614" strand="1" />
+              <partial>5-prime</partial>
+            </exon>
+          </transcript>
+          <transcript source="RefSeq" accession="NR_110941.1">
+            <coordinates coord_system="LRG_408" start="2942" end="3614" strand="1" />
+            <partial>5-prime</partial>
+            <long_name>MIR762 host gene, transcript variant 2</long_name>
+            <db_xref source="GeneID" accession="101928736" />
+            <db_xref source="GI" accession="594191219" />
+            <exon source="RefSeq" accession="">
+              <coordinates coord_system="LRG_408" start="2942" end="3614" strand="1" />
+              <partial>5-prime</partial>
+            </exon>
+          </transcript>
+          <transcript source="RefSeq" accession="NR_110940.1">
+            <coordinates coord_system="LRG_408" start="2942" end="3614" strand="1" />
+            <partial>5-prime</partial>
+            <long_name>MIR762 host gene, transcript variant 1</long_name>
+            <db_xref source="GeneID" accession="101928736" />
+            <db_xref source="GI" accession="594191226" />
+            <exon source="RefSeq" accession="">
+              <coordinates coord_system="LRG_408" start="2942" end="3614" strand="1" />
+              <partial>5-prime</partial>
+            </exon>
+          </transcript>
+        </gene>
+        <gene source="NCBI-Gene" accession="9274">
+          <symbol source="HGNC" name="BCL7C" />
+          <coordinates coord_system="LRG_408" start="1" end="2696" strand="-1" />
+          <partial>3-prime</partial>
+          <long_name>B-cell CLL/lymphoma 7C</long_name>
+          <db_xref source="GeneID" accession="9274" />
+          <db_xref source="HGNC" accession="HGNC:1006" />
+          <db_xref source="MIM" accession="605847" />
+          <db_xref source="CCDS" accession="CCDS10693.1" />
+          <db_xref source="CCDS" accession="CCDS67012.1" />
+          <transcript source="RefSeq" accession="NM_004765.3">
+            <coordinates coord_system="LRG_408" start="980" end="2696" strand="-1" />
+            <partial>3-prime</partial>
+            <long_name>B-cell CLL/lymphoma 7C, transcript variant 2</long_name>
+            <db_xref source="GeneID" accession="9274" />
+            <db_xref source="GI" accession="557357766" />
+            <exon source="RefSeq" accession="">
+              <coordinates coord_system="LRG_408" start="2247" end="2696" strand="-1" />
+            </exon>
+            <exon source="RefSeq" accession="">
+              <coordinates coord_system="LRG_408" start="1606" end="1684" strand="-1" />
+            </exon>
+            <exon source="RefSeq" accession="">
+              <coordinates coord_system="LRG_408" start="1234" end="1342" strand="-1" />
+            </exon>
+            <exon source="RefSeq" accession="">
+              <coordinates coord_system="LRG_408" start="980" end="1141" strand="-1" />
+              <partial>3-prime</partial>
+            </exon>
+            <protein_product source="RefSeq" accession="NP_004756.2" codon_start="1">
+              <coordinates coord_system="LRG_408" start="980" end="2338" strand="-1" />
+              <partial>3-prime</partial>
+              <long_name>B-cell CLL/lymphoma 7 protein family member C isoform 2</long_name>
+              <long_name>B-cell CLL/lymphoma 7 protein family member C</long_name>
+              <db_xref source="CCDS" accession="CCDS10693.1" />
+              <db_xref source="GeneID" accession="9274" />
+              <db_xref source="GI" accession="20336477" />
+            </protein_product>
+          </transcript>
+          <transcript source="RefSeq" accession="NM_001286526.1">
+            <coordinates coord_system="LRG_408" start="980" end="2696" strand="-1" />
+            <partial>3-prime</partial>
+            <long_name>B-cell CLL/lymphoma 7C, transcript variant 1</long_name>
+            <db_xref source="GeneID" accession="9274" />
+            <db_xref source="GI" accession="557357767" />
+            <exon source="RefSeq" accession="">
+              <coordinates coord_system="LRG_408" start="2247" end="2696" strand="-1" />
+            </exon>
+            <exon source="RefSeq" accession="">
+              <coordinates coord_system="LRG_408" start="1606" end="1684" strand="-1" />
+            </exon>
+            <exon source="RefSeq" accession="">
+              <coordinates coord_system="LRG_408" start="1234" end="1342" strand="-1" />
+            </exon>
+            <exon source="RefSeq" accession="">
+              <coordinates coord_system="LRG_408" start="980" end="1141" strand="-1" />
+              <partial>3-prime</partial>
+            </exon>
+            <protein_product source="RefSeq" accession="NP_001273455.1" codon_start="1">
+              <coordinates coord_system="LRG_408" start="980" end="2338" strand="-1" />
+              <partial>3-prime</partial>
+              <long_name>B-cell CLL/lymphoma 7 protein family member C isoform 1</long_name>
+              <long_name>B-cell CLL/lymphoma 7 protein family member C</long_name>
+              <db_xref source="CCDS" accession="CCDS67012.1" />
+              <db_xref source="GeneID" accession="9274" />
+              <db_xref source="GI" accession="557357768" />
+            </protein_product>
+          </transcript>
+        </gene>
+        <gene source="NCBI-Gene" accession="1489">
+          <symbol source="HGNC" name="CTF1">
+            <synonym>CT-1</synonym>
+            <synonym>CT1</synonym>
+          </symbol>
+          <coordinates coord_system="LRG_408" start="5001" end="11954" strand="1" />
+          <long_name>cardiotrophin 1</long_name>
+          <db_xref source="GeneID" accession="1489" />
+          <db_xref source="HGNC" accession="HGNC:2499" />
+          <db_xref source="MIM" accession="600435" />
+          <db_xref source="CCDS" accession="CCDS45464.1" />
+          <db_xref source="CCDS" accession="CCDS10694.1" />
+          <db_xref source="GI" accession="218505748" />
+          <transcript source="RefSeq" accession="NM_001330.3" fixed_id="t1">
+            <coordinates coord_system="LRG_408" start="5001" end="11954" strand="1" />
+            <long_name>cardiotrophin 1, transcript variant 1</long_name>
+            <db_xref source="GeneID" accession="1489" />
+            <db_xref source="GI" accession="216548051" />
+            <exon source="RefSeq" accession="">
+              <coordinates coord_system="LRG_408" start="5001" end="5062" strand="1" />
+            </exon>
+            <exon source="RefSeq" accession="">
+              <coordinates coord_system="LRG_408" start="7809" end="7927" strand="1" />
+            </exon>
+            <exon source="RefSeq" accession="">
+              <coordinates coord_system="LRG_408" start="10472" end="11954" strand="1" />
+            </exon>
+            <protein_product source="RefSeq" accession="NP_001321.1" fixed_id="p1">
+              <coordinates coord_system="LRG_408" start="5038" end="10933" strand="1" />
+              <long_name>cardiotrophin-1 isoform 1</long_name>
+              <long_name>cardiotrophin-1</long_name>
+              <long_name>cardiophin 1</long_name>
+              <db_xref source="CCDS" accession="CCDS10694.1" />
+              <db_xref source="GeneID" accession="1489" />
+              <db_xref source="GI" accession="4503121" />
+            </protein_product>
+          </transcript>
+          <transcript source="RefSeq" accession="NM_001142544.1">
+            <coordinates coord_system="LRG_408" start="5001" end="11954" strand="1" />
+            <long_name>cardiotrophin 1, transcript variant 2</long_name>
+            <db_xref source="GeneID" accession="1489" />
+            <db_xref source="GI" accession="216548055" />
+            <exon source="RefSeq" accession="">
+              <coordinates coord_system="LRG_408" start="5001" end="5062" strand="1" />
+            </exon>
+            <exon source="RefSeq" accession="">
+              <coordinates coord_system="LRG_408" start="7812" end="7927" strand="1" />
+            </exon>
+            <exon source="RefSeq" accession="">
+              <coordinates coord_system="LRG_408" start="10472" end="11954" strand="1" />
+            </exon>
+            <protein_product source="RefSeq" accession="NP_001136016.1">
+              <coordinates coord_system="LRG_408" start="5038" end="10933" strand="1" />
+              <long_name>cardiotrophin-1 isoform 2</long_name>
+              <db_xref source="CCDS" accession="CCDS45464.1" />
+              <db_xref source="GeneID" accession="1489" />
+              <db_xref source="GI" accession="216548056" />
+            </protein_product>
+          </transcript>
+        </gene>
+      </features>
+    </annotation_set>
+    <annotation_set type="ensembl">
+      <source>
+        <name>Ensembl</name>
+        <url>http://www.ensembl.org/</url>
+        <contact>
+          <name>Ensembl</name>
+          <address>European Bioinformatics Institute</address>
+          <email>helpdesk@ensembl.org</email>
+        </contact>
+      </source>
+      <comment>Annotation is based on Ensembl release 80 (GRCh38  primary assembly)</comment>
+      <modification_date>2015-06-22</modification_date>
+      <mapping coord_system="ENST00000279804.2" other_name="ENST00000279804.2" other_id="ENST00000279804.2" other_start="1" other_end="1664" type="transcript">
+        <mapping_span lrg_start="5001" lrg_end="5062" other_start="1" other_end="62" strand="1" />
+        <mapping_span lrg_start="7809" lrg_end="7927" other_start="63" other_end="181" strand="1" />
+        <mapping_span lrg_start="10472" lrg_end="11954" other_start="182" other_end="1664" strand="1">
+          <diff type="mismatch" lrg_start="11637" lrg_end="11637" other_start="1347" other_end="1347" lrg_sequence="C" other_sequence="T" />
+        </mapping_span>
+      </mapping>
+      <mapping coord_system="ENST00000395019.3" other_name="ENST00000395019.3" other_id="ENST00000395019.3" other_start="1" other_end="1617" type="transcript">
+        <mapping_span lrg_start="5032" lrg_end="5062" other_start="1" other_end="31" strand="1" />
+        <mapping_span lrg_start="7812" lrg_end="7927" other_start="32" other_end="147" strand="1" />
+        <mapping_span lrg_start="10472" lrg_end="11941" other_start="148" other_end="1617" strand="1">
+          <diff type="mismatch" lrg_start="11637" lrg_end="11637" other_start="1313" other_end="1313" lrg_sequence="C" other_sequence="T" />
+        </mapping_span>
+      </mapping>
+      <features>
+        <gene source="Ensembl" accession="ENSG00000260083.1">
+          <symbol source="HGNC" name="MIR762HG" />
+          <coordinates coord_system="LRG_408" start="1" end="3614" strand="1" mapped_from="GRCh38" />
+          <partial>5-prime</partial>
+          <long_name>MIR762 host gene (antisense)</long_name>
+          <db_xref source="HGNC" accession="51386" />
+          <db_xref source="Ensembl" accession="ENSG00000260083" />
+          <transcript source="Ensembl" accession="ENST00000570025.1">
+            <coordinates coord_system="LRG_408" start="1" end="3473" strand="1" mapped_from="GRCh38" />
+            <partial>5-prime</partial>
+            <long_name>MIR762HG-002 (antisense)</long_name>
+            <exon source="Ensembl" accession="ENSE00002611588">
+              <coordinates coord_system="LRG_408" start="2942" end="3473" strand="1" mapped_from="GRCh38" />
+            </exon>
+          </transcript>
+          <transcript source="Ensembl" accession="ENST00000564901.1">
+            <coordinates coord_system="LRG_408" start="1" end="3474" strand="1" mapped_from="GRCh38" />
+            <partial>5-prime</partial>
+            <long_name>MIR762HG-003 (antisense)</long_name>
+            <exon source="Ensembl" accession="ENSE00002612001">
+              <coordinates coord_system="LRG_408" start="2942" end="3474" strand="1" mapped_from="GRCh38" />
+            </exon>
+          </transcript>
+          <transcript source="Ensembl" accession="ENST00000565573.1">
+            <coordinates coord_system="LRG_408" start="1" end="3614" strand="1" mapped_from="GRCh38" />
+            <partial>5-prime</partial>
+            <long_name>MIR762HG-001 (antisense)</long_name>
+            <exon source="Ensembl" accession="ENSE00002622757">
+              <coordinates coord_system="LRG_408" start="2942" end="3614" strand="1" mapped_from="GRCh38" />
+            </exon>
+          </transcript>
+        </gene>
+        <gene source="Ensembl" accession="ENSG00000262721.1">
+          <symbol source="Clone_based_vega_gene" name="AC106782.20" />
+          <coordinates coord_system="LRG_408" start="1" end="3610" strand="-1" mapped_from="GRCh38" />
+          <partial>3-prime</partial>
+          <long_name>AC106782.20 (sense_overlapping)</long_name>
+          <db_xref source="Ensembl" accession="ENSG00000262721" />
+          <transcript source="Ensembl" accession="ENST00000572471.1">
+            <coordinates coord_system="LRG_408" start="1" end="3610" strand="-1" mapped_from="GRCh38" />
+            <partial>3-prime</partial>
+            <long_name>AC106782.20-001 (sense_overlapping)</long_name>
+            <exon source="Ensembl" accession="ENSE00002678466">
+              <coordinates coord_system="LRG_408" start="3318" end="3610" strand="-1" mapped_from="GRCh38" />
+            </exon>
+          </transcript>
+        </gene>
+        <gene source="Ensembl" accession="ENSG00000099385.10">
+          <symbol source="HGNC" name="BCL7C" />
+          <coordinates coord_system="LRG_408" start="1" end="3354" strand="-1" mapped_from="GRCh38" />
+          <partial>3-prime</partial>
+          <long_name>B-cell CLL/lymphoma 7C (protein_coding)</long_name>
+          <db_xref source="GeneID" accession="9274" />
+          <db_xref source="MIM" accession="605847" />
+          <db_xref source="HGNC" accession="1006" />
+          <db_xref source="Ensembl" accession="ENSG00000099385" />
+          <transcript source="Ensembl" accession="ENST00000380317.7">
+            <coordinates coord_system="LRG_408" start="1" end="2696" strand="-1" mapped_from="GRCh38" />
+            <partial>3-prime</partial>
+            <long_name>BCL7C-002 (protein_coding)</long_name>
+            <db_xref source="CCDS" accession="CCDS67012.1" />
+            <db_xref source="RefSeq" accession="NM_001286526.1" />
+            <exon source="Ensembl" accession="ENSE00001953170">
+              <coordinates coord_system="LRG_408" start="2247" end="2696" strand="-1" mapped_from="GRCh38" />
+            </exon>
+            <exon source="Ensembl" accession="ENSE00000648532">
+              <coordinates coord_system="LRG_408" start="1606" end="1684" strand="-1" mapped_from="GRCh38" />
+            </exon>
+            <exon source="Ensembl" accession="ENSE00000648531">
+              <coordinates coord_system="LRG_408" start="1234" end="1342" strand="-1" mapped_from="GRCh38" />
+            </exon>
+            <exon source="Ensembl" accession="ENSE00000648530">
+              <coordinates coord_system="LRG_408" start="980" end="1141" strand="-1" mapped_from="GRCh38" />
+            </exon>
+            <protein_product source="Ensembl" accession="ENSP00000369674.4">
+              <coordinates coord_system="LRG_408" start="1" end="2338" strand="-1" mapped_from="GRCh38" />
+              <partial>3-prime</partial>
+              <long_name>B-cell CLL/lymphoma 7 protein family member C isoform 1</long_name>
+              <db_xref source="RefSeq" accession="NP_001273455.1" />
+              <db_xref source="UniProtKB" accession="Q8WUZ0">
+                <synonym>O43770</synonym>
+                <synonym>Q6PD89</synonym>
+              </db_xref>
+            </protein_product>
+          </transcript>
+          <transcript source="Ensembl" accession="ENST00000574418.4">
+            <coordinates coord_system="LRG_408" start="1" end="2594" strand="-1" mapped_from="GRCh38" />
+            <partial>3-prime</partial>
+            <long_name>BCL7C-005 (nonsense_mediated_decay)</long_name>
+            <exon source="Ensembl" accession="ENSE00001242476">
+              <coordinates coord_system="LRG_408" start="2247" end="2594" strand="-1" mapped_from="GRCh38" />
+            </exon>
+            <exon source="Ensembl" accession="ENSE00000648532">
+              <coordinates coord_system="LRG_408" start="1606" end="1684" strand="-1" mapped_from="GRCh38" />
+            </exon>
+            <exon source="Ensembl" accession="ENSE00002587255">
+              <coordinates coord_system="LRG_408" start="980" end="1108" strand="-1" mapped_from="GRCh38" />
+            </exon>
+            <protein_product source="Ensembl" accession="ENSP00000461177.1">
+              <coordinates coord_system="LRG_408" start="1" end="2338" strand="-1" mapped_from="GRCh38" />
+              <partial>3-prime</partial>
+            </protein_product>
+          </transcript>
+          <transcript source="Ensembl" accession="ENST00000572628.4">
+            <coordinates coord_system="LRG_408" start="1" end="2336" strand="-1" mapped_from="GRCh38" />
+            <partial>3-prime</partial>
+            <long_name>BCL7C-004 (protein_coding)</long_name>
+            <exon source="Ensembl" accession="ENSE00002666826">
+              <coordinates coord_system="LRG_408" start="2247" end="2336" strand="-1" mapped_from="GRCh38" />
+            </exon>
+            <exon source="Ensembl" accession="ENSE00000648532">
+              <coordinates coord_system="LRG_408" start="1606" end="1684" strand="-1" mapped_from="GRCh38" />
+            </exon>
+            <exon source="Ensembl" accession="ENSE00000648531">
+              <coordinates coord_system="LRG_408" start="1234" end="1342" strand="-1" mapped_from="GRCh38" />
+            </exon>
+            <exon source="Ensembl" accession="ENSE00000648530">
+              <coordinates coord_system="LRG_408" start="980" end="1141" strand="-1" mapped_from="GRCh38" />
+            </exon>
+            <protein_product source="Ensembl" accession="ENSP00000459007.1" codon_start="3">
+              <coordinates coord_system="LRG_408" start="1" end="2336" strand="-1" mapped_from="GRCh38" />
+              <partial>3-prime</partial>
+            </protein_product>
+          </transcript>
+          <transcript source="Ensembl" accession="ENST00000215115.4">
+            <coordinates coord_system="LRG_408" start="1" end="3354" strand="-1" mapped_from="GRCh38" />
+            <partial>3-prime</partial>
+            <long_name>BCL7C-001 (protein_coding)</long_name>
+            <db_xref source="CCDS" accession="CCDS10693.1" />
+            <db_xref source="RefSeq" accession="NM_004765.3" />
+            <exon source="Ensembl" accession="ENSE00002656701">
+              <coordinates coord_system="LRG_408" start="2247" end="3354" strand="-1" mapped_from="GRCh38" />
+            </exon>
+            <exon source="Ensembl" accession="ENSE00000648532">
+              <coordinates coord_system="LRG_408" start="1606" end="1684" strand="-1" mapped_from="GRCh38" />
+            </exon>
+            <exon source="Ensembl" accession="ENSE00000648531">
+              <coordinates coord_system="LRG_408" start="1234" end="1342" strand="-1" mapped_from="GRCh38" />
+            </exon>
+            <exon source="Ensembl" accession="ENSE00000648530">
+              <coordinates coord_system="LRG_408" start="980" end="1141" strand="-1" mapped_from="GRCh38" />
+            </exon>
+            <protein_product source="Ensembl" accession="ENSP00000215115.4">
+              <coordinates coord_system="LRG_408" start="1" end="2338" strand="-1" mapped_from="GRCh38" />
+              <partial>3-prime</partial>
+              <long_name>B-cell CLL/lymphoma 7 protein family member C isoform 2</long_name>
+              <db_xref source="RefSeq" accession="NP_004756.2" />
+              <db_xref source="UniProtKB" accession="Q8WUZ0">
+                <synonym>O43770</synonym>
+                <synonym>Q6PD89</synonym>
+              </db_xref>
+            </protein_product>
+          </transcript>
+        </gene>
+        <gene source="Ensembl" accession="ENSG00000211591.1">
+          <symbol source="HGNC" name="MIR762" />
+          <coordinates coord_system="LRG_408" start="2297" end="2379" strand="1" mapped_from="GRCh38" />
+          <long_name>microRNA 762 (miRNA)</long_name>
+          <db_xref source="GeneID" accession="100313837">
+            <synonym>hsa-mir-762</synonym>
+          </db_xref>
+          <db_xref source="miRBase" accession="MI0003892" />
+          <db_xref source="HGNC" accession="37303">
+            <synonym>hsa-mir-762</synonym>
+          </db_xref>
+          <db_xref source="Ensembl" accession="ENSG00000211591" />
+          <transcript source="Ensembl" accession="ENST00000390236.1">
+            <coordinates coord_system="LRG_408" start="2297" end="2379" strand="1" mapped_from="GRCh38" />
+            <long_name>MIR762-201 (miRNA)</long_name>
+            <db_xref source="RefSeq" accession="NR_031576.1" />
+            <exon source="Ensembl" accession="ENSE00001507663">
+              <coordinates coord_system="LRG_408" start="2297" end="2379" strand="1" mapped_from="GRCh38" />
+            </exon>
+          </transcript>
+        </gene>
+        <gene source="Ensembl" accession="ENSG00000150281.6">
+          <symbol source="HGNC" name="CTF1" />
+          <coordinates coord_system="LRG_408" start="5001" end="11954" strand="1" mapped_from="GRCh38" />
+          <long_name>cardiotrophin 1 (protein_coding)</long_name>
+          <db_xref source="GeneID" accession="1489">
+            <synonym>CT-1</synonym>
+            <synonym>CT1</synonym>
+          </db_xref>
+          <db_xref source="MIM" accession="600435" />
+          <db_xref source="HGNC" accession="2499">
+            <synonym>CT-1</synonym>
+            <synonym>CT1</synonym>
+          </db_xref>
+          <db_xref source="Ensembl" accession="ENSG00000150281" />
+          <transcript source="Ensembl" accession="ENST00000279804.2" fixed_id="t1">
+            <coordinates coord_system="LRG_408" start="5001" end="11954" strand="1" mapped_from="GRCh38" />
+            <long_name>CTF1-001 (protein_coding)</long_name>
+            <db_xref source="CCDS" accession="CCDS10694.1" />
+            <db_xref source="RefSeq" accession="NM_001330.3" />
+            <exon source="Ensembl" accession="ENSE00001148702">
+              <coordinates coord_system="LRG_408" start="5001" end="5062" strand="1" mapped_from="GRCh38" />
+            </exon>
+            <exon source="Ensembl" accession="ENSE00001174773">
+              <coordinates coord_system="LRG_408" start="7809" end="7927" strand="1" mapped_from="GRCh38" />
+            </exon>
+            <exon source="Ensembl" accession="ENSE00001907298">
+              <coordinates coord_system="LRG_408" start="10472" end="11954" strand="1" mapped_from="GRCh38" />
+            </exon>
+            <protein_product source="Ensembl" accession="ENSP00000279804.2">
+              <coordinates coord_system="LRG_408" start="5038" end="10933" strand="1" mapped_from="GRCh38" />
+              <long_name>cardiotrophin-1 isoform 1</long_name>
+              <db_xref source="RefSeq" accession="NP_001321.1" />
+              <db_xref source="UniProtKB" accession="Q16619">
+                <synonym>A8MVX4</synonym>
+                <synonym>Q5U5Y7</synonym>
+              </db_xref>
+            </protein_product>
+          </transcript>
+          <transcript source="Ensembl" accession="ENST00000395019.3">
+            <coordinates coord_system="LRG_408" start="5032" end="11941" strand="1" mapped_from="GRCh38" />
+            <long_name>CTF1-002 (protein_coding)</long_name>
+            <db_xref source="CCDS" accession="CCDS45464.1" />
+            <db_xref source="RefSeq" accession="NM_001142544.1" />
+            <exon source="Ensembl" accession="ENSE00002627286">
+              <coordinates coord_system="LRG_408" start="5032" end="5062" strand="1" mapped_from="GRCh38" />
+            </exon>
+            <exon source="Ensembl" accession="ENSE00001637138">
+              <coordinates coord_system="LRG_408" start="7812" end="7927" strand="1" mapped_from="GRCh38" />
+            </exon>
+            <exon source="Ensembl" accession="ENSE00001241259">
+              <coordinates coord_system="LRG_408" start="10472" end="11941" strand="1" mapped_from="GRCh38" />
+            </exon>
+            <protein_product source="Ensembl" accession="ENSP00000378465.3">
+              <coordinates coord_system="LRG_408" start="5038" end="10933" strand="1" mapped_from="GRCh38" />
+              <long_name>cardiotrophin-1 isoform 2</long_name>
+              <db_xref source="RefSeq" accession="NP_001136016.1" />
+              <db_xref source="UniProtKB" accession="Q16619">
+                <synonym>A8MVX4</synonym>
+                <synonym>Q5U5Y7</synonym>
+              </db_xref>
+            </protein_product>
+          </transcript>
+        </gene>
+        <gene source="Ensembl" accession="ENSG00000230447.2">
+          <symbol source="HGNC" name="CTF2P" />
+          <coordinates coord_system="LRG_408" start="12742" end="13954" strand="-1" mapped_from="GRCh38" />
+          <partial>5-prime</partial>
+          <long_name>cardiotrophin 2, pseudogene (unitary_pseudogene)</long_name>
+          <db_xref source="HGNC" accession="33173">
+            <synonym>NP</synonym>
+          </db_xref>
+          <db_xref source="Ensembl" accession="ENSG00000230447" />
+          <transcript source="Ensembl" accession="ENST00000412003.1">
+            <coordinates coord_system="LRG_408" start="12742" end="13954" strand="-1" mapped_from="GRCh38" />
+            <partial>5-prime</partial>
+            <long_name>CTF2P-001 (unitary_pseudogene)</long_name>
+            <exon source="Ensembl" accession="ENSE00001707315">
+              <coordinates coord_system="LRG_408" start="12742" end="13192" strand="-1" mapped_from="GRCh38" />
+            </exon>
+          </transcript>
+        </gene>
+      </features>
+    </annotation_set>
+    <annotation_set type="lsdb">
+      <source>
+        <name>List of locus specific databases for CTF1</name>
+        <url>http://grenada.lumc.nl/LSDB_list/lsdbs/CTF1</url>
+      </source>
+      <modification_date>2015-06-22</modification_date>
+    </annotation_set>
+  </updatable_annotation>
+</lrg>

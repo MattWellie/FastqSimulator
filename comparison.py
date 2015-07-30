@@ -18,6 +18,7 @@ class VCF_Comparison:
         self.titles = 'CHROM,POS,ID,REF,ALT,QUAL,FILTER,INFO,FORMAT,OTHER\n'
         self.matches = 0
         self.variants = 0
+        self.unmatched_predictions = 0
 
     def run(self):
         self.squish_vcf()
@@ -31,16 +32,19 @@ class VCF_Comparison:
         os.remove(self.tempvcf)
         print 'Remaining entries:'
         self.add_missing_variants()
+        perfect_genes = []
         for gene in self.missing:
             if self.missing[gene]:
                 print gene
                 for row in self.missing[gene]:
                     print row
             else:
-                print 'All variants in %s found' % gene
+                perfect_genes.append(gene)
         if self.matches != self.variants:
             print 'Total variants counted: %s' % self.variants
             print 'Total matches: %d' % self.matches
+            print 'Predicted and not found: %d' % self.unmatched_predictions
+            print 'Perfect genes: %s' % str(perfect_genes)
 
     def add_missing_variants(self):
         for gene in self.vcf:
@@ -53,9 +57,13 @@ class VCF_Comparison:
                     try:
                         self.missing[gene].append('In VCF, not found: %s: %s' % (gene, m.group('HGVS')))
                     except KeyError:
-                        self.missing[gene].append('In VCF, not found: %s: %s' % (gene.split(',')[0], m.group('HGVS')))
-                    except:
-                        self.missing[gene].append('In VCF, not found: %s: %s' % (gene.split(',')[1], m.group('HGVS')))
+                        try:
+                            self.missing[gene].append('In VCF, not found: %s: %s' % (gene.split(',')[0], m.group('HGVS')))
+                        except KeyError:
+                            try:
+                                self.missing[gene].append('In VCF, not found: %s: %s' % (gene.split(',')[1], m.group('HGVS')))
+                            except:
+                                print 'Theres an error with a gene ID'
 
     def squish_vcf(self):
         """
@@ -142,7 +150,7 @@ class VCF_Comparison:
                     print 'Index: %d' % row
                     print 'vcf length: %d' % len(gene_vcf)
                     this = raw_input()
-
+            self.unmatched_predictions += len(gene_vcf)
             self.vcf[gene] = gene_vcf
         except KeyError:
             print 'Gene %s not found as a key' % gene
