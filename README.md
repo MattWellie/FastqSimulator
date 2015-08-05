@@ -10,4 +10,10 @@ A program for taking reference sequences and creating fake fastq reads
   - substitute the base in the genomic sequence with the new one
   - Use a combination of the old base, the new base, the coordinate position relative to the start of the coding sequence and the length of the protein sequence to  predict HGVS nomenclature of the variant annotation 
 - Once the sequence has been modified, the exon sequence (along with a region of padding either side to allow for decent read coverage) is extracted, along with details about the exon and the variant. These are put in a new dictionary and returned.
-- [CARRY ON]
+
+
+
+# Known issues
+
+- Annovar requires a separate database for Ensembl gene IDs. Use of this database (ensGene) is not currently in the code
+- for non-coding exons, the variants may be mismatched by 1 base. This may be due to differences between LRG and GB coordinates, or may be a different issue. Hard coding a change to the offset will fix some and break others... investigate more.
