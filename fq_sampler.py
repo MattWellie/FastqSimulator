@@ -1,15 +1,19 @@
-import os
-import random
+"""
+    This class will simulate paired end reads across an input sequence.
+    This uses a simulated fragment size of 140 and 5-base intervals.
+    Alternate sequences are sampled as reverse strand
+
+    This class is highly dependent on dictionary in the format
+    output by the bundled GBK and LRG parsers
+"""
+
 __author__ = 'mwelland'
+
+import os
 
 
 class Sampler:
-    """
-        This class will simulate paired end reads across an input sequence. This uses a simulated fragment size of 140
-        and 5-base intervals. A reverse complement is used to sample an every alternate sequence as reverse strand
 
-        This class is highly dependent on dictionary in the format output by the bundled GBK and LRG parsers
-    """
 
     def __init__(self, plain, modified, x, y, tile):
         """
@@ -31,11 +35,12 @@ class Sampler:
         self.alternate = 5  # read intervals
         self.reverse = 10  # should be double self.alternate
         self.read_length = 70  # Change for read sizes
-        self.qual_string = ''.join(['I']*self.read_length)  # Temporary quality string
+        self.qual_string = ''.join(['I']*self.read_length)
         self.out_fileR1 = ''
         self.out_fileR2 = ''
         self.R1_list = []
         self.R2_list = []
+
 
     def run(self):
         """
@@ -52,33 +57,38 @@ class Sampler:
             self.R1_list = []
             self.R2_list = []
             self.run_plain(transcript)
-            r1_filename = os.path.join('fastQs', self.gene_name + '0%sR1.fq' % transcript)
-            r2_filename = os.path.join('fastQs', self.gene_name + '0%sR2.fq' % transcript)
+            r1_filename = os.path.join('fastQs',
+                                       self.gene_name + '0%sR1.fq' % transcript)
+            r2_filename = os.path.join('fastQs',
+                                       self.gene_name + '0%sR2.fq' % transcript)
             self.write_out(r1_filename, r2_filename)
             self.R1_list = []
             self.R2_list = []
             self.run_mod(transcript)
-            r1_filename = os.path.join('fastQs', self.gene_name + '%sR1.fq' % transcript)
-            r2_filename = os.path.join('fastQs', self.gene_name + '%sR2.fq' % transcript)
+            r1_filename = os.path.join('fastQs',
+                                       self.gene_name + '%sR1.fq' % transcript)
+            r2_filename = os.path.join('fastQs',
+                                       self.gene_name + '%sR2.fq' % transcript)
             self.write_out(r1_filename, r2_filename)
         return self.x, self.y, self.tile
+
 
     def run_plain(self, transcript):
         """
         Processes the dictionary containing an unaltered reference sequence
-        Alternative transcripts may still occur, so each transcript is written separately
+        Alternative transcripts may still occur, so each is written separately
         Dictionary format:
         Transcripts > Transcript > List of exons
                                    Exons         > exon numbers > genomic_start
                                                                   genomic end
-                                                                  padded sequence
+                                                                  padded seq
                                                                   length
         """
 
-        # Find the list of exon numbers using the selected transcript (method arg)
+        # Find the list of exon numbers using the selected transcript
         exon_list = self.plain_dict['transcripts'][transcript]['list_of_exons']
 
-        # Use only the dictionary section which applies for selected transcript (method arg)
+        # Use only the dictionary section which applies for selected transcript
         plain_dict = self.plain_dict['transcripts'][transcript]['exons']
 
         # For each exon
@@ -89,12 +99,13 @@ class Sampler:
 
             # Start from start of sequence
             offset = 0
-            while offset <= length - (self.interval+1):  # To prevent index errors, flanking seq still leaves plenty of coverage
+            while offset <= length - (self.interval+1):
 
-                # Using offset to move through the sequence, select a section of length *interval* (see __init__)
+                # Using offset to move through the sequence, select a substring
+                # of length 140
                 sub_list = exon_seq[offset:offset + self.interval]
 
-                # For every alternate sequence, work on the reverse complement instead
+                # Half the reads should be simulated from the reverse strand
                 if self.interval % self.reverse == 0:
                     sub_list = self.reverse_complement(sub_list)
 
@@ -103,9 +114,10 @@ class Sampler:
                 # Update offset
                 offset += self.alternate
 
+
     def run_mod(self, transcript):
         """
-        Processes the altered form of the dictionary, which includes a slightly different structure
+        Processes the altered dictionary, which has a different structure
         """
 
         # Use only the relevant transcript portion of the dictionary
@@ -123,7 +135,7 @@ class Sampler:
             sequence = exon_dict['padded seq']
             length = exon_dict['padded length']
             offset = 0
-            while offset < length - (self.interval+1):  # Stopping point to prevent index errors
+            while offset < length - (self.interval+1):
                 sub_list = sequence[offset:offset + self.interval]
                 # Reverse every other 'fragment'
                 if self.interval % self.reverse == 0:
@@ -140,14 +152,16 @@ class Sampler:
     def extract_to_list(self, sequence):
         """
         :param sequence: The 'fragment'
-        For each 'fragment' this should take reads from either end and send to an output list
-        Use a perfect Q40 quality String (reads do not need to simulate true qualities for this project)
+        For each 'fragment' this should take reads from either end
+        and send to an output list. This uses a perfect Q40 quality String as
+        reads do not need to simulate realistic qualities for this project
         """
 
         read1 = ''.join(sequence[:self.read_length])
 
         # Produce a reverse complement of the end of the fragment
-        read2 = ''.join(self.reverse_complement(sequence[self.interval-self.read_length:]))
+        read2 = ''.join(self.reverse_complement(sequence[self.interval -
+                                                         self.read_length:]))
 
         read_id = self.generate_seq_id()
         self.R1_list.append(read_id % 1)
@@ -172,7 +186,8 @@ class Sampler:
 
     def generate_seq_id(self):
         """
-        :return: Creates a valid format Illumina FastQ header; generated number pairs are used for coordinates
+        :return: Creates a valid format Illumina FastQ header; generated
+        number pairs are used for coordinates
         """
         instrument = 'MATTW_ART1'
         run_number = 00001
@@ -192,7 +207,14 @@ class Sampler:
             self.x = 1
             self.y = 1
 
-        return '@%s:%d:%s:%d:%d:%d:%d %s' % (instrument, run_number, flow_id, lane, tile, x_pos, y_pos, end)
+        return '@%s:%d:%s:%d:%d:%d:%d %s' % (instrument,
+                                             run_number,
+                                             flow_id,
+                                             lane,
+                                             tile,
+                                             x_pos,
+                                             y_pos, end)
+
 
     @staticmethod
     def reverse_complement(sequence):

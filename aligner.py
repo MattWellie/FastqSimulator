@@ -1,17 +1,20 @@
-import os
-from subprocess import Popen
-from subprocess import PIPE
-from subprocess import call
+"""
+This class will transcribe the contents of every individual file's contents into
+a pair of files which will represent reads 1 and 2 across all input reference
+transcripts. The output can be aligned in a single process to speed up the
+creation of mapped output.
+"""
+
 __author__ = 'mwelland'
+
+import os
+from subprocess import call
 
 
 class Aligner:
-    """ This class will transcribe the contents of every individual file's contents into a pair of files which
-        will represent reads 1 and 2 across all input reference transcripts. The output can be aligned in a single
-        process to speed up the creation of mapped output.
-    """
-    def __init__(self, sam_directory, out_name, reference):
 
+
+    def __init__(self, sam_directory, out_name, reference):
         self.file_list = os.listdir('fastQs')
         self.read1_list = []
         self.read2_list = []
@@ -21,6 +24,7 @@ class Aligner:
         self.out_name = out_name
         self.reference = reference
 
+
     def run(self):
         
         self.separate_files()
@@ -28,9 +32,11 @@ class Aligner:
         output_name = self.run_alignment()
         return output_name
 
+
     def add_file_contents_to_single_file(self):
-        """ Takes each file from each read numbered list and adds all the contents
-            to a single file. Delete the file after it has been written.
+        """
+        Takes each file from each read numbered list and adds all the contents
+        to a single file. Delete the file after it has been written.
         """
         print 'Combining file contents'
         with open(self.read1name, 'w') as outfile:
@@ -47,12 +53,13 @@ class Aligner:
                         outfile.write(line)
                 os.remove(os.path.join('fastQs', fname))
 
-        #  Each file should now be written into either R1 or R2
-        #  This method may conflict with the reference-transcript pairings
+        # Each file should now be written into either R1 or R2
+        # This method may conflict with the reference-transcript pairings
 
     def separate_files(self):
-        """ Read through the list of filenames and allocate each file to the
-            appropriate list (read 1 or 2)
+        """
+        Read through the list of filenames and allocate each file to the
+        appropriate list (read 1 or 2)
         """
         print 'Sorting fastQs'
         for filename in self.file_list:
@@ -75,7 +82,10 @@ class Aligner:
         sorted_file = os.path.join(self.sam_directory, 'sorted'+self.out_name)
 
         with open(sam_name, 'w') as out_file:
-            call(['bwa', 'mem', '-t', '4', self.reference, self.read1name, self.read2name], stdout=out_file)
+            call([
+                'bwa', 'mem', '-t', '4', self.reference,
+                self.read1name, self.read2name
+            ], stdout=out_file)
         with open(bam_name, 'w') as bam_out:
             call(['samtools', 'view', '-b', sam_name], stdout=bam_out)
         call(['samtools', 'sort', bam_name, sorted_file])
@@ -83,6 +93,7 @@ class Aligner:
         return os.path.join(self.sam_directory, sorted_file+'.bam')
 
     def clear_out_sams(self):
-        file_list = [name for name in os.listdir(self.sam_directory) if name[:6] != 'sorted']
+        file_list = [x for x in os.listdir(self.sam_directory)
+                     if x[:6] != 'sorted']
         for x in file_list:
             os.remove(os.path.join(self.sam_directory, x))
