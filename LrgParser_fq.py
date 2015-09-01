@@ -11,7 +11,7 @@ class LrgParser:
     Class version: 0.9
     Modified Date: 21/07/2015
     Author : Matt Welland
-    Minimal version of previously developed class
+    Minimal version of previously developed class, similar to GbkParser
     Only requires exon numbers and coordinates, and full sequence
     Parses the input file to find all the useful values
     This will populate a dictionary to be returned at completion

@@ -5,15 +5,19 @@ __author__ = 'mwelland'
 
 class Sampler:
     """
-        This class will simulate paired end reads across an input sequence. This uses a simulated fragment size of 220
-        and 1-base intervals. A reverse complement will also be used to sample an every alternate sequence as a reverse
-        strand with a 1-base offset.
+        This class will simulate paired end reads across an input sequence. This uses a simulated fragment size of 140
+        and 5-base intervals. A reverse complement is used to sample an every alternate sequence as reverse strand
+
+        This class is highly dependent on dictionary in the format output by the bundled GBK and LRG parsers
     """
 
     def __init__(self, plain, modified, x, y, tile):
         """
         :param plain: The unaltered dictionary
         :param modified: The dictionary containing modified sequence
+        :param x: The current x-coordinate for the read ID generator
+        :param y: The current y-coordinate for the read ID generator
+        :param tile: The current tile for the read ID generator
         """
         self.tile = tile
         self.x = x
@@ -36,9 +40,9 @@ class Sampler:
     def run(self):
         """
         Main control method.
-        First the plain dictionary is processed, the the modified:
+        First the plain dictionary is processed, then the modified:
           -  For each transcript in the file
-          -  Create a new pair of lists of reads 1 & 2
+          -  Create a new pair of lists for reads 1 & 2
           -  Run the sampler which will generate reads and populate the lists
           -  Create filenames to write the output to
           -  Send the output to be written
@@ -71,30 +75,32 @@ class Sampler:
                                                                   length
         """
 
-        #  Find the list of exon numbers using the selected transcript (method arg)
+        # Find the list of exon numbers using the selected transcript (method arg)
         exon_list = self.plain_dict['transcripts'][transcript]['list_of_exons']
-        #  Use only the dictionary section which applies for selected transcript (method arg)
+
+        # Use only the dictionary section which applies for selected transcript (method arg)
         plain_dict = self.plain_dict['transcripts'][transcript]['exons']
-        #  For each exon
+
+        # For each exon
         for exon in exon_list:
-            #  Grab the exon region with padding added in list form
+            # Grab the exon region with padding added in list form
             exon_seq = plain_dict[exon]['padded seq']
             length = plain_dict[exon]['padded length']
-            #print 'Exon %d length: %d' % (exon, length)
-            #  Start from start of sequence
+
+            # Start from start of sequence
             offset = 0
             while offset <= length - (self.interval+1):  # To prevent index errors, flanking seq still leaves plenty of coverage
 
-                #  Using offset to move through the sequence, select a section of length *interval* (see __init__)
+                # Using offset to move through the sequence, select a section of length *interval* (see __init__)
                 sub_list = exon_seq[offset:offset + self.interval]
 
-                #  For every alternate sequence, work on the reverse complement instead
+                # For every alternate sequence, work on the reverse complement instead
                 if self.interval % self.reverse == 0:
                     sub_list = self.reverse_complement(sub_list)
 
-                #  Use extract method to populate list
+                # Use extract method to populate list
                 self.extract_to_list(sub_list)
-                #  Update offset
+                # Update offset
                 offset += self.alternate
 
     def run_mod(self, transcript):
@@ -102,31 +108,34 @@ class Sampler:
         Processes the altered form of the dictionary, which includes a slightly different structure
         """
 
-        #  Use only the relevant transcript portion of the dictionary
+        # Use only the relevant transcript portion of the dictionary
         tran_dict = self.mod_dict[transcript]
+
+        # Select the part which contains the exon numbers and coordinates
         exon_list = tran_dict['exon list']
-        #  Select the part which contains the exon numbers and coordinates
+
         for exon in exon_list:
             exon_dict = tran_dict['exons'][exon]
-            #  A variable to count reads created per exon
+
+            # A variable to count reads created per exon
             count = 0
+
             sequence = exon_dict['padded seq']
             length = exon_dict['padded length']
-            #print 'Exon %d length: %d' % (exon, length)
             offset = 0
             while offset < length - (self.interval+1):  # Stopping point to prevent index errors
                 sub_list = sequence[offset:offset + self.interval]
-                #  Reverse every other 'fragment'
+                # Reverse every other 'fragment'
                 if self.interval % self.reverse == 0:
                     sub_list = self.reverse_complement(sub_list)
 
-                #  Send for extraction to list
+                # Send for extraction to list
                 self.extract_to_list(sub_list)
-                #  Increase the count of read pairs for this exon
+                # Increase the count of read pairs for this exon
                 count += 1
-                #  Update the offset value
+                # Update the offset value
                 offset += self.alternate
-            #print 'Read pairs for exon %d = %d' % (exon, count)
+
 
     def extract_to_list(self, sequence):
         """
@@ -136,8 +145,10 @@ class Sampler:
         """
 
         read1 = ''.join(sequence[:self.read_length])
-        #  Produce a reverse complement of the end of the fragment
+
+        # Produce a reverse complement of the end of the fragment
         read2 = ''.join(self.reverse_complement(sequence[self.interval-self.read_length:]))
+
         read_id = self.generate_seq_id()
         self.R1_list.append(read_id % 1)
         self.R1_list.append(read1)
@@ -148,8 +159,9 @@ class Sampler:
         self.R2_list.append('+')
         self.R2_list.append(self.qual_string)
 
+
     def write_out(self, r1_filename, r2_filename):
-        #  Open files and write contents of the Read files out
+        # Open files and write contents of the Read files out
         with open(r1_filename, 'w') as outfile:
             for line in self.R1_list:
                 print >> outfile, line
@@ -157,10 +169,10 @@ class Sampler:
             for line in self.R2_list:
                 print >> outfile, line
 
+
     def generate_seq_id(self):
         """
-        :return: Creates a valid format Illumina FastQ header
-        generated number pairs are used for coordinates
+        :return: Creates a valid format Illumina FastQ header; generated number pairs are used for coordinates
         """
         instrument = 'MATTW_ART1'
         run_number = 00001
