@@ -1,7 +1,6 @@
 """
-This class will transcribe the contents of every individual file's contents into
-a pair of files which will represent reads 1 and 2 across all input reference
-transcripts. The output can be aligned in a single process to speed up the
+This class will transcribe the contents of every individual file's contents into a pair of files which will represent
+reads 1 and 2 across all input reference transcripts. The output can be aligned in a single process to speed up the
 creation of mapped output.
 """
 
@@ -13,7 +12,6 @@ from subprocess import call
 
 class Aligner:
 
-
     def __init__(self, sam_directory, out_name, reference):
         self.file_list = os.listdir('fastQs')
         self.read1_list = []
@@ -24,19 +22,16 @@ class Aligner:
         self.out_name = out_name
         self.reference = reference
 
-
     def run(self):
-        
         self.separate_files()
         self.add_file_contents_to_single_file()
         output_name = self.run_alignment()
         return output_name
 
-
     def add_file_contents_to_single_file(self):
         """
-        Takes each file from each read numbered list and adds all the contents
-        to a single file. Delete the file after it has been written.
+        Takes each file from each read numbered list and adds all the contents to a single file
+        Delete the file after it has been written
         """
         print 'Combining file contents'
         with open(self.read1name, 'w') as outfile:
@@ -82,10 +77,7 @@ class Aligner:
         sorted_file = os.path.join(self.sam_directory, 'sorted'+self.out_name)
 
         with open(sam_name, 'w') as out_file:
-            call([
-                'bwa', 'mem', '-t', '4', self.reference,
-                self.read1name, self.read2name
-            ], stdout=out_file)
+            call(['bwa', 'mem', '-t', '4', self.reference, self.read1name, self.read2name], stdout=out_file)
         with open(bam_name, 'w') as bam_out:
             call(['samtools', 'view', '-b', sam_name], stdout=bam_out)
         call(['samtools', 'sort', bam_name, sorted_file])

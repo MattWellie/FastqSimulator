@@ -1,15 +1,16 @@
-import random
+"""
+This class creates single nucleotide changes in each exon of the input sequence. The exons are located using the exon
+coordinates from the input file. Random is used to choose a random location within the exon and a new base. The base
+substitution is made and the position is recorded in a dictionary object
+"""
+
 __author__ = 'mwelland'
 
 
-class Modifier:
+import random
 
-    """
-    This class creates single nucleotide changes in each exon of the input
-    sequence. The exons are located using the exon coordinates from the input
-    file. Random is used to choose a random location within the exon and a new
-    base. The base substitution is made and the position is recorded in a dict
-    """
+
+class Modifier:
 
     def __init__(self, file_dict, type):
         self.type = type
@@ -29,7 +30,8 @@ class Modifier:
         for transcript in self.dict['transcripts']:
             self.transcript_pos = 0
             self.transcript_dict = self.dict['transcripts'][transcript]
-            self.output_dict[transcript] = {'variants': {}, 'exons': {}}
+            self.output_dict[transcript] = {'variants': {},
+                                            'exons': {}}
             exon_list = self.transcript_dict['list_of_exons']
             self.output_dict[transcript]['exon list'] = exon_list
             for exon in exon_list:
@@ -44,10 +46,7 @@ class Modifier:
             for exon in exon_list:
                 start = self.transcript_dict['exons'][exon]['genomic_start']
                 end = self.transcript_dict['exons'][exon]['genomic_end']
-                exon_seq = self.genomic[
-                           start - self.padding:
-                           end + self.padding
-                           ]
+                exon_seq = self.genomic[start - self.padding:end + self.padding]
                 self.output_dict[transcript]['exons'][exon] = {
                     'start': start,
                     'end': end,

@@ -1,20 +1,20 @@
-import os
+"""
+A class which will be used to take the outputs of several fastQ files with different contents and condense them into a
+format ready for alignment
+"""
 
 __author__ = 'mwelland'
 
 
-class Condenser:
+import os
 
-    """
-    A class which will be used to take the outputs of several fastQ files
-    with different contents and condense them into a format ready for alignment
-    """
+
+class Condenser:
 
     def __init__(self, gene_list):
         self.gene_list = gene_list
         self.file_list = os.listdir('fastQs')
         self.gene_dictionary = {}
-
 
     def run(self):
         """
@@ -30,21 +30,20 @@ class Condenser:
             self.combine_files(r2_pairs)
         self.erase_old_files()
 
-
     def populate_dict(self, gene, name_length):
         """
-        The dictionary will contain the names of all files relating to the
-        selected gene. This method uses the gene name and the transcript numbers
-        to identify the unchanged sequence and the accompanying changed
-        transcripts. This is done to allow each separate transcript to be paired
-        with the unchanged sequence, so as to represent a homozygous variant as
-        well as improving the read depth for each area.
+        The dictionary will contain the names of all files relating to the selected gene. This method uses the gene name
+        and the transcript numbers to identify the unchanged sequence and the accompanying changed transcripts. This is
+        done to allow each separate transcript to be paired with the unchanged sequence, so as to represent a homozygous
+         variant as well as improving the read depth for each area.
         :param gene:
         :param name_length:
         :return:
         """
-        self.gene_dictionary = {1: {'ref': '', 'transcripts': []},
-                                2: {'ref': '', 'transcripts': []}}
+        self.gene_dictionary = {1: {'ref': '',
+                                    'transcripts': []},
+                                2: {'ref': '',
+                                    'transcripts': []}}
         read1s = []
         read2s = []
         fq_list = [x for x in self.file_list if x[:name_length] == gene]
@@ -71,7 +70,6 @@ class Condenser:
             else:
                 self.gene_dictionary[2]['transcripts'].append(filename)
 
-
     def create_file_pairings(self, gene, name_length, read):
         """
         :param gene: gene name
@@ -91,7 +89,6 @@ class Condenser:
                                                      filename, read)])
         return file_pairs
 
-
     @staticmethod
     def create_file_name(gene, name_length, filename, read):
         """
@@ -101,7 +98,6 @@ class Condenser:
         transcript = filename[name_length:name_length+1]
         filename = '%s_transcript%s_R%d.fq' % (gene, transcript, read)
         return filename
-
 
     @staticmethod
     def combine_files(read_pairs):
@@ -129,7 +125,6 @@ class Condenser:
                                              alt_file
                                              ), 'r').readlines()
                 output_file.writelines(contents)
-
 
     def erase_old_files(self):
         """

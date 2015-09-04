@@ -150,33 +150,21 @@ class VCF_Comparison:
                         if hgvs[2] == '-' or hgvs[2] == '*':
                             variant = '%s:%s:%s' % (gene, transcript, hgvs)
                             for row in rows:
-                                match = re.search('(%s:)?%s:%s'
-                                                  % (gene,
-                                                     transcript,
-                                                     hgvs
-                                                     ), gene_vcf[row])
+                                match = re.search('(%s:)?%s:%s' % (gene, transcript, hgvs), gene_vcf[row])
                                 if match:
                                     rows_to_delete.append(row)
                                     found = True
                                     self.matches += 1
                         else:
-                            variant = '%s:%s:exon%d:%s' % (gene,
-                                                           transcript,
-                                                           exon,
-                                                           hgvs)
+                            variant = '%s:%s:exon%d:%s' % (gene, transcript, exon, hgvs)
                             for row in rows:
-                                match = re.search('(%s:)?%s:.*?:%s'
-                                                  % (gene,
-                                                     transcript,
-                                                     hgvs
-                                                     ), gene_vcf[row])
+                                match = re.search('(%s:)?%s:.*?:%s' % (gene, transcript, hgvs), gene_vcf[row])
                                 if match:
                                     rows_to_delete.append(row)
                                     found = True
                                     self.matches += 1
                         if not found:
-                            self.missing[gene].append('Predicted, not found'
-                                                      ' in VCF: %s' % variant)
+                            self.missing[gene].append('Predicted, not found in VCF: %s' % variant)
 
             # Delete any rows which have been matched against
             # This is done in reverse, high indexes first

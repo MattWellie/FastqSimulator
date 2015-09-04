@@ -4,8 +4,7 @@ Modified Date: 21/07/2015
 Author : Matt Welland
 Minimal version of previously developed class, similar to GbkParser
 Only requires exon numbers and coordinates, and full sequence
-Parses the input file to find all the useful values
-This will populate a dictionary to be returned at completion
+Parses the input file to find all the useful values; adds them to a dictionary returned at completion
 
 Dict { filename
        genename
@@ -24,7 +23,6 @@ from xml.etree.ElementTree import parse
 
 class LrgParser:
 
-
     def __init__(self, file_name):
         self.fileName = file_name
         self.padding = 0
@@ -33,18 +31,12 @@ class LrgParser:
         try:
             self.tree = parse(self.fileName)
             self.t_dict = {'transcripts': {},
-                                   'root': self.tree.getroot(),
-                                   'filename': file_name}
-            self.t_dict['fixannot'] = \
-                self.t_dict['root'].find('fixed_annotation')
-            self.t_dict['updatable'] = \
-                self.t_dict['root'].find('updatable_annotation')
-            self.t_dict['genename'] = \
-                self.t_dict['root'].find(
-                'updatable_annotation/annotation_set/lrg_locus').text
-            self.t_dict['refseqname'] = \
-                self.t_dict['root'].find(
-                'fixed_annotation/sequence_source').text
+                           'root': self.tree.getroot(),
+                           'filename': file_name}
+            self.t_dict['fixannot'] = self.t_dict['root'].find('fixed_annotation')
+            self.t_dict['updatable'] = self.t_dict['root'].find('updatable_annotation')
+            self.t_dict['genename'] = self.t_dict['root'].find('updatable_annotation/annotation_set/lrg_locus').text
+            self.t_dict['refseqname'] = self.t_dict['root'].find('fixed_annotation/sequence_source').text
             if self.t_dict['root'].attrib['schema_version'] != '1.9':
                 print 'This LRG file is not the correct version for this script'
                 print 'This is designed for v.1.8'
@@ -52,8 +44,7 @@ class LrgParser:
                       self.t_dict['root'].attrib['schema_version']
             self.is_matt_awesome = True
         except IOError as fileNotPresent:
-            print "The specified file cannot be located: " + \
-                  fileNotPresent.filename
+            print "The specified file cannot be located: " + fileNotPresent.filename
             exit()
 
     @property
@@ -77,10 +68,10 @@ class LrgParser:
             exit()
 
     def get_exon_coords(self):
-        """ Traverses the LRG ETree to find all the useful values
-            This should allow more robust use of the stored values, and enhances
-            transparency of the methods put in place. Absolute references should
-            also make the program more easily extensible
+        """
+        Traverses the LRG ETree to find all the useful values. This should allow more robust use of the stored
+        values, and enhances transparency of the methods put in place. Absolute references should also make the program
+        more easily extensible
         """
 
         for items in self.t_dict['fixannot'].findall('transcript'):
@@ -107,21 +98,13 @@ class LrgParser:
                         genomic_start = int(coordinates.attrib['start'])
                         genomic_end = int(coordinates.attrib['end'])
                 assert genomic_start >= 0, "Exon index out of bounds"
-                self.t_dict['transcripts'][t]["exons"][e_num]['genomic_start']=\
-                    genomic_start
-                self.t_dict['transcripts'][t]["exons"][e_num]['genomic_end'] =\
-                    genomic_end
+                self.t_dict['transcripts'][t]["exons"][e_num]['genomic_start'] = genomic_start
+                self.t_dict['transcripts'][t]["exons"][e_num]['genomic_end'] = genomic_end
                 self.t_dict['offset'] = self.padding
-                exon_seq = list(self.sequence[
-                                genomic_start - self.padding:
-                                genomic_end + self.padding
-                                ])
-                self.t_dict['transcripts'][t]["exons"][e_num]['padded seq'] = \
-                    exon_seq
-                self.t_dict['transcripts'][t]["exons"][e_num]['length'] = \
-                    genomic_end-genomic_start
-                self.t_dict['transcripts'][t]["exons"][e_num]['padded length']=\
-                    len(exon_seq)
+                exon_seq = list(self.sequence[genomic_start - self.padding:genomic_end + self.padding])
+                self.t_dict['transcripts'][t]["exons"][e_num]['padded seq'] = exon_seq
+                self.t_dict['transcripts'][t]["exons"][e_num]['length'] = genomic_end-genomic_start
+                self.t_dict['transcripts'][t]["exons"][e_num]['padded length'] = len(exon_seq)
 
     def find_cds_delay(self, t):
         """ Method to find the actual start of the translated sequence
@@ -135,8 +118,7 @@ class LrgParser:
                 self.t_dict['transcripts'][t]['exons'][e]['cds'] = 'before'
                 offset_total = offset_total + (g_stop - g_start) + 1
             elif g_stop >= offset >= g_start:
-                self.t_dict['transcripts'][t]['cds_offset'] = offset_total + \
-                                                              (offset - g_start)
+                self.t_dict['transcripts'][t]['cds_offset'] = offset_total + (offset - g_start)
                 self.t_dict['transcripts'][t]['exons'][e]['cds'] = 'after'
             elif offset < g_start:
                 self.t_dict['transcripts'][t]['exons'][e]['cds'] = 'after'
@@ -154,24 +136,21 @@ class LrgParser:
                         try:
                             t_no = t_block.attrib['fixed_id'][1:]
                             # print transcript_block.attrib['accession']
-                            self.t_dict['transcripts'][int(t_no)]['NM_number']=\
-                                t_block.attrib['accession']
+                            self.t_dict['transcripts'][int(t_no)]['NM_number'] = t_block.attrib['accession']
                         except KeyError:
                             pass
                             # print 'found redundant transcript'
 
     def get_protein_exons(self):
-        """ Collects full protein sequence for the appropriate transcript """
+        # Collects full protein sequence for the appropriate transcript
         for item in self.t_dict['fixannot'].findall('transcript'):
             p_number = int(item.attrib['name'][1:])
             coding_region = item.find('coding_region')
             coordinates = coding_region.find('coordinates')
-            self.t_dict['transcripts'][p_number]['old_cds_offset'] = \
-                int(coordinates.attrib['start'])
+            self.t_dict['transcripts'][p_number]['old_cds_offset'] = int(coordinates.attrib['start'])
             translation = coding_region.find('translation')
             sequence = translation.find('sequence').text
-            self.t_dict['transcripts'][p_number]['protein_length'] = \
-                len(sequence)*3
+            self.t_dict['transcripts'][p_number]['protein_length'] = len(sequence)*3
 
     def run(self, padding):
         self.padding = padding
