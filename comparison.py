@@ -1,35 +1,19 @@
-"""
-This class is designed to take a run number as an argument, along with a pointer
-to the folder containing output VCF files from the variant calling process, and
-analyse the number of expected variants which were or were not found, along with
-reporting on variants which were found but not expected.
-
-This report will come to contain a bare number of expected vs. identified
-variants, as well as specifically identifying those found/missing
-"""
-
-__author__ = 'mwelland'
-
 import cPickle
 import os
 import re
+__author__ = 'mwelland'
 
 
 class VCF_Comparison:
 
     def __init__(self, run_number, pickle_dir, vcf_dir):
-        self.vcf_file = os.path.join(vcf_dir,
-                                     u'{0:d}_anno.vcf.hg19_multianno.vcf'
-                                     .format(run_number))
+        self.vcf_file = os.path.join(vcf_dir, '%d_anno.vcf.hg19_multianno.vcf' % run_number)
         self.pickle_dir = pickle_dir
         self.pickles = os.listdir(os.path.join(self.pickle_dir))
         self.vcf = {}
         self.missing = {}
-        self.tempvcf = os.path.join(vcf_dir,
-                                    'tempout.vcf')
-        with open(os.path.join(self.pickle_dir,
-                               'genelist.cPickle'
-                               ), 'rU') as handle:
+        self.tempvcf = os.path.join(vcf_dir, 'tempout.vcf')
+        with open(os.path.join(self.pickle_dir, 'genelist.cPickle'), 'rU') as handle:
             self.geneset = cPickle.load(handle)
         self.titles = 'CHROM,POS,ID,REF,ALT,QUAL,FILTER,INFO,FORMAT,OTHER\n'
         self.matches = 0
@@ -71,29 +55,21 @@ class VCF_Comparison:
                 m = re.search('GeneDetail.refGene=(?P<HGVS>NM.*?);', row)
                 if m:
                     try:
-                        self.missing[gene].append('In VCF, not found: %s: %s'
-                                                  % (gene, m.group('HGVS')))
+                        self.missing[gene].append('In VCF, not found: %s: %s' % (gene, m.group('HGVS')))
                     except KeyError:
                         try:
-                            self.missing[gene].append('In VCF, not found:'
-                                                      ' %s: %s'
-                                                      % (gene.split(',')[0],
-                                                         m.group('HGVS')))
+                            self.missing[gene].append('In VCF, not found: %s: %s' % (gene.split(',')[0], m.group('HGVS')))
                         except KeyError:
                             try:
-                                self.missing[gene].append('In VCF, not found:'
-                                                          ' %s: %s'
-                                                          % (gene.split(',')[1],
-                                                             m.group('HGVS')))
+                                self.missing[gene].append('In VCF, not found: %s: %s' % (gene.split(',')[1], m.group('HGVS')))
                             except:
                                 print 'Theres an error with a gene ID'
 
     def squish_vcf(self):
         """
-        This mini method just writes out only the non-header information from
-        the original vcf into a new file. The file is written to a new output
-        to make sure that it can be read again if required. The output is
-        written in CSV format so that the csv.DictWriter method can be used
+        This mini method just writes out only the non-header information from the original vcf into a new file
+        The file is written to a new output to make sure that it can be read again if required
+        The output is written in CSV format so that the csv.DictWriter method can be used
         """
         with open(self.vcf_file, 'rU') as input_vcf:
             with open(self.tempvcf, 'wb') as output_vcf:
@@ -105,20 +81,17 @@ class VCF_Comparison:
 
     def open_vcf(self):
         """
-        Add all contents from the VCF into a dictionary object which can be
-        sorted through by gene. Use regex to capture the gene name, create a
-        dictionary index which is the gene name (if not already an index)
+        Add all contents from the VCF into a dictionary object which can be sorted through by gene
+        Use regex to capture the gene name, create a dictionary index which is the gene name (if not already an index)
         Add the row to a list in the dictionary
-        Might be best to treat the whole 'INFO' block as a single string, as
-        different variants are annotated in different columns, depending on
-        whether they are 5'UTR, 3'UTR or exonic...
+        Might be best to treat the whole 'INFO' block as a single string, as different variants are annotated in
+        different columns, depending on whether they are 5'UTR, 3'UTR or exonic...
         Ready to begin matching against pickled contents
         """
         with open(self.tempvcf) as csvfile:
             for row in csvfile:
                 search_string = row.split('\t')[7]
-                match = re.search(';Gene\.refGene=(?P<gene_name>,?.*?);',
-                                  search_string)
+                match = re.search(';Gene\.refGene=(?P<gene_name>,?.*?);', search_string)
                 if match:
                     gene = match.group('gene_name')
                     if gene in self.vcf:
@@ -135,9 +108,7 @@ class VCF_Comparison:
             gene_vcf = self.vcf[gene]
             rows = range(len(gene_vcf))
             for gene_file in gene_pickles:
-                with open(os.path.join(self.pickle_dir,
-                                       gene_file
-                                       ), 'rU') as handle:
+                with open(os.path.join(self.pickle_dir, gene_file), 'rU') as handle:
                     pickledict = cPickle.load(handle)
                 for transcript in pickledict:
                     vars = pickledict[transcript]['variants']
@@ -156,28 +127,26 @@ class VCF_Comparison:
                                     found = True
                                     self.matches += 1
                         else:
-                            variant = '%s:%s:exon%d:%s' % (gene, transcript, exon, hgvs)
+                            variant = '%s:%s:exon%s:%s' % (gene, transcript, exon, hgvs)
                             for row in rows:
+                                # match = re.search('(%s:)?%s:exon.{1,3}?:%s' % (gene, transcript, hgvs), row)
                                 match = re.search('(%s:)?%s:.*?:%s' % (gene, transcript, hgvs), gene_vcf[row])
+                                # match = re.search('(%s:)?%s:exon%d?:%s' % (gene, transcript, exon, hgvs), row)
                                 if match:
                                     rows_to_delete.append(row)
                                     found = True
                                     self.matches += 1
                         if not found:
                             self.missing[gene].append('Predicted, not found in VCF: %s' % variant)
-
             # Delete any rows which have been matched against
             # This is done in reverse, high indexes first
-            # From low to high  would mean the list shrinks and high indexes
-            # are invalid
-            for row in sorted(rows_to_delete,
-                              reverse=True):
+            # From low to high means the list shrinks and high indexes are invalid
+            # print 'Delete list: %s' % sorted(rows_to_delete, reverse=True)
+            for row in sorted(rows_to_delete, reverse=True):
                 try:
                     del gene_vcf[row]
                 except IndexError:
-                    print 'problem with this list: %s' \
-                          % str(sorted(rows_to_delete,
-                                       reverse=True))
+                    print 'problem with this list: %s' % str(sorted(rows_to_delete, reverse=True))
                     print 'Index: %d' % row
                     print 'vcf length: %d' % len(gene_vcf)
                     this = raw_input()
