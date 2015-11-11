@@ -8,9 +8,10 @@ from fq_sampler import Sampler
 from read_condenser import Condenser
 from aligner import Aligner
 from subprocess import call
-from comparison import VCF_Comparison
+from excel_out_comparison import VCFComparison
 
 geneset = set()
+main_variant_dict = {}
 sam_directory = os.path.join(os.getcwd(), 'SAMs')
 run_number = random.randint(1, 1000)
 print 'This is Run number %d' % run_number
@@ -94,10 +95,6 @@ for filename in input_files:
         #  This has been written to introduce one variant into each exon
         modifier = Modifier(dictionary, file_type)
         new_dict = modifier.run_modifier()
-        #  Dump a copy of the changed dictionary using cPickle (troubleshooting)
-        with open(os.path.join('pickles', '%s.cPickle' % dictionary['genename']), 'wb') as handle:
-            cPickle.dump(new_dict, handle)
-        print 'dict modified'
 
         #  Keep a record of the genes which have been processed
         #  This is used later on when combining files
@@ -107,6 +104,15 @@ for filename in input_files:
         #  Create a sampler instance to extract simulated reads
         sampler = Sampler(dictionary, new_dict, x_coord, y_coord, tile)
         x_coord, y_coord, tile = sampler.run()
+
+        main_variant_dict[dictionary['genename']] = {}
+        for trans in new_dict:
+            exon_range = new_dict[trans]['variants'].keys()
+            # Extract the 'version free' transcript accession
+            transcript = new_dict[trans]['variants'][exon_range[0]]['transcript'].split('.')[0]
+            main_variant_dict[dictionary['genename']][transcript] = new_dict[trans]['variants']
+        print 'dict modified'
+
     except TypeError:
         fail_list.append(filename)
         print 'problem with file %s' % filename
@@ -114,9 +120,26 @@ for filename in input_files:
         fail_list.append(filename)
         print 'problem with file %s' % filename
 
-#  Dump a copy of the gene list
-with open(os.path.join('pickles', 'genelist.cPickle'), 'wb') as handle:
-    cPickle.dump(geneset, handle)
+# Make sure everything in the gene list is accounted for in the variant dict
+for gene in geneset:
+    if gene not in main_variant_dict.keys():
+        print 'Gene missing from variant dict: {}'.format(gene)
+# Dump a copy of the main variant dictionary
+variant_dict_pickle = os.path.join('pickles', '{}_variants.cPickle'.format(run_number))
+with open(variant_dict_pickle, 'wb') as handle:
+    cPickle.dump(main_variant_dict, handle)
+
+# Count total number of inserted variants:
+gene_count = 0
+trans_count = 0
+var_count = 0
+for gene in main_variant_dict:
+    gene_count += 1
+    for transcript in main_variant_dict[gene]:
+        trans_count += 1
+        for exon in main_variant_dict[gene][transcript]:
+            var_count += 1
+print 'Genes: {0}\nTranscripts: {1}\nVariants: {2}'.format(gene_count, trans_count, var_count)
 
 #  Create a condenser instance, and mix each variant transcript with the reference version
 #  This is saved as a new .fq file
@@ -154,7 +177,7 @@ call(filled_anno.split(' '))
 os.remove(os.path.join('VCFs', 'temp.bcf'))
 
 # And compare the VCF to the predicted:
-vcf_comparison = VCF_Comparison(run_number, 'pickles', 'VCFs')
+vcf_comparison = VCF_Comparison(run_number, variant_dict_pickle, 'VCFs')
 vcf_comparison.run()
 
 print 'Run %s completed' % run_number
