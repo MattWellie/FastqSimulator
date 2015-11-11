@@ -1,11 +1,9 @@
-"""
-Quick and dirty class for running the comparison part of the suite. This only needs the run number to be supplied as an
-argument to get the process working
-"""
+from excel_out_comparison import VCFComparison
+import os
 
 __author__ = 'mwelland'
+run_number = 248
+pickle_dict = os.path.join('pickles', '{}_variants.cPickle'.format(run_number))
 
-from comparison import VCF_Comparison
-
-vcomp = VCF_Comparison(707, 'pickles', 'VCFs')
+vcomp = VCFComparison(run_number, pickle_dict, 'VCFs')
 vcomp.run()
