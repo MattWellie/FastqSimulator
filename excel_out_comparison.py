@@ -24,7 +24,9 @@ class VCFComparison:
         self.excel_dir = 'Excels'
         self.mystery_genes = set()
         self.transcripts = 0
-        self.perfect_genes = 0
+        self.perfect_genes = {'total': 0,
+                              'list': set()}
+        self.total_observed = 0
 
     def run(self):
         self.squish_vcf()
@@ -43,7 +45,8 @@ class VCFComparison:
             for section in self.results[gene]['not_found']:
                 perfect += len(self.results[gene]['not_found'][section])
             if perfect == 0:
-                self.perfect_genes += 1
+                self.perfect_genes['total'] += 1
+                self.perfect_genes['list'].add(gene)
         self.write_excel()
         if self.matches != self.variants:
             print 'Total variants counted: {}'.format(self.variants)
@@ -77,26 +80,37 @@ class VCFComparison:
         worksheet.write(row, 0, 'Transcripts featured:', format_bold)
         worksheet.write(row, 1, '{}'.format(self.transcripts), format_bold)
         row += 1
-        worksheet.write(row, 0, 'Perfect genes:', format_bold)
-        worksheet.write(row, 1, '{}'.format(self.perfect_genes), format_bold)
-        row += 1
-        worksheet.write(row, 0, 'Total Variants:', format_bold)
+        worksheet.write(row, 0, 'Variants Expected:', format_bold)
         worksheet.write(row, 1, '{}'.format(self.variants), format_bold)
+        row += 1
+        worksheet.write(row, 0, 'Variants in VCF:', format_bold)
+        worksheet.write(row, 1, '{}'.format(self.total_observed), format_bold)
         row += 1
         worksheet.write(row, 0, 'Variants Matched:', format_bold)
         worksheet.write(row, 1, '{}'.format(self.matches), format_bold)
         row += 1
-        worksheet.write(row, 0, 'Variants not Matched:', format_bold)
-        worksheet.write(row, 1, '{}'.format(self.unmatched_predictions), format_bold)
+        worksheet.write(row, 0, 'Dodgy Gene names :', format_bold)
+        worksheet.write(row, 1, '{}'.format(', '.join(self.mystery_genes)), format_bold)
+        row += 1
+        worksheet.write(row, 0, 'Perfect genes ({}):'.format(self.perfect_genes['total']), format_bold)
+        if self.perfect_genes['total'] != 0:
+            col = 1
+            for gene in self.perfect_genes['list']:
+                worksheet.write(row, col, gene, format_bold)
+                if col == 1:
+                    col += 1
+                else:
+                    row += 1
+                    col = 1
         row += 2
         worksheet.write(row, 0, 'Mismatches by Gene:', format_missing_excel)
         row += 1
         worksheet.write(row, 0, 'Gene', format_bold)
-        worksheet.write(row, 1, 'FastQ Prediction', format_bold)
-        worksheet.write(row, 2, 'VCF Prediction', format_bold)
+        worksheet.write(row, 1, 'FastQ Predictions', format_bold)
+        worksheet.write(row, 2, 'VCF Results', format_bold)
         highest_row = row + 1
         for gene in self.results:
-            worksheet.write(highest_row, 0, gene, format_bold); row += 1
+            worksheet.write(highest_row, 0, """=HYPERLINK("#{0}!A1", "{0}")""".format(gene), format_hyperlink)
             fq_row = highest_row
             vcf_row = highest_row
             if self.results[gene]['not_found']['in_fq']:
@@ -123,6 +137,7 @@ class VCFComparison:
             total = mismatches + matches
 
             worksheet = workbook.add_worksheet(gene)
+            worksheet.write(0, 1, """=HYPERLINK("#Summary!A1", "Link To Summary")""", format_hyperlink)
             row = 0
             col = 0
             worksheet.write(row, col, gene, format_bold); row =+ 2
@@ -163,7 +178,7 @@ class VCFComparison:
             else:
                 worksheet.write(row, col, 'No Unmatched Variants:', format_missing_db)
             worksheet.set_column(0, 0, 15)
-            worksheet.set_column(1, 1, 40)
+            worksheet.set_column(1, 1, 50)
 
         workbook.close()
 
@@ -239,6 +254,7 @@ class VCFComparison:
         """
         with open(self.tempvcf) as csvfile:
             for row in csvfile:
+                self.total_observed += 1
                 search_string = row.split('\t')[7]
                 match = re.search(';Gene\.refGene=(?P<gene_name>,?.*?);', search_string)
                 if match:
