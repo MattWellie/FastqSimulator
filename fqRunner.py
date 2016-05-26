@@ -1,3 +1,28 @@
+"""
+The script used to run the FastQ simulation process. 
+
+The program is designed to take input files in either GenBank or LRG formats. 
+For each new run on the program, a number is randomly picked to be integrated into all file names for identification purposes.
+From these input files, the process will use the transcript /exon details to isolate exonic regions of each transcript (+/- padding intron)
+Using Sub-String methods, the program will 'walk' across the sequence segments in regions of a pre-defined length (hard-coded)
+In each section (exon) a single base substitution will be made, with the intention of identifying which exons are 'seen' by the annotation software
+For each inserted variant I do some magic to create the appropriate HGVS annotation, which is stored in a dictionary object
+For each fragment, this will then simulate paired-end reads, writing the reads (complete with headers and quality strings) to R1 and R2 files
+
+The program will then control the alignment, compression, indexing and variant calling of the files, with the files stored in appropriately names directories in the project root.
+This currently uses hard coded references to the tools required (annovar, bwa..) during these steps
+Annotation is minimal, only required to identify gene symbol and HGVS, no population data
+
+Then the real magic happens
+
+During the 'read' creation process variants were created and the HGVS annotations they were equivalent to were generated
+The main process here is to compare the results from the VCF file with the 'expected' results 
+On a per-gene basis (and per-transcript where appropriate), the VCF file and the expected results dictionary are parsed together
+For every instance of matching HGVS being found, the VCF row is deleted and a match is recorded. 
+At the end of parsing all the predictions, any remaining results in both the dict and VCF are classified as unmatched
+An Excel report is written, with a summary page showing all mismatches, and an additional page to provide detail about each individual gene.
+"""
+
 import os
 import cPickle
 import random
