@@ -4,12 +4,31 @@ __author__ = 'mwelland'
 
 
 class Condenser:
+    """ 
+    A class called from fqRunner.py, used to combine several FastQ files into a single file pair
 
-    """ A class which will be used to take the outputs of several fastQ files with different contents and condense
-        them into a format ready for alignment
+    For each gene and transcript, the modified contents are combined with the unmodified contents
+    For single transcripts this will mean each variant appears as a perfect heterozygote
+    For multiple transcripts the variant will be progressively diluted
+        - Transcript 1: modified dictionary has 100% of variant locations as the changed bases
+                        default dictionary has 100% unmodified bases
+                        combined this gives 50% modified at variant positions
+                        This is written to the output file
+        - Transcript 2: Same again, with a default copy combined with a 100% variant copy   
+                        This will be added to the final output file along with transcript 1
+                        assuming the variants are not made at the same positions, this will give
+                        75% normal bases, 25% variant at each location
+        So far this has not been a problem, as the read depth is more than enough to pick these up
+        Transcripts will not always overlap as well, so the dilution of every site is a worst-case
+
+    It may be counter-productive to have mentioned this, but its too late now
     """
 
     def __init__(self, gene_list, run_number):
+        """
+        :param gene_list: A set object containing all genes processed
+        :param run_number: The numerical identifier of the run
+        """
         self.gene_list = gene_list
         self.run_number = run_number
         self.file_list = os.listdir('fastQs')
@@ -17,11 +36,13 @@ class Condenser:
 
     def run(self):
         """
-        Control method for condenser
-        :return:
+        Control method for condenser, this is called from fqRunner
         """
         for gene in self.gene_list:
+            # The length of the name is used in substring selection to find appropriate files
             name_length = len(gene)
+            # identify all files in the fastQ folder relevant to the gene
+            # This includes R1 & 2s, as well as separating the modified and unmodified
             self.populate_dict(gene, name_length)
             r1_pairs = self.create_file_pairings(gene, name_length, 1)
             r2_pairs = self.create_file_pairings(gene, name_length, 2)
